@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{zebari2020comprehensive}
+Rizgar~R. Zebari, Adnan~M. Abdulazeez, Diyar~Q. Zeebaree, Dilovan~A. Zebari, and Jwan~N. Saeed.
+\newblock A comprehensive review of dimensionality reduction techniques for feature selection and feature extraction.
+\newblock {\em Journal of Applied Science and Technology Trends}, 1(1):56--70, 2020.
+
+\bibitem{jia2022feature}
+Weikuan Jia, Meili Sun, Jian Lian, and Sujuan Hou.
+\newblock Feature dimensionality reduction: A review.
+\newblock {\em Complex \& Intelligent Systems}, 8:2663--2693, 2022.
+
+\bibitem{bellman1957dynamic}
+Richard~Ernest Bellman.
+\newblock {\em Dynamic Programming}.
+\newblock Princeton University Press, Princeton, NJ, 1957.
+
+\bibitem{peng2023interpreting}
+Dehua Peng, Zhipeng Gui, and Huayi Wu.
+\newblock Interpreting the curse of dimensionality from distance concentration and manifold effect.
+\newblock {\em arXiv preprint arXiv:2401.00422}, 2023.
+
+\bibitem{ANOWAR2021}
+Farzana Anowar, Samira Sadaoui, and Bassant Selim.
+\newblock Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne).
+\newblock {\em Computer Science Review}, 40:100378, 2021.
+
+\bibitem{sorzano2014survey}
+Carlos Oscar~S. Sorzano, Juan Vargas, and Alberto~P. Montano.
+\newblock A survey of dimensionality reduction techniques.
+\newblock {\em arXiv preprint arXiv:1403.2877}, 2014.
+
+\bibitem{SalihHasanAbdulazeez2021}
+Basna~Mohammed Salih~Hasan and Adnan~Mohsin Abdulazeez.
+\newblock A review of principal component analysis algorithm for dimensionality reduction.
+\newblock {\em Journal of Soft Computing and Data Mining}, 2(1):20--30, Apr. 2021.
+
+\bibitem{jolliffe2016pca}
+I.~T. Jolliffe.
+\newblock Principal component analysis: a review and recent developments.
+\newblock {\em Philosophical Transactions of the Royal Society A}, 374(2065), 2016.
+
+\bibitem{boileau2020scPCA}
+Philippe Boileau, Nima~S Hejazi, and Sandrine Dudoit.
+\newblock Exploring high-dimensional biological data with sparse contrastive principal component analysis.
+\newblock {\em Bioinformatics}, 36(11):3422--3430, 2020.
+
+\bibitem{scholkopf1998nonlinear}
+Bernhard Scholkopf, Alexander~J. Smola, and Klaus-Robert Muller.
+\newblock Nonlinear component analysis as a kernel eigenvalue problem.
+\newblock {\em Neural Computation}, 10(5):1299--1319, 1998.
+
+\bibitem{vandermaaten2008tsne}
+Laurens~J.P. van~der Maaten and Geoffrey~E. Hinton.
+\newblock Visualizing data using t-sne.
+\newblock {\em Journal of Machine Learning Research}, 9:2579--2605, 2008.
+
+\bibitem{kobak2019art}
+Dmitry Kobak and Philipp Berens.
+\newblock The art of using t-sne for single-cell transcriptomics.
+\newblock {\em Nature Communications}, 10(1):5416, 2019.
+
+\bibitem{wattenberg2016how}
+Martin Wattenberg, Fernanda Viégas, and Ian Johnson.
+\newblock How to use t-sne effectively.
+\newblock Distill, 2016.
+\newblock Online article.
+
+\bibitem{vandermaaten2013barnes}
+Laurens van~der Maaten.
+\newblock Barnes-hut t-sne.
+\newblock {\em arXiv preprint}, 2013.
+
+\bibitem{Borg2005MDS}
+Ingwer Borg and Patrick J.~F. Groenen.
+\newblock {\em Modern Multidimensional Scaling: Theory and Applications}.
+\newblock Springer, New York, NY, 2nd edition, 2005.
+
+\bibitem{KruskalWish1978}
+Joseph~B. Kruskal and Myron Wish.
+\newblock {\em Multidimensional Scaling}.
+\newblock Quantitative Applications in the Social Sciences. SAGE Publications, 1978.
+
+\bibitem{Venna2010}
+Jarkko Venna, Jaakko Peltonen, Kristian Nybo, Helena Aidos, and Samuel Kaski.
+\newblock Information retrieval perspective to nonlinear dimensionality reduction for data visualization.
+\newblock {\em Journal of Machine Learning Research}, 11(3):451--490, 2010.
+
+\bibitem{McInnes2018UMAP}
+Leland McInnes, John Healy, and James Melville.
+\newblock Umap: Uniform manifold approximation and projection for dimension reduction.
+\newblock {\em arXiv preprint arXiv:1802.03426}, 2018.
+
+\bibitem{Ghojogh2021UMAPSurvey}
+Benyamin Ghojogh, Ali Ghodsi, Fakhri Karray, and Mark Crowley.
+\newblock Uniform manifold approximation and projection (umap) and its variants: Tutorial and survey.
+\newblock {\em arXiv preprint arXiv:2109.02508}, 2021.
+
+\bibitem{Tenenbaum2000Isomap}
+Joshua~B. Tenenbaum, Vin de~Silva, and John~C. Langford.
+\newblock A global geometric framework for nonlinear dimensionality reduction.
+\newblock {\em Science}, 290(5500):2319--2323, 2000.
+
+\bibitem{Hinton2006Autoencoders}
+Geoffrey~E. Hinton and Ruslan~R. Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em Science}, 313(5786):504--507, 2006.
+
+\bibitem{Espadoto}
+Mateus Espadoto, Rafael~M. Martins, Andreas Kerren, Nina S.~T. Hirata, and Alexandru~C. Telea.
+\newblock Towards a quantitative survey of dimension reduction techniques.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 27(3):2153--2173, 2019.
+
+\bibitem{Munzner2014}
+Tamara Munzner.
+\newblock {\em Visualization Analysis and Design}.
+\newblock A K Peters Visualization Series. Taylor \& Francis Ltd., Boca Raton, Florida, December 2014.
+
+\end{thebibliography}

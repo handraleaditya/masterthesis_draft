@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: unsrt.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "Gall2025a"
+Warning--I didn't find a database entry for "Gall2025"
+Warning--I didn't find a database entry for "Becker2009"
+You've used 23 entries,
+            1791 wiz_defined-function locations,
+            604 strings with 7644 characters,
+and the built_in function-call counts, 4849 in all, are:
+= -- 432
+> -- 231
+< -- 0
++ -- 86
+- -- 63
+* -- 338
+:= -- 810
+add.period$ -- 72
+call.type$ -- 23
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 201
+empty$ -- 469
+format.name$ -- 63
+if$ -- 1052
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 26
+newline$ -- 119
+num.names$ -- 23
+pop$ -- 54
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 70
+stack$ -- 0
+substring$ -- 304
+swap$ -- 23
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 45
+width$ -- 25
+write$ -- 253
+(There were 3 warnings)

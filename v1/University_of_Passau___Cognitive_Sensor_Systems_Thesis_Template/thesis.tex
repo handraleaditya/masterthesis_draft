@@ -1,0 +1,497 @@
+% Thesis Template for MSc, BSc Theses at University of Passau for the Professorship for Cognitive Sensor Systems 
+%   Written by by Alexander Gall <alexander.gall@uni-passau.de>, October 2025
+%   https://www.fim.uni-passau.de/kognitive-sensorsysteme
+
+% Acknowledgements:
+%   Adapted from ITW Thesis Template - Chair Prof. Krämer
+
+
+\documentclass{thesisclass}
+
+% NOTE: Use your preferred language.
+ \usepackage[english]{babel}%<--- TODO: If you want to write your thesis in English don't uncomment this command by putting a % sign before the command.
+% \usepackage[ngerman]{babel}%<--- TODO: If you want to write your thesis in German, uncomment this command by removing the % sign before the command.
+
+
+\usepackage{graphicx} 											
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\graphicspath{{./figures/}} %TODO: Save your figures in the figures folder, if you want to include graphics in your thesis. This template will reference to that folder.									
+%\usepackage[natbibapa]{apacite}
+\usepackage{cite} 
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage[]{todonotes}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+\counterwithout{equation}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+\usepackage{mathptmx}
+\setkomafont{disposition}{\bfseries}
+\usepackage{pifont}
+\usepackage{adjustbox}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{float}
+ 
+
+% TODO: Uncomment just one of the following commands, according to your thesis type. Seminar Thesis is set by default.
+
+%\newcommand{\mytype}{\iflanguage{english}{Bachelor's Thesis}{Bachelorarbeit}} 
+\newcommand{\mytype}{\iflanguage{english}{Master's Thesis}{Masterarbeit}} 
+%\newcommand{\mytype}{\iflanguage{english}{Seminar Thesis}{Seminararbeit}} 
+
+% TODO: Enter personal information and information about your thesis.
+\newcommand{\myname}{\iflanguage{english}{Aditya Handrale} {Vorname Nachname}}
+\newcommand{\matricle}{108489}
+\newcommand{\mytitle}{\iflanguage{english}{DatasetWiz: A Visual Analytics Framework for the Comparative Analysis of Dimensionality Reduction and Clustering Quality} {Titel der Arbeit}}
+\newcommand{\mycurriculum}{\iflanguage{english}{curriculum} {Studiengang}}
+\newcommand{\myinstitute}{\iflanguage{english}
+{Chair of Cognitive Sensor Systems}
+{Professur für Kognitive Sensorsysteme}}
+
+% TODO:change the names of your reviewer and advisor to your actual needs.
+\newcommand{\reviewerone}{Prof. Dr. Christoph Heinzl \orcid{0000-0002-3173-8871}}
+\newcommand{\reviewertwo}{Prof. \orcid{0000-0002-3173-8871}}
+\newcommand{\advisor}{Anja Heim\orcid{0000-0002-3670-5403}}
+
+
+\newcommand{\timeend}{\iflanguage{english}{Passau, DD.MM.20YY}{Passau, DD. Monat.20YY}} % TODO: Insert submission date.
+\newcommand{\submissiontime}{DD.MM.20YY} % TODO: Insert submission date which will be displayed in your Declaration.
+
+\hypersetup{
+ pdfauthor={\myname},
+ pdftitle={\mytitle},
+ pdfsubject={\mytype},
+ pdfkeywords={\mytype}
+}
+
+
+\begin{document}
+
+%Do not change anything until the next TODO appears, unless the title is so logn that the title page spreads over two pages. In this case, reduce the vertical spaces highlighted by the blue comments below 
+
+\pagenumbering{arabic}
+\newcommand{\diameter}{20}
+\newcommand{\xone}{-15}
+\newcommand{\xtwo}{160}
+\newcommand{\yone}{15}
+\newcommand{\ytwo}{-253}
+
+\begin{titlepage}
+	
+	\begin{center}
+    \center
+		\iflanguage{english}
+		{\includegraphics[width=.5\textwidth]{logos/uni_1200dpi_fb_gross_EN.png}}
+		{\includegraphics[width=.5\textwidth]{logos/uni_1200dpi_fb_gross.png}}		
+	\end{center}
+	\begin{textblock}{10}[0,0](10,2.5)
+	\end{textblock}
+	\changefont{ppl}{m}{n}
+	\vspace*{0.5cm}
+	\begin{center}
+		\huge{\mytitle}
+		\vspace*{0.35cm}\\ % reduce vspace if title page spreads over two pages
+		\Large{
+			\iflanguage{english}{\mytype\\of}			
+			{\mytype\\von}
+		}\\
+		\vspace*{0.35cm}
+		\huge{\myname}\\
+		\Large{\matricle}\\
+        \vspace*{0.35cm} % reduce vspace if title page spreads over two pages
+        \Large{
+			\iflanguage{english}{as part of the study program}			
+			{im Rahmen des Studiums}
+		}\\
+        \vspace*{1cm}
+        \Large{
+			\iflanguage{english}{\mycurriculum \\ at the}			
+			{\mycurriculum \\ an der}
+		}\\
+		\vspace*{0.35cm} % reduce vspace if title page spreads over two pages
+		\Large{
+			\iflanguage{english}{University of Passau \\ Faculty of Computer Science and Mathematics}			
+			{Universität Passau \\ Fakultät für Informatik und Mathematik}
+			\vspace*{0.5cm}\\
+			\myinstitute
+		}
+	\end{center}
+	\vspace*{0.15cm} % reduce vspace if title page spreads over two pages
+	\Large{
+		\begin{center}
+			\begin{tabular}[ht]{l c l}
+
+				\iflanguage{english}{Advisor}{Betreuer}: & \hfill  & \reviewerone\\
+ 				\iflanguage{english}{Assistance}{Betreuender Assistent}: & \hfill  & \advisor\\
+			
+			\end{tabular}
+		\end{center}
+	}
+	
+	
+	\vspace{0.1cm} % reduce vspace if title page spreads over two pages
+	\begin{center}
+		\timeend
+	 \end{center}
+	
+	
+\end{titlepage}
+
+% Add a table of contents
+\tableofcontents
+\newpage
+
+
+\clearpage
+
+\chapter*{Acknowledgments}
+% TODO: Add your acknowledgements or comment this chapter to hide it.
+First and foremost, I would like to express my sincere gratitude to my supervisor, Prof. Dr. Christoph Heinzl, for his invaluable guidance, expertise in visualization research, and unwavering support throughout this thesis journey. His insights into cognitive sensor systems and visual analytics have been instrumental in shaping this work.
+
+I extend my heartfelt appreciation to Anja Heim, my academic assistant, whose patient guidance, constructive feedback, and technical expertise helped me navigate the complexities of visualization design and implementation. Her dedication to helping students succeed is truly commendable.
+
+My deepest gratitude goes to my industry partners at Robert Bosch GmbH: Johannes Mohren and Dr. Sabrina Schmedding. Their real-world perspective on industrial quality assessment challenges provided the essential context that transformed this from a purely academic exercise into a meaningful contribution to industrial practice. The datasets, domain knowledge, and collaborative discussions were invaluable to this research.
+
+I am grateful to the University of Passau for providing the academic environment and resources necessary for this research, and for fostering interdisciplinary collaboration between academia and industry.
+
+Special thanks to my family, my parents and brother, who provided unwavering emotional support and encouragement throughout the challenging periods of this thesis. Their constant reminders to stay focused and not procrastinate (which I may have occasionally ignored) kept me on track during the most demanding phases of this work.
+
+
+\pagebreak
+
+\chapter*{Abstract}
+% TODO: Enter your abstract here with a maximum of 200 words.
+\noindent In data intensive domains such as manufacturing and medical diagnostics, the success of predictive models is primarily driven by the quality and separability of high-dimensional feature spaces. For practitioners to analyze various properties of these datasets, feature extraction algorithms generate hundreds of features, which are further analyzed using dimensionality reduction (DR) and clustering techniques. An accurate understanding of these high dimensional feature spaces is crucial, especially since data scientists and machine learning engineers make downstream decisions based on the understanding of the feature space. 
+A comparison of various dimensionality reduction techniques, both quantitatively using metrics and qualitatively using visualization is absolutely vital for investigation of the dataset "trainability” and feature space quality assessment.  
+As of now, practitioners rely on "black box” projections and static score tables when analyzing the quality of the high dimensional feature spaces. Visual inspection of lower dimensional projections of these feature spaces is often used to investigate the quality of the dataset and to find various effects, artifacts and outliers. The quality metrics and dimensionality reduction methods must be compared manually, which makes this task time consuming, error prone and cognitively demanding. This thesis aims to support the domain experts in the evaluation of the dataset suitability for downstream classification tasks.  
+
+To tackle these challenges, our work introduces DatasetWiz, a comparative visual analytics framework that provides a comprehensive understanding of the feature space quality and projection reliability using summary visualization and two novel visualization techniques. Various dimensionality reduction methods are used to summarize the high dimensional structures and are rendered in a side by side comparison tool called DimCompare (Synchronized dual view scatterplots). Information about why the clusters form is calculated statistically and then visualized using Feature Contribution Glyphs (Cluster annotations that highlight feature level differences). The aggregate performance of the different techniques can be explored in a composite visualisation called BarDar Chart (Summary overview combining Bar chart and Radar chart). The efficacy and usefulness of these visualisations are demonstrated using case studies and a user study with X participants. [The results indicate that DatasetWiz successfully facilitates the identification of structural patterns and artifacts, thereby improving the efficiency of early-stage data diagnostics.]
+
+
+\pagebreak
+
+% TODO: Uncomment the lines to add your abstract in german.
+%\chapter*{Zusammenfassung}
+    % TODO: Enter your abstract here with a maximum of 200 words.
+%\pagebreak
+
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL THESIS BEGINS HERE %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+
+In the past few years, high-dimensional data has grown more prevalent in fields like manufacturing, medical diagnostics, environmental monitoring, and quality control. As machine learning has gained popularity across multiple domains, feature extraction techniques, be they statistical, domain-specific, or neural network-oriented, now generate hundreds or even thousands of dimensions/features for a singular data item. These feature vectors often include a lot of information in them, but since they are so complex, it's hard for people to understand, compare, or think about these high-dimensional representations. To address the complexity of these high-dimensional spaces, practitioners make use of Dimensionality Reduction (DR), which is the process of mapping high dimensional data into a lower dimensional representation (typically 2D or 3D), while attempting to preserve the original structural relationships.
+\section{Motivation and problem statement}
+  
+
+This problem is especially important in factories and industries, where datasets might not be balanced, might have a lot of noise, or might have been collected under less than optimal settings. Before spending time and money on training a model, machine learning programmers and domain specialists need to perform a trainability assessment to verify whether a dataset is "learnable”or not. This means that the data has enough structure, class separation, or structural signal on its own to make modeling useful. Unfortunately, the technologies we have presently don't assist us in trainability assessment very much. Black-box dimensionality reduction projections, static 2D visualizations like scatterplots, and clustering score tables only show part of the picture. This means that users sometimes have to trust their gut feelings or judgment. Conventional visualization methods do not facilitate the interactive exploration and comparative analysis that is crucial for successful decision-making in industrial settings. 
+
+The need for this thesis arose from the disparity between high-dimensional feature representations and human comprehension. A prior research collaboration with Bosch underscored the importance for enhanced feature space diagnostics. The partnership's main goal was to find flaws in industrial hardware parts using images, but the basic problem, i.e. understanding high-dimensional embeddings and their structure, goes much beyond merely images. In fact, the tools that were built in this thesis were tested on conventional, high dimensional CSV-based datasets, such as those that assess air pollution or material strength. This shows that the tools can handle a wide range of data.
+
+\begin{figure}[H] %NOTE: This command creates a figure environment. An environment always starts with a \begin{} command and ends with an \end{} command. 
+	\begin{center} %<-- this command aligns your figure as desired, here the figure will be centered.
+		\includegraphics[width = 0.9\textwidth]{images/pipeline.jpg} %this includes you graphic stored in your figures folder. Upload works via the upload button on the left side.
+		\caption{Feature-space analysis pipeline combining dimensionality reduction, visualization, quantitative metrics, and downstream machine learning}%this command creates a caption.
+		\label{fig:IA_Envrionment}% this is the aforementioned label, which can be now referred by name. Here it would be \ref{fig:valuchain}. 
+	\end{center}
+\end{figure} 
+
+More broadly speaking, analyzing and comparing high-dimensional feature spaces is difficult for several reasons: 
+  
+\begin{enumerate}
+  \item \textbf{Projection Instability}: Different Dimensionality Reduction (DR) techniques (PCA, t-SNE, MDS, UMAP) produce inconsistent feature visualizations, each emphasizing different structures. No single method provides a complete picture.
+  \item \textbf{Information loss}: Reducing dimensions often distorts some feature relationships. Clusters may appear well-separated in 2D but actually overlap in the original space, or vice versa.
+  \item \textbf{Lack of visual and quantitative integration}: Clustering metrics like Silhouette Score offer objective numeric values, but interpreting them in context is difficult without visual feedback.
+\end{enumerate}  
+
+This thesis aims to fill the gap between complex high-dimensional feature spaces and human understanding by introducing novel interactive visualization tools. These tools aim to combine dimensionality reduction, clustering quality metrics, and feature-based visual encodings to support early decision-making in the data science pipeline, for tasks such as evaluating dataset, pointing out anomalies, or identifying the requirement for further preprocessing. Rather than simply illustrating DR results, the goal here is to help the end users, engineers and data scientists, interpret, compare, and assess the quality and separability of high-dimensional data in an intuitive way.
+
+
+
+
+
+\section{Research questions}
+
+This research is guided by five connected research questions that aim to address both the theoretical and the practical aspects of high-dimensional data visualization in industrial contexts:
+
+\textbf{Research Question 1 (RQ1):} Feature Relationship Understanding  
+\begin{itemize}
+  \item How can interactive visualization reveal which features drive cluster formation across different dimensionality reduction techniques?   
+\end{itemize}
+This question seeks to resolve the interpretability challenge that is often posed in high-dimensional feature spaces, where understanding the feature contributions are essential for quality assessment and evaluation, but difficult to achieve with traditional visualization approaches.
+
+\textbf{Research Question 2 (RQ2):} Comparative Evaluation of Dimensionality Reduction  
+\begin{itemize}
+  \item How can we effectively enable side-by-side comparison of different dimensionality reduction results to support algorithm selection and validation?  
+\end{itemize}
+
+This question focuses on the practical needs for practitioners to understand how different dimensionality reduction method choices affect representation of the data and its subsequent analysis.
+
+\textbf{Research Question 3 (RQ3):} Clustering Quality Evaluation and Visualization
+\begin{itemize}
+  \item How can composite integrated visualisation effectively facilitate comparative assessment of dimensionality reduction techniques through the aggregation of conflicting quality metrics?
+\end{itemize}
+
+This question addresses the problem of interpreting multiple, and potentially conflicting, quality measures in a visual framework.
+
+\textbf{Research Question 4 (RQ4):} Pattern Identification Across DR Techniques 
+\begin{itemize}
+  \item How can coordinated multiple views and interactive exploration support the validation of structural patterns and identification of projection induced artifacts across different DR methods?
+\end{itemize}
+This question explores the robustness of patterns that are discovered and also the identification of DR technique-specific artifacts.
+
+
+
+\section{Contributions}
+This thesis makes several novel contributions in the domains of data/information visualization, industrial quality assessment and visual analytics.
+\subsection{Interactive Visualization Techniques}
+\textbf{DimCompare Dual-View system:} We introduce a novel, dual-view approach for comparing two different dimensionality reduction techniques via  synchronized, interactive scatterplots. Compared to traditional single view 2D scatterplots, DimCompare allows for real-time linked interaction between different dimensionality reduction techniques and representations. DimCompare also enables brushing, selection and coordinated exploration.
+
+\textbf{Dynamic feature contribution glyphs} : We developed an innovative cluster annotation "glyphs” that visualize which features contribute most to a cluster formation, dynamically. These cluster annotations provide immediate visual feedback about the feature importance differences between the clusters, which update in real time, as users  explore different data subsets.
+
+\textbf{Bardar Composite Visualization:} We created a composite integrated visualiation that utilizes explicit encoding (bar charts) to overcome the well documented perceptual limitations of radar charts (area bias), hence providing an objective ranking of DR method reliability. The integrated design provides users with both detailed metric visualization and also aggregate the performance ranking, enabling more effective metric comparisons across multiple dimensionality reduction techniques.
+
+
+
+\subsection{Technical implementation}
+
+\textbf{Web-based architecture:}  Development of a complete web-based visualization framework, using Django backend, D3.js frontend, which enables browser-based internet access to visualization capabilities without requiring specialized installation of software.
+
+\textbf{Scalable Data pipeline:} Implementation of efficient algorithms for dimensionality reduction, clustering and metric calculations, that can handle large, industrial scale CSV datasets, while still maintaining, near-real time, interactive performance.
+
+\textbf{Open source framework:} Creation of an open source implementation, that is extensible, and enables reproducible research, while also providing a foundation for future visualization tool development.
+
+ 
+
+
+\subsection{Chapter summary} 
+This chapter introduced the motivation, scope and contributions of this thesis. It establishes the core challenge of assessing the “trainability” of a dataset, or separation of high dimensional feature spaces. This is a critical problem in the Industrial AI and quality assessment, as highlighted by the collaboration with Bosch. The key points discussed are : 
+
+\begin{itemize}
+  \item \textbf{Core problem:} Identified the black box/uninterpretable nature of feature spaces generated as the main problem. The success of a ML model, further in the pipeline, is dependent on this data, hence leads to uncertainty in the data science pipeline.
+\item \textbf{Identified gaps:} We defined some specific limitations of the current methods, like projection instability (different algorithm = different results), information loss (2D projections lose information) and the disconnect between quantitative metrics and qualitative visual inspection.
+\item \textbf{Research questions:} Synthesised the core research questions (RQs) that guide this work, focusing on the feature level understanding, DR comparison, Metric visualization, pattern identification and industrial validation.
+\item \textbf{Novel Contributions:} Introduced the two primary contributions of this thesis, the DimCompare system for visual comparison exploration and the BarDar chart for quantitative metric comparison.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+%----------------------END OF CHAPTER 1----------------------
+
+\newpage
+\chapter{Background and related work}
+This chapter lays the foundation for this thesis by reviewing some basic ideas and existing research that is important for analyzing high-dimensional data, machine learning, and visual analytics. It covers key areas like extracting features from images, methods for dimensionality reduction, clustering algorithms and their related quality metrics, and different methods to visualize and understand High dimensional data.
+
+
+\section{Understanding High dimensional data}
+High-dimensional data refers to the datasets where each of the sample or row is described by a large number of features or variables, often dozens, hundreds, or even thousands. These features can come from a wide variety of sources, including sensor readings, material strength measurements, air quality parameters, or neural network embeddings for images. In this thesis, high-dimensional data is primarily handled in the form of structured CSV files, where each row represents a data instance/sample and each column corresponds to a feature, usually numeric. Such high dimensional data is common in real-world domains like environmental monitoring, quality control, and manufacturing process analysis. However, as the number of dimensions/features increases, it becomes increasingly challenging to explore, visualize or extract meaningful patterns from the data using traditional visualization techniques. This is commonly known as the curse of dimensionality, and it motivates for the use of dimensionality reduction techniques to uncover structure and gives support in interpretation.
+
+
+\subsection{Curse of dimensionality}
+Analyzing high dimensional data has been recognized as one of the fundamental problems in machine learning and data analysis \cite{zebari2020comprehensive}. As also noted by  \cite{jia2022feature}, the curse of dimensionality significantly increases computational costs and the storage requirements, while also negatively impacting the accuracy and efficiency of the data analysis methods/algorithms. There is an exponential increase in data sparsity and computational demands as dimensionality grows \cite{bellman1957dynamic} \cite{peng2023interpreting}.
+
+This phenomenon is especially evident in image applications where CNN(Convolutional Neural Network) based feature extractors (VGG-19, ResNet-50 etc) are used to generate thousands of features from a single image, creating complex feature spaces that are difficult to interpret as well as computationally intensive. 
+
+Anowar et. al. \cite{ANOWAR2021} gives a complete comparison of dimensionality reduction algorithms. They categorize them into primarily linear vs non linear  and supervised vs unsupervised approaches. The empirical analysis performed by them across challenging datasets clearly demonstrates that different dimensionality reduction techniques excel in different contexts, underscoring a need for a comparative analysis tools that can help practitioners select appropriate methods for their specific applications
+
+
+
+\subsection {Image feature extraction in industrial manufacturing }
+To evaluate properties like structural integrity of industrial hardware, high dimensional representations are generated by using deep neural network based image feature extractors. In current manufacturing workflows, pretrained image feature extraction models such as VGG-19 (Visual Geometry Group) and ResNet-50 (Residual Network) are used to convert visual inspection data into numerical feature vectors, consisting of thousands of dimensions. This work also briefly focuses on analyzing the resulting feature spaces to identify production line induced characteristics such as defects and manufacturing inconsistencies.
+
+\section{Dimensionality Reduction Techniques}
+Dimensionality reduction is a key set of methods that are used to change the data from a higher dimensional space into a lower dimensional one, while also trying to keep the important properties and structure present in the original data. \cite{sorzano2014survey}. These dimensionality reduction methods are generally split into linear and non linear data, where each has different features and compromises. The fact that there exists a vase selection of dimensionality reduction techniques, each having its own biases and compromises, directly indicates why comparative visualization systems are needed. Building such a comparative visualization system is the main goal of this thesis.
+
+\subsection{Principal Component Analysis (PCA) }  
+This is the most widely used and commonly known Dimensionality reduction method due to its mathematical simplicity and interpretability \cite{SalihHasanAbdulazeez2021}. It projects the data in a lower dimensional space. PCA does this by finding orthogonal components (principal components) that capture the maximum variation in the data. The linear nature of the technique provides a significant advantage for preserving global structures and relationships in the data \cite{jolliffe2016pca}. 
+
+
+Boileau et al. \cite{boileau2020scPCA} extend traditional PCA through sparse contrastive PCA, which works by extracting sparse, stable and interpretable features by leveraging control data. Their work demonstrates how PCA variants can be enhanced to address specific domain requirements , particularly in biological applications where interpretability is crucial.
+
+PCA is fast to compute, predictable, and good at keeping the overall structure of the data \cite{jolliffe2016pca}. However, the downsides of PCA are that it might not capture complex, non-linear relationships present in the data. Which has led to development of  kernel PCA and other non-linear extensions \cite{scholkopf1998nonlinear}. The technique works best when the underlying data is somewhat linear, but it may also miss important patterns in the data that have complex non-linear relationships, such as those found commonly in industrial image analysis applications.
+
+
+
+\subsection{t-Distributed Stochastic Neighbor Embedding (t-SNE) }  
+This is a powerful non-linear method of dimensionality reduction that is really good at showing the local structures present in the data, often revealing tight groups of data points that are similar. t-SNE was introduced by \cite{vandermaaten2008tsne}, and it revolutionized the visualization of high dimensional data, by preserving  local neighborhood structures, while reducing dimensionality.
+
+t-SNE  looks at similarities as probabilities and tries to match these probabilities in both the high and low dimensional spaces. It models similarities between data points using probability distributions and minimizes the Kullback-Leibler divergence (KL) between high-dimensional and low-dimensional representations.
+
+
+It is great at showing clusters that might be hidden in high dimensional space and at preserving local relationships. Making it really valuable for exploratory data analysis (EDA) and pattern discovery. However t-SNE has many limitations that affect the interpretation, it sometimes distorts global structure \cite{kobak2019art} and the results obtained are sensitive to hyperparameter settings (like perplexity) \cite{wattenberg2016how}. Since t-SNE is stochastic in nature, it produces slightly different results in different runs \cite{vandermaaten2013barnes}. t-SNE is also computationally expensive O(\(nˆ2\)) and can sometimes twist the overall structure, versions like Barnes-hut t-SNE help mitigate this \cite{vandermaaten2013barnes}.
+
+The non-deterministic nature of this method makes it challenging to reproduce results, increasing the importance of setting random seeds and understanding the impact of hyperparameters upon the final visualisations.
+
+
+\subsection{Multidimensional Scaling (MDS) }   
+Multidimensional Scaling (MDS) is a classical dimensionality reduction technique that aims at preserving pairwise distances between the different data points, when projecting high dimensional data into lower dimensional space. Originally developed in the field of psychometrics, it is now widely used across various domains. MDS works by transforming a dissimilarity matrix into a geometric configuration in fewer dimensions, while still maintaining the relative spatial relationships of the data. \cite{Borg2005MDS}  
+
+Unlike  linear and variance based methods like PCA, MDS is distance-preserving. It attempts to place each data point in a low dimensional space such that the -inter-object distances are preserved as faithfully as possible. MDS works best when input distances are euclidean, and the data conforms to metric assumptions \cite{KruskalWish1978}. There also exist variants of MDS such as non-metric MDS, that relax these assumptions by only preserving the rank of order distances, which makes it more robust to non-linear data structures.
+
+This dimensionality reduction method tried to keep the distances between the data points as much as possible in the lower dimensional space. MDS is  good for understanding how far apart items are from each other, but it takes a lot of computing power for larger datasets, (with a computational time complexity of O(\(n^3\)) for exact calculation, where N refers to the number of data points) . This makes it less practical for datasets without approximation strategies \cite{Venna2010}. Because it needs so much computing, it's usually preferred for smaller datasets. Moreover, it does not explicitly model local or global structure tradeoffs the way t-SNE or UMAP do. Therefore MDS can struggle to highlight cluster boundaries and maintain neighborhood relationships in sparse datasets. MDS provides a valuable contrast to techniques like PCA, t-SNE and UMAP. Its role in this thesis is to primarily serve as a comparative benchmark.
+
+ 
+\subsection{Uniform Manifold Approximation (UMAP) }
+UMAP was developed by \cite{McInnes2018UMAP}, and it addressed several limitations of t-SNE while maintaining the ability to preserve local structure. It is based on manifold learning theory and topological data analysis, and provides faster computation than t-SNE while better preserving global structure alongside local neighborhoods.
+
+This method constructs a high dimensional graph representation of the data and then optimises low dimensional graphs to be as structurally similar to the high dimensional graph as possible. This kind of approach allows UMAP to handle larger datasets more efficiently than t-SNE, while also producing more stable results across multiple different runs.
+
+UMAP has the ability to preserve both local and global structures, which makes it particularly valuable for industrial applications where understanding both the detailed cluster structure and overall data structure is important, like exploratory analyses in industrial datasets \cite{Ghojogh2021UMAPSurvey}. However, the technique introduces its own set of hyperparameters and assumptions that can impact the final visualization, re- emphasizing the need for competitive analysis tools.
+ 
+
+\subsection{Other techniques : Isomap and Autoencoders}
+Beyond PCA, t-SNE, UMAP and MDS, there exist additional dimensionality reduction techniques which offer alternative perspectives on high dimensional data, like Isomap and Autoencoders.
+Isomap \cite{Tenenbaum2000Isomap} extends the classic MDS technique by incorporating geodesic distances, instead of euclidean ones, which allows it to preserve the intrinsic geometry of non-linear manifolds. It constructs a neighborhood graph, and computes the shortest path distances between the points. However, Isomap is sensitive to noise and outliers, and its performance degrades if the neighborhood graph is poorly constructed. 
+
+Autoencoders, on the other hand, are unsupervised neural network models that learn to compress the data into lower-dimensional latent representations and reconstruct it back to the original space. \cite{Hinton2006Autoencoders}. This learned embedding captures the non-linear dependencies and is highly flexible due to the representational power of deep neural networks. There also exist variants such as denoising autoencoders or Variational Autoencoders (VAEs) that have further improved robustness and generative capabilities. However, autoencoders typically require very large training data sets and careful tuning, to learn trivial representations and avoid overfitting.
+
+
+While these techniques were not the focus of the implementation in this thesis, they offer valuable alternatives and are potential candidates for the future extensions of comparative visualization tools, particularly in deep learning focused workflows.
+
+
+\section{Comparative analysis challenges}
+Espadoto et. al \cite{Espadoto} provides a quantitative survey of various dimensionality reduction techniques, it evaluates how these DR methods perform across a wide variety of datasets and metrics. The study shows that no single method always outperforms the others, and each one ever gives only a partial or biased view of the high dimensional data, which underscores the need for comparative analysis tools.  This is why the core design of DimCompare is justified. 
+
+The authors identified several challenges in evaluating dimensionality reduction techniques: 
+\begin{enumerate}
+  \item Lack of ground truth, which makes it difficult to assess the quality of the projections.
+  \item Tradeoffs exist between local and global structure preservation.
+  \item Dataset characteristics, such as noise and dimensionality, have an influence on the dimensionality reduction performance.
+  \item Computational scalability becomes important for practical use on high-dimensional datasets.
+\end{enumerate}
+ 
+These challenges emphasize the need for visualization tools, like the ones developed in this thesis. These tools help practitioners navigate the trade-offs and make informed choices based on context-specific requirements.
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+% Remove following line for the final thesis.
+\input{intro.tex} % A short introduction to LaTeX.
+
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+
+% References Style
+\iflanguage{english}
+{\bibliographystyle{unsrt}} % english style - numbers citations in order of appearance
+{\bibliographystyle{unsrtnat}}	% german style - numbers citations in order of appearance
+
+\pagebreak
+\bibliography{references}
+
+
+
+%%TODO: If you don't need an Appendix, delete the next chapter before the \pagebreak command and also delete your appendix references.
+%% ==============================
+%\chapter{Appendix}
+%\label{ch:Appendix}
+%% ==============================
+
+\pagebreak
+\appendix
+
+\iflanguage{english}
+{\addchap{Appendix}}	% english style
+{\addchap{Anhang}}	% german style
+
+
+\section{First Appendix}   %TODO: Rename your Appendix as needed
+\label{AppendixA}  
+\setcounter{figure}{0}
+
+\dots
+
+
+\pagebreak
+
+
+%% ==================
+%DON'T: German is set as default for the declaration, don't change it
+\chapter*{Eidesstattliche Erklärung}
+\label{ch:Declaration}
+%% ==================
+
+Ich versichere hiermit wahrheitsgemäß, die Arbeit selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt, die wörtlich oder inhaltlich übernommenen Stellen als solche kenntlich gemacht und die Satzung der Universität Passau zur Sicherung guter wissenschaftlicher Praxis in der jeweils gültigen Fassung beachtet zu haben. Die Arbeit ist weder von mir noch von einer anderen Person an der Universität Passau oder an einer anderen Hochschule zur Erlangung eines akademischen Grades bereits eingereicht worden.
+
+\vspace*{1cm}
+\hspace*{4cm} Passau, den \submissiontime \hspace*{0.5cm}\hrulefill \\
+\hspace*{10.5cm} \myname \\
+\vspace*{1cm}
+
+Ich versichere hiermit wahrheitsgemäß, dass
+\begin{enumerate}
+\item[\text{\ding{113}}] die Arbeit ohne Zuhilfenahme von ChatGPT oder anderen generativen KI-Werkzeugen erstellt wurde, \underline{oder}
+\item[\text{\ding{113}}] ich in der nachfolgenden Tabelle vollständig dokumentiert habe, wie solche Systeme bei der Entwicklung der Arbeit verwendet wurden.
+\end{enumerate}
+
+\vspace*{1cm}
+\hspace*{4cm} Passau, den \submissiontime \hspace*{0.5cm}\hrulefill \\
+\hspace*{10.5cm} \myname \\
+
+\pagenumbering{gobble}
+
+\newpage
+
+%% Remove the tabel if no AI tools were used
+%% ==================
+\begin{longtable}{p{1.3cm}lp{1.3cm}p{5cm}p{4cm}}
+\caption*{Generative KI-Werkzeuge, die in der Arbeit verwendet wurden.} \label{tab:example} \\
+\toprule
+Kapitel & KI-Tool & Version & Prompt & Erklärung/Kommentar \\
+\midrule
+\endfirsthead
+\multicolumn{5}{c}%
+{Generative KI-Werkzeuge, die in der Arbeit verwendet wurden.} \\
+\toprule
+Kapitel & KI-Tool & Version & Prompt & Erklärung/Kommentar \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+% Insert your table here. You can also fill it out in English.
+1.2 & ChatGPT & 3.5 & Schreibe einen Absatz über den Digital Markets Act. & Der generierte Output wurde in folgender Weise angepasst ...   \\
+2.3 & ChatGPT & 4.0 & ... & ... \\
+3.1 & ChatGPT & 3.5 & ... & ... \\
+\end{longtable}
+%% ==================
+
+
+\end{document}
+
