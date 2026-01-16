@@ -111,9 +111,194 @@ Mateus Espadoto, Rafael~M. Martins, Andreas Kerren, Nina S.~T. Hirata, and Alexa
 \newblock Towards a quantitative survey of dimension reduction techniques.
 \newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 27(3):2153--2173, 2019.
 
+\bibitem{lloyd1982}
+Stuart~P. Lloyd.
+\newblock Least squares quantization in pcm.
+\newblock {\em IEEE Transactions on Information Theory}, 28(2):129--137, 1982.
+
+\bibitem{ester1996dbscan}
+Martin Ester, Hans{-}Peter Kriegel, J{\"o}rg Sander, and Xiaowei Xu.
+\newblock A density-based algorithm for discovering clusters in large spatial databases with noise.
+\newblock In {\em Proceedings of the 2nd International Conference on Knowledge Discovery and Data Mining (KDD)}, pages 226--231, 1996.
+
+\bibitem{Schubert2017DBSCANRevisited}
+Erich Schubert, J{\"o}rg Sander, Martin Ester, Hans{-}Peter Kriegel, and Xiaowei Xu.
+\newblock Dbscan revisited, revisited: Why and how you should (still) use dbscan.
+\newblock {\em ACM Transactions on Database Systems (TODS)}, 42(19), 2017.
+
+\bibitem{Campello2013HDBSCAN}
+Ricardo J. G.~B. Campello, Davoud Moulavi, and J{\"o}rg Sander.
+\newblock Density-based clustering based on hierarchical density estimates.
+\newblock In {\em Proceedings of the 17th Pacific–Asia Conference on Knowledge Discovery and Data Mining (PAKDD)}, pages 160--172, 2013.
+
+\bibitem{vonLuxburg2007}
+Ulrike von Luxburg.
+\newblock A tutorial on spectral clustering.
+\newblock {\em Statistics and Computing}, 17(4):395--416, 2007.
+
+\bibitem{McLachlanPeel2000GMM}
+Geoffrey~J. McLachlan and David Peel.
+\newblock {\em Finite Mixture Models}.
+\newblock Wiley Series in Probability and Statistics, 2000.
+
+\bibitem{Kailing2004SUBCLU}
+Karin Kailing, Hans{-}Peter Kriegel, and Peer Kr{\"o}ger.
+\newblock Density-connected subspace clustering for high-dimensional data.
+\newblock In {\em Proceedings of the 4th SIAM International Conference on Data Mining (SDM)}, pages 246--257, 2004.
+
+\bibitem{Ansari2015ClusterValidity}
+Zahid Ansari, M.~F. Azeem, Waseem Ahmed, and A.~Vinaya Babu.
+\newblock Quantitative evaluation of performance and validity indices for clustering the web navigational sessions.
+\newblock arXiv preprint arXiv:1507.03340, 2015.
+
+\bibitem{Gosgens2019}
+M.~Gösgens, A.~Tikhonov, and L.~Prokhorenkova.
+\newblock Systematic analysis of cluster similarity indices.
+\newblock arXiv preprint arXiv:190?, 2019.
+
+\bibitem{Rousseeuw1987Silhouette}
+Peter~J. Rousseeuw.
+\newblock Silhouettes: a graphical aid to the interpretation and validation of cluster analysis.
+\newblock {\em Journal of Computational and Applied Mathematics}, 20:53--65, 1987.
+
+\bibitem{DaviesBouldin1979}
+David~L. Davies and Donald~W. Bouldin.
+\newblock A cluster separation measure.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}, PAMI-1(2):224--227, 1979.
+
+\bibitem{PalBiswas1997}
+N.~R. Pal and J.~Biswas.
+\newblock Cluster validation using graph theoretic concepts.
+\newblock {\em Pattern Recognition}, 30(6):847--857, 1997.
+
+\bibitem{CalinskiHarabasz1974}
+Tadeusz Caliński and Jerzy Harabasz.
+\newblock A dendrite method for cluster analysis.
+\newblock {\em Communications in Statistics}, 3(1):1--27, 1974.
+
+\bibitem{Dunn1973}
+Joseph~C. Dunn.
+\newblock A fuzzy relative of the isodata process and its use in detecting compact well-separated clusters.
+\newblock {\em Journal of Cybernetics}, 3(3):32--57, 1973.
+
+\bibitem{Arbelaitz2013}
+O.~Arbelaitz, I.~Gurrutxaga, J.~Muguerza, J.~M. Pérez, and I.~Perona.
+\newblock An extensive comparative study of cluster validity indices.
+\newblock {\em Pattern Recognition}, 46(1):243--256, 2013.
+
+\bibitem{halkidi2001clustering}
+Maria Halkidi and Michalis Vazirgiannis.
+\newblock Clustering validity assessment: Finding the optimal partitioning of a data set.
+\newblock In {\em Proceedings of the 2001 IEEE International Conference on Data Mining (ICDM'01)}, pages 187--194, San Jose, CA, USA, November 2001. IEEE.
+
+\bibitem{Morais2019FERM}
+J.~P. Morais, M.~Adhikari, T.~Taha, I.~Gemp, and W.~G. Macready.
+\newblock Ferm: A feature-space evaluation and representation measure for classification tasks.
+\newblock arXiv preprint arXiv:1909.02699, 2019.
+
+\bibitem{HubertArabie1985}
+Laurence Hubert and Phipps Arabie.
+\newblock Comparing partitions.
+\newblock {\em Journal of Classification}, 2(1):193--218, 1985.
+
+\bibitem{VinhEppsBailey2010}
+Nguyen~Xuan Vinh, Julien Epps, and James Bailey.
+\newblock Information theoretic measures for clusterings comparison: Variants, properties, limits and extensions.
+\newblock {\em Journal of Machine Learning Research}, 11:2837--2854, 2010.
+
+\bibitem{RosenbergHirschberg2007}
+Andrew Rosenberg and Julia Hirschberg.
+\newblock V-measure: A conditional entropy-based external cluster evaluation measure.
+\newblock In {\em Proceedings of the Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL)}, pages 410--420, 2007.
+
+\bibitem{Amigo2009}
+E.~Amigó, J.~Gonzalo, J.~Artiles, and F.~Verdejo.
+\newblock A comparison of extrinsic clustering evaluation metrics based on formal constraints.
+\newblock {\em Information Retrieval}, 12(4):461--486, 2009.
+
+\bibitem{Mahalanobis1936}
+P.~C. Mahalanobis.
+\newblock On the generalised distance in statistics.
+\newblock Proceedings of the National Institute of Sciences of India, 1936.
+
+\bibitem{Bhattacharya1943}
+A.~Bhattacharya.
+\newblock On a measure of divergence between two statistical populations defined by their probability distributions.
+\newblock {\em Bulletin of the Calcutta Mathematical Society}, 35:99--109, 1943.
+
+\bibitem{BruzzoneSerpico1998}
+L.~Bruzzone and S.~B. Serpico.
+\newblock A neural-network approach to the supervised classification of very high spatial resolution remote sensing imagery.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing}, 36(2):558--571, 1998.
+
+\bibitem{Zhang2023JM}
+Xianmei Zhang, Xiaofeng Lin, Dongjie Fu, Yang Wang, Shaobo Sun, Fei Wang, Cuiping Wang, Zhongyong Xiao, and Yiqiang Shi.
+\newblock Comparison of the applicability of j-m distance feature selection methods for coastal wetland classification.
+\newblock {\em Remote Sensing}, 2023.
+
+\bibitem{Behrisch2018QualityMetrics}
+Michael Behrisch, Bruno Bach, Niklas~W. Riche, Tobias Schreck, and Jean-Daniel Fekete.
+\newblock Quality metrics for information visualization.
+\newblock {\em Computer Graphics Forum}, 37(3):625--662, 2018.
+
+\bibitem{Munzner2009NestedModel}
+Tamara Munzner.
+\newblock A nested model for visualization design and validation.
+\newblock In {\em IEEE Transactions on Visualization and Computer Graphics}, volume~15, pages 921--928, 2009.
+
+\bibitem{Gleicher2011VisualComparison}
+Michael Gleicher, Daniele Albers, Robert Walker, Iftikhar Jusufi, Chris~D. Hansen, and James~C. Roberts.
+\newblock Visual comparison for information visualization.
+\newblock {\em Information Visualization}, 10(4):289--309, 2011.
+
+\bibitem{LespinatsAupetit2011CheckViz}
+Sylvain Lespinats and Micha{\"e}l Aupetit.
+\newblock Checkviz: Sanity check and topological clues for linear and non–linear mappings.
+\newblock {\em Computer Graphics Forum}, 30(1):113--125, 2011.
+
+\bibitem{ClevelandMcGill1984GraphicalPerception}
+William~S. Cleveland and Robert McGill.
+\newblock Graphical perception: Theory, experimentation, and application to the development of graphical methods.
+\newblock {\em Journal of the American Statistical Association}, 79(387):531--554, 1984.
+
+\bibitem{Smilkov2016EmbeddingProjector}
+Daniel Smilkov, Nikhil Thorat, Charles Nicholson, Emily Reif, Fernanda~B. Vi{\'e}gas, and Martin Wattenberg.
+\newblock Embedding projector: Interactive visualization and interpretation of embeddings.
+\newblock arXiv preprint arXiv:1611.05469, 2016.
+
+\bibitem{Cavallo2019Clustrophile2}
+Marco Cavallo and {\c{C}}a{\u{g}}atay Demiralp.
+\newblock Clustrophile 2: Guided visual clustering analysis.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 25(1):267--276, 2019.
+
 \bibitem{Munzner2014}
 Tamara Munzner.
 \newblock {\em Visualization Analysis and Design}.
 \newblock A K Peters Visualization Series. Taylor \& Francis Ltd., Boca Raton, Florida, December 2014.
+
+\bibitem{LYiJoSeo2020ComparativeLayouts}
+Sehi L’Yi, Jaemin Jo, and Jinwook Seo.
+\newblock Comparative layouts revisited: design space, guidelines, and future directions.
+\newblock arXiv preprint arXiv:2009.00192, 2020.
+
+\bibitem{Shneiderman1996Mantra}
+Ben Shneiderman.
+\newblock The eyes have it: A task by data type taxonomy for information visualizations.
+\newblock In {\em Proceedings 1996 IEEE Symposium on Visual Languages}, pages 336--343, 1996.
+
+\bibitem{Srinivasan2018InteractiveDataFacts}
+Arjun Srinivasan, Steven~M. Drucker, Alex Endert, and John Stasko.
+\newblock Augmenting visualizations with interactive data facts to facilitate interpretation and communication.
+\newblock In {\em Proceedings of the 2018 IEEE Conference on Visual Analytics Science and Technology (VAST)}, 2018.
+
+\bibitem{Sacha2017VisualInteractionDR}
+Dominik Sacha, Leishi Zhang, Michael Sedlmair, John~A. Lee, Jaakko Peltonen, Daniel Weiskopf, Stephen~C. North, and Daniel~A. Keim.
+\newblock Visual interaction with dimensionality reduction: A structured literature analysis.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 23(1):241--250, 2017.
+
+\bibitem{CavalloDemiralp2018DimReader}
+Marco Cavallo and {\c{C}}a\u{g}atay Demiralp.
+\newblock Dimreader: Model-agnostic steerable dimensionality reduction for interactive data analysis.
+\newblock In {\em Proceedings of the CHI Conference on Human Factors in Computing Systems}, 2018.
 
 \end{thebibliography}

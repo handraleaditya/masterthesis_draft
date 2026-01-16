@@ -77,6 +77,15 @@
  pdfkeywords={\mytype}
 }
 
+% Make \subsubsection look like \subsection
+\makeatletter
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}%
+    {-3.25ex\@plus -1ex \@minus -.2ex}%
+    {1.5ex \@plus .2ex}%
+    {\normalfont\large}%
+}
+\makeatother
 
 \begin{document}
 
@@ -312,7 +321,7 @@ High-dimensional data refers to the datasets where each of the sample or row is 
 
 
 \subsection{Curse of dimensionality}
-Analyzing high dimensional data has been recognized as one of the fundamental problems in machine learning and data analysis \cite{zebari2020comprehensive}. As also noted by  \cite{jia2022feature}, the curse of dimensionality significantly increases computational costs and the storage requirements, while also negatively impacting the accuracy and efficiency of the data analysis methods/algorithms. There is an exponential increase in data sparsity and computational demands as dimensionality grows \cite{bellman1957dynamic} \cite{peng2023interpreting}.
+Analyzing high dimensional data has been recognized as one of the fundamental problems in machine learning and data analysis \cite{zebari2020comprehensive}. As also noted by Jia et. al. \cite{jia2022feature}, the curse of dimensionality significantly increases computational costs and the storage requirements, while also negatively impacting the accuracy and efficiency of the data analysis methods/algorithms. There is an exponential increase in data sparsity and computational demands as dimensionality grows \cite{bellman1957dynamic} \cite{peng2023interpreting}.
 
 This phenomenon is especially evident in image applications where CNN(Convolutional Neural Network) based feature extractors (VGG-19, ResNet-50 etc) are used to generate thousands of features from a single image, creating complex feature spaces that are difficult to interpret as well as computationally intensive. 
 
@@ -342,7 +351,7 @@ This is a powerful non-linear method of dimensionality reduction that is really 
 t-SNE  looks at similarities as probabilities and tries to match these probabilities in both the high and low dimensional spaces. It models similarities between data points using probability distributions and minimizes the Kullback-Leibler divergence (KL) between high-dimensional and low-dimensional representations.
 
 
-It is great at showing clusters that might be hidden in high dimensional space and at preserving local relationships. Making it really valuable for exploratory data analysis (EDA) and pattern discovery. However t-SNE has many limitations that affect the interpretation, it sometimes distorts global structure \cite{kobak2019art} and the results obtained are sensitive to hyperparameter settings (like perplexity) \cite{wattenberg2016how}. Since t-SNE is stochastic in nature, it produces slightly different results in different runs \cite{vandermaaten2013barnes}. t-SNE is also computationally expensive O(\(nˆ2\)) and can sometimes twist the overall structure, versions like Barnes-hut t-SNE help mitigate this \cite{vandermaaten2013barnes}.
+It is great at showing clusters that might be hidden in high dimensional space and at preserving local relationships. Making it really valuable for exploratory data analysis (EDA) and pattern discovery. However t-SNE has many limitations that affect the interpretation, it sometimes distorts global structure \cite{kobak2019art} and the results obtained are sensitive to hyperparameter settings (like perplexity) \cite{wattenberg2016how}. Since t-SNE is stochastic in nature, it produces slightly different results in different runs \cite{vandermaaten2013barnes}. t-SNE is also computationally expensive \(\mathcal{O}(nˆ2)\) and can sometimes twist the overall structure, versions like Barnes-hut t-SNE help mitigate this \cite{vandermaaten2013barnes}.
 
 The non-deterministic nature of this method makes it challenging to reproduce results, increasing the importance of setting random seeds and understanding the impact of hyperparameters upon the final visualisations.
 
@@ -352,7 +361,7 @@ Multidimensional Scaling (MDS) is a classical dimensionality reduction technique
 
 Unlike  linear and variance based methods like PCA, MDS is distance-preserving. It attempts to place each data point in a low dimensional space such that the -inter-object distances are preserved as faithfully as possible. MDS works best when input distances are euclidean, and the data conforms to metric assumptions \cite{KruskalWish1978}. There also exist variants of MDS such as non-metric MDS, that relax these assumptions by only preserving the rank of order distances, which makes it more robust to non-linear data structures.
 
-This dimensionality reduction method tried to keep the distances between the data points as much as possible in the lower dimensional space. MDS is  good for understanding how far apart items are from each other, but it takes a lot of computing power for larger datasets, (with a computational time complexity of O(\(n^3\)) for exact calculation, where N refers to the number of data points) . This makes it less practical for datasets without approximation strategies \cite{Venna2010}. Because it needs so much computing, it's usually preferred for smaller datasets. Moreover, it does not explicitly model local or global structure tradeoffs the way t-SNE or UMAP do. Therefore MDS can struggle to highlight cluster boundaries and maintain neighborhood relationships in sparse datasets. MDS provides a valuable contrast to techniques like PCA, t-SNE and UMAP. Its role in this thesis is to primarily serve as a comparative benchmark.
+This dimensionality reduction method tried to keep the distances between the data points as much as possible in the lower dimensional space. MDS is  good for understanding how far apart items are from each other, but it takes a lot of computing power for larger datasets, (with a computational time complexity of \(\mathcal{O}(n^3)\) for exact calculation, where N refers to the number of data points). This makes it less practical for datasets without approximation strategies \cite{Venna2010}. Because it needs so much computing, it's usually preferred for smaller datasets. Moreover, it does not explicitly model local or global structure tradeoffs the way t-SNE or UMAP do. Therefore MDS can struggle to highlight cluster boundaries and maintain neighborhood relationships in sparse datasets. MDS provides a valuable contrast to techniques like PCA, t-SNE and UMAP. Its role in this thesis is to primarily serve as a comparative benchmark.
 
  
 \subsection{Uniform Manifold Approximation (UMAP) }
@@ -373,6 +382,24 @@ Autoencoders, on the other hand, are unsupervised neural network models that lea
 While these techniques were not the focus of the implementation in this thesis, they offer valuable alternatives and are potential candidates for the future extensions of comparative visualization tools, particularly in deep learning focused workflows.
 
 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lccc}
+	\hline
+	\textbf{Method} & \textbf{Linearity} & \textbf{Structure Preservation} & \textbf{Time Complexity}\\
+	\hline
+	PCA & Linear & Global (variance) & $\mathcal{O}(nd^2)$ \\
+	t-SNE & Nonlinear & Local & $\mathcal{O}(n^2)$ \\
+	UMAP & Nonlinear & Local + Global & $\mathcal{O}(n \log n)$ \\
+	MDS & Nonlinear & Distance preserving & $\mathcal{O}(n^3)$ \\
+	\hline
+	\end{tabular}
+	\caption{Summary of Dimensionality Reduction Techniques}
+	\end{table}
+	
+
+
+
 \section{Comparative analysis challenges}
 Espadoto et. al \cite{Espadoto} provides a quantitative survey of various dimensionality reduction techniques, it evaluates how these DR methods perform across a wide variety of datasets and metrics. The study shows that no single method always outperforms the others, and each one ever gives only a partial or biased view of the high dimensional data, which underscores the need for comparative analysis tools.  This is why the core design of DimCompare is justified. 
 
@@ -386,12 +413,483 @@ The authors identified several challenges in evaluating dimensionality reduction
  
 These challenges emphasize the need for visualization tools, like the ones developed in this thesis. These tools help practitioners navigate the trade-offs and make informed choices based on context-specific requirements.
  
+%-----checkpoitn charli
+ 
+\section{Clustering algorithms for feature space analysis}
+Clustering algorithms help us identify groups of similar data points that are present in the feature space and to detect outliers, which is essential for evaluating the structure and separability of high dimensional datasets. Clustering methods are commonly classified into four categories, 
+Partitioning methods (e.g., k-Means, GMM), which assign points into clusters, based on minimizing the within-cluster variance or maximizing likelihood.
+Density-based methods (e.g., DBSCAN, HDBSCAN), which find clusters by identifying dense regions separated by sparse areas.
+Graph-based methods (e.g., Spectral clustering), which make use of eigenvectors of similarity matrices to reveal structure.
+Subspace/high-dimensional methods (e.g., SUBCLU, ENClust) which discover clusters that exist in subsets of dimensions.
 
+
+\subsection{k-Means Clustering}
+k-Means is a centroid-based algorithm that partitions data into k clusters  by minimizing within-cluster variance using an iterative refinement method \cite{lloyd1982}. k denotes the number of clusters, a hyperparameter chosen either based on prior knowledge or quality metrics such as the silhouette score.
+\[
+\min_{C} \sum_{i=1}^{k} \sum_{x \in C_i} \| x - \mu_i \|^2
+\]
+
+
+\begin{itemize}
+
+  
+  \item \(n\) = number of data points,
+
+  \item \(k\) = number of clusters,
+  \item \(d\) = dimensionality,
+  \item \(I\) = number of iterations.
+    \item Time complexity: Typically \(
+	\mathcal{O}(I \cdot n \cdot k \cdot d)
+	\) 
+ 
+\end{itemize}
+
+It is efficient, easy to implement and compatible with many internal cluster metrics. However, the drawbacks of k-Means are that it assumes spherical clusters of similar size, and is sensitive to outliers and initialization while also requiring to specify \(k\). Because k-Means assumes spherical clusters of similar size, visual inspection with DimCompare can help assess whether this assumption holds in practice.
+
+\subsection{DBSCAN (Density-Based Spatial Clustering of Applications with Noise)}
+A density-based method of clustering that identifies arbitrary shaped clusters based on density connectivity and marks low-density points as noise \cite{ester1996dbscan}.
+DBSCAN defines clusters as areas of high density separated by sparse regions. A point \(p\) is considered a core point if at least \(minPts \) neighbors fall within a radius \(\varepsilon\). Clusters are formed by density connectivity.
+
+\[
+|\{q : \|q - p\|\leq \varepsilon\}| \ \ge \ \text{minPts}
+\]
+\begin{itemize}
+	\item \(\varepsilon\) = neighborhood radius,
+	
+	\item \(minPts \) = minimum number of neighbors.
+	\item Time complexity: Typically \(
+		\mathcal{O}( n \log n )
+		\) 
+\end{itemize}
+ 
+
+It works well for non-convex clusters and clusters of arbitrary shapes and also detects noise. But choosing appropriate distance thresholds can be challenging, especially in high dimensional spaces where distance metrics start becoming less and less meaningful \cite{Schubert2017DBSCANRevisited}.
+
+\subsection{HDBSCAN (Hierearchical Density-Based Spatial Clustering of Applications with Noise)}
+An extension of DBSCAN, HDBSCAN constructs a hierarchical clustering structure and extracts clusters based on their stability, and extracts the stable ones\cite{Campello2013HDBSCAN}. 
+
+It eliminates the need to choose epsilon and automatically determines the number of clusters.
+Time complexity : 
+\(
+\mathcal{O}(n^2)
+\)
+
+It is good at discovering clusters of varying densities and identifying outliers without specifying \(k\). This makes it suitable for practical exploratory data analysis scenarios where cluster counts are often unknown or feature spaces contain a lot of noise. Its weaknesses are  that it may over split clusters in noisy high dimensional spaces and it is more computationally intensive.
+
+
+
+\subsection{Spectral Clustering}
+Spectral clustering is a graph based technique of clustering that uses eigenvectors of the similarity matrix's Laplacian to cluster data in reduced dimensions \cite{vonLuxburg2007}. It is particularly effective at capturing complex cluster structures, but it scales poorly with large scale datasets, due to the costs related to eigen decomposition.
+
+Spectral clustering uses the eigenvectors of a graph Laplacian L=D minus W derived from a similarity matrix W, to embed data before clustering.
+\[
+L = D - W
+\]
+
+where \(W\) is the similarity (adjacency) matrix and \(D\) is the degree matrix with \(D_{ii} = \sum_{j} W_{ij}\).
+
+Parameters: Similarity function (e.g., Gaussian kernel), number of clusters \(k\)  
+Time Complexity:  \(\mathcal{O}(n^3)\)
+
+
+\subsection{Gaussian Mixture Models (GMM)}
+This is a probabilistic, soft clustering approach that assumes that data is generated from a mixture of various Gaussian distributions. GMM's provide probabilistic class assignments and can model covariance structures well \cite{McLachlanPeel2000GMM}. However, they often do not perform well when clusters deviate significantly from Gaussian shapes and require very careful hyperparameter tuning.
+
+\[
+p(x \mid \theta) = \sum_{i=1}^{k} \pi_i \, \mathcal{N}(x \mid \mu_i, \Sigma_i)
+\]
+
+
+
+ 
+
+
+\subsection{Subspace clustering}
+These types of methods, like SUBCLU, identify clusters present in specific subsets of dimensions \cite{Kailing2004SUBCLU}. This is critical in high-dimensional data, where clusters sometimes only exist in particular feature subspaces, and some global clustering methods might miss such latent structures. Their drawback is that they have high computational complexity.
+
+
+
+
+
+While a wide range of clustering algorithms exist, such as DBSCAN, Spectral Clustering , Gaussian Mixture Models, and Subspace Clustering methods, this thesis focuses primarily on k-Means. This method was selected because k-Means offers a simple, efficient, and widely used baseline, allowing for robust evaluation of feature spaces within the visualization framework.
+ 
+
+ 
+
+
+\section{Projection and Clustering Quality Metrics}
+Evaluating the quality of clusters and hence the quality of the feature space, is extremely important for downstream tasks like model training and decision making. There exists methods of quantifying the quality of clusters, known clustering validity  indices, a.k.a clustering quality metrics. Cluster validity indices can be classified as internal, known as intrinsic and external, known as extrinsic, each offering a different perspective. It is crucial to understand that no single metric is universally optimal, each metric has biases and limitations of its own. It is important to remember that each metric looks at a slightly different part of “cluster quality” and no single measure is perfect for everything, especially in high dimensional scenarios, where results can often be misleading, without normalization of contextual analysis \cite{Ansari2015ClusterValidity}.
+High dimensional data can also distort metrics, so it is essential to combine quantitative evaluation with visualization. \cite{Gosgens2019}
+
+\subsection{Internal Validity Indices (Intrinsic Metrics)}
+These types of metrics check the cluster quality based only on the data itself, without requiring outside ground truth labels. They were found to be very sensitive to data quality problems like blurry images and wrong labels, making them a good fit for automatic quality checks. While internal clustering metrics assess the visual separation of clusters, they often lack the ability to validate the integrity of underlying dimensionality reduction process.
+
+\subsubsection{Silhouette coefficient}
+It measures how similar a data point is to its own cluster (how close it is), compared to other clusters , (how far apart it is). It was originally proposed by Rousseeuw \cite{Rousseeuw1987Silhouette}. The values go from -1 to +1. Higher values mean better-defined clusters. Values above 0.5 are generally good, values above 0.7 indicate strong clustering, whereas negative values suggest that it is in the wrong cluster, i.e. misassignment. Finally, values around 0 indicate that there is some overlap. 
+
+The silhouette score for a point \(i\) is calculated as:
+ 
+\[
+s(i)=\frac{b(i)-a(i)}{\max\{a(i),b(i)\}}
+\]
+
+
+Where \(a(i)\) is the average distance between \(i\) and all other points in its cluster, and \(b(i)\) is the minimum average distance to points in any other cluster.
+
+
+While it is easy to understand, Silhouette coefficient tends to prefer round,  equally sized clusters, and it might not be as useful for clusters that are oddly shaped. One study found it to be a better indicator than Davies-Bouldin and Dunn indices \cite{SlobodanPetrovic2013}.
+
+
+\subsubsection{Davies Bouldin Index (DBI)}
+Introduced by \cite{DaviesBouldin1979}, it calculates the average similarity ratio of each cluster with its most similar cluster. Similarity is defined as the ratio of how spread out things are within a cluster to how far apart the clusters are. Lower values mean better separation, with 0 being the best possible value, meaning that the clusters are perfectly separate. 
+DBI is defined as 
+\[
+R_{i,j}=\frac{S_i+S_j}{M_{i,j}},
+\quad 
+DB=\frac{1}{k}\sum_{i=1}^{k} \max_{j\neq i} R_{i,j}
+\]
+
+where \(S_i\) is the intra-cluster dispersion for cluster \(i\), and \(M_{i,j}\) is the distance between cluster centroids and \(k\) is the number of clusters. Lower DBI values indicate better clustering
+
+DBI is sensitive to outliers and differences in cluster shape and density. \cite{PalBiswas1997}
+
+\subsubsection{Trustworthiness (Dimensionality reduction fidelity)}
+To fill the “trust” gap that's inherent to low-dimensional projections we use the Trustworthiness metric. Originally proposed by Venna and Kaski \cite{Venna2001}, this metric quantifies the degree to which local neighborhood structure is preserved when data is being mapped from a high dimensional space to a lower dimensional 2D projection. Specifically, it is used to measure the presence of false neighbors, i.e. data points that appear closer in visualization, but which are actually distant in the original feature space. This metric is bounded between 0 and 1, which makes for an objective comparison of different projection methods, across diverse datasets and ensures a consistent normalization. If a projection has high trustworthiness, (near 1.0) the user can be confident that the clusters that they see on the screen are real structures and not artifacts of the algorithm.
+
+It is defined as
+
+\[T(k)=1-\frac{2}{nk(2n-3k-1)}\sum _{i=1}^{n}\sum _{j\in N_{i}^{k}}\max (0,(r(i,j)-k))\]
+
+Where \(n\) is the number of samples (data points).\(k\) is the number of nearest neighbors considered. \(N_{i}^{k}\) is the set of \(k\) nearest neighbors of sample \(i\) in the output (embedded) space. \(r(i,j)\) is the rank of sample \(j\) in the input (original) space, when ranked by distance from sample \(i\) (e.g., the closest neighbor has rank 1). 
+
+\subsubsection{Calinski Harabasz Index (CHI)}
+It is defined as the ratio of how spread out things are between clusters to how spread out things are within the clusters. It was first introduced in 1974 \cite{CalinskiHarabasz1974}. A higher CHI score means clusters are dense and well separated. This metric has no upper limit and it is fast to compute. It is often used to find the best number of clusters by looking at the peak value as the value of \(k\) (no. of clusters) changes.
+
+It is defined as 
+\[
+CHI=\frac{BCSS/(k-1)}{WCSS/(n-k)}
+\]
+
+where \(BCSS\) is between-cluster sum of squares, and \(WCSS\) is within-cluster sum of squares. Higher values indicate better-defined clusters
+
+However, it is not always linear or the best indicator for feature space quality, no upper limit also makes it challenging to do a clear evaluation.
+
+
+ 
+
+\subsubsection{Dunn Index (DI)}
+The Dunn Index aims to identify dense and well separated clusters.It is defined as the ratio of the minimum inter-cluster distance (the shortest distance between any two points in different clusters) to the maximum intra-cluster distance (the diameter of the largest cluster). It was originally  introduced in 1973 by J.C. Dunn \cite{Dunn1973}. A higher value indicates better separation and compactness.
+
+\[
+DI=\frac{\min_{i\neq j} \delta(C_i,C_j)}{\max_{k} \Delta(C_k)}
+\]
+
+Where \(\delta(C_i,C_j)\) is the distance between clusters \(C_i\) and \(C_j\), and \(\delta(C_k)\) is the diameter of cluster \(C_k\). 
+
+
+
+Its major drawbacks are that it is sensitive to noise and outliers, which can artificially decrease the inter-cluster distance. It has a high computational complexity on large datasets, as it requires calculating numerous pair wise distances. \cite{Arbelaitz2013}
+
+\subsubsection{S\_Dbw}
+S\_Dbw is a metric that measures both the compactness and the separation of the clusters. It achieves this by combining two components, an intra-cluster variance term (\(Scat\)) that measures compactness and an inter-cluster density term (\(Dens_{bw}\)) that measures separation based on the density of points in the region between clusters. 
+
+In research \cite{halkidi2001clustering}, it has been found to be strong across different effects and works well on datasets with noise and complex cluster shapes, it outperforms many traditional indices. Its primary limitation is its implementation complexity compared to simpler metrics.   
+
+\subsubsection{FERM (Feature space Evaluation and Representation Method)}
+FERM (Feature space Evaluation and Representation Method) is a modern metric designed to evaluate qualities of learned feature spaces for a given classification task. Unlike traditional clustering metrics, which are unsupervised, FERM uses class labels to  give a quantitative value to a data representation. It evaluates two properties, class separability (how distinct the representation of the two classes are) and class density (how tightly grouped data points of the same class are). \cite{Morais2019FERM}
+
+This makes it particularly suitable for evaluating the feature spaces generated by Deep Neural Networks (DNN), such as ones generated for image analysis in industrial tasks, such as image feature extractors (ex. ResNet, VGG-19 and EfficientNet-B0). Where the goal is to learn a simple representation that eases the task for a downstream classifier.
+
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{p{3cm}p{4cm}p{3cm}p{3cm}}
+	\hline
+	\textbf{Metric} & \textbf{What it Measures} & \textbf{Range} & \textbf{Better When} \\
+	\hline
+	Silhouette Coefficient & Cohesion vs separation of clusters & -1 to +1 & Higher \\
+	Davies–Bouldin Index & Intra-cluster dispersion relative to inter-cluster separation & 0 to $\infty$ & Lower \\
+	Calinski–Harabasz Index & Ratio of between vs within cluster variation & $[0,\infty)$ & Higher \\
+	Dunn Index & Minimum inter-cluster separation over maximum intra-cluster diameter & $[0,\infty)$ & Higher \\
+	Trustworthiness & Preservation of neighbor ranks in projections & 0 to 1 & Higher \\
+	S\_Dbw Index & Compactness and density separation & dataset dependent & Lower* \\
+	FERM & Feature space class separability & dataset dependent & Higher* \\
+	\hline
+	\end{tabular}
+	\caption{Summary of Internal Clustering and Projection Quality Metrics}
+	\end{table}
+	
+
+
+
+
+
+\subsection{External Validity Indices (Extrinsic Metrics)}
+
+External Validity indices, evaluate the quality of clustering result by comparing it to a ground truth classification part of the data. This implies that the data should be labelled, making these types of metrics supervised. This type of comparison allows an objective assessment of how well the clustering algorithm has retained the underlying structure of the data labels. While being good tools for benchmarking, the main drawback is the reliance on pre-existing labels, making them unsuitable for many unsupervised discovery tasks where ground truth is often unknown.
+
+
+\subsubsection{Adjusted Rand Index (ARI)}
+This metric measures the similarity between two partitions, i.e. the clustering results and the ground truth labels provided. It does this by considering all pairs of samples and counting pairs that are assigned in the same or different clusters in both partitions. It then corrects this Rand Index (RI) for randomness/chance, ensuring that the expected value from random clusterings is 0. It has a range of [-1, 1] where 1 indicates a perfect match and values near 0 indicate random agreement, this makes ARI highly interpretable. As noted by \cite{HubertArabie1985}, the adjustment for chance is the key advantage over the original Rand Index, which prevents inflated scores with a large number of clusters.
+
+Given a contingency table \(n_{ij}\) for clustering labels \(U\) and \(V\), with row sums \(a_i\) and column sums \(b_j\), total \(n\):
+
+\[
+ARI = 
+\frac{
+\sum_{ij} \binom{n_{ij}}{2} 
+- \frac{1}{\binom{n}{2}} \sum_i \binom{a_i}{2} \sum_j \binom{b_j}{2}
+}{
+\frac{1}{2}\left(\sum_i \binom{a_i}{2} + \sum_j \binom{b_j}{2}\right)
+- \frac{1}{\binom{n}{2}} \sum_i \binom{a_i}{2} \sum_j \binom{b_j}{2}
+}
+\]
+ 
+
+\subsubsection{Normalized Mutual Information (NMI)}
+Originated in information theory, NMI quantifies the statistical information shared between clustering assignment and the ground truth labels. The score is normalized to a [0,1] range, where 1 indicates perfect correlation. A comprehensive analysis by \cite{VinhEppsBailey2010} highlights that NMI is a robust and widely used metric, but its value can be influenced by the number of clusters, and different normalization methods yield different results.
+
+Given entropies 
+\(H(U)\), \(H(V)\) and mutual information \(I(U,V)\), it is defined as:
+ 
+\[
+NMI(U,V)=\frac{I(U,V)}{\sqrt{H(U)\,H(V)}}
+\]
+ 
+
+\subsubsection{V-Measure}
+This is an entropy based metric that combines two desirable properties, homogeneity and completeness. A clustering is homogeneous if each cluster contains only members of one class. A cluster is considered complete if all the members of a given class are assigned to the same cluster. The V-measure is the harmonic mean of these two values, providing a single, interpretable score between 0 and 1. \cite{RosenbergHirschberg2007}. This metric was introduced to address the shortcomings in other approaches that might ignore the two properties stated above.
+
+\[
+V = 2\cdot\frac{h\,c}{h+c}
+\]
+Where 
+\(h\)
+ and 
+\(c\)
+are normalized information-theoretic scores.
+
+
+\subsubsection{Fowlkes-Mallows Index (FMI)}
+FMI is defined as a geometric mean of precision and  recall. FMI computes the similarity between two clusterings by seeing the number of pairs of points that exist in the same cluster in both the partitions. It ranges from [0,1] and can be considered intuitive, however, it can be sometimes misleading. As observed in some studies, FMI assigns high scores even if the clusterings don't align with the ground truth, especially if an algorithm produces a large number of small, pure clusters. It is considered generally to be less discriminative than ARI or NMI due to this. \cite{Amigo2009}
+Given true positive (TP), false positive (FP), false negative (FN):
+\[
+FMI = \sqrt{ \frac{TP}{TP+FP} \cdot \frac{TP}{TP+FN} }
+\]
+
+
+
+\subsection{Additional metrics}
+
+Other useful metrics for feature space analysis also exist beyond the standard clustering indices. 
+
+\subsubsection{No. of outliers}
+This refers to the number of data points which deviate significantly from their respective cluster centers, a.k.a. Outliers. The higher the value of this metric, the worse is the quality of the feature space. This simple metric is especially useful for understanding feature space noise and data integrity.
+
+\subsubsection{Mahalanobis distance}
+Mahalanobis distance measures the distance of a data point from a data distribution, it is defined by 
+For a sample 
+\(x\), distribution mean \(\mu\)
+and covariance \(\Sigma\):
+
+\[
+d_M(x)=\sqrt{(x-\mu)^\top \Sigma^{-1}(x-\mu)}
+\]
+This distance accounts for covariance structure and is very effective for doing multivariate outlier detection/ anomaly analysis. \cite{Mahalanobis1936}
+
+Bhattacharya distance
+This metric measures the overlap between two probability distributions. Higher Bhattacharya distances imply more dissimilarity. It also serves as a strong metric for evaluating feature separability and also to perform feature selection. \cite{Bhattacharya1943} \cite {BruzzoneSerpico1998}
+Given two distributions 
+\(p\) and 
+\(q\):
+
+
+\[
+D_B(p,q)= -\ln\left(\sum_x \sqrt{p(x)\,q(x)}\right)
+\]
+
+
+Higher distances implies less overlap.
+ 
+\subsubsection{Jefferies Matusita}
+This is a normalised variant of Bhattacharya distance, whose value is bounded between 0 and 2. It is also used often in feature selection due to its intuitive scale and computational efficiency. \cite{Zhang2023JM}
+\[
+JM(p,q)=\sqrt{2\left(1 - e^{-D_B(p,q)}\right)}
+\]
+
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lccc}
+	\hline
+	\textbf{Metric} & \textbf{Category} & \textbf{Range} & \textbf{Better When} \\
+	\hline
+	Adjusted Rand Index (ARI) & External & $[-1,1]$ & Higher \\
+	Normalized Mutual Information (NMI) & External & $[0,1]$ & Higher \\
+	V-Measure & External & $[0,1]$ & Higher \\
+	Fowlkes-Mallows Index (FMI) & External & $[0,1]$ & Higher \\
+	Mahalanobis Distance & Distance & $[0,\infty)$ & Lower \\
+	Bhattacharyya Distance & Distribution distance & $[0,\infty)$ & Higher \\
+	Jeffries-Matusita & Distribution distance & $[0,2]$ & Higher \\
+	\hline
+	\end{tabular}
+	\caption{Summary of External and Distance-Based Clustering/Feature Space Metrics}
+	\end{table}
+
+
+\subsection{Need for visualization aided interpretation}
+It is very crucial to note that simply relying exclusively on metrics is not enough, since they simplify complex underlying structures into a single digestible numeric value. Visualization is still essential for understanding nuance on cluster forms and context. This means that we need some kind of interactive visual exploration for gaining a full understanding of the feature space. 
+
+The general observation is that internal metrics match well with classification accuracy and supports using these metrics as a way to guess future model performance (e.g. Silhouette scores often align with model performance), suggesting that intrinsic metrics can serve as a proxy for clustering performance when ground truth is not available, as is often unavailable in real world scenarios  \cite{Lowe2024}. This thesis acknowledges the biases and limits of individual clustering metrics. Therefore, it uses a smart approach which focuses on checking multiple metrics, and confirming them with visualization, to give a more reliable and detailed view of the feature space quality.
+
+
+	
  
 
 
 
 
+
+\section{Visualization of Feature Space and Interpretability}
+High dimensional datasets and their feature spaces are hard to interpret with numbers alone, there is an underlying visual spatial structure of the feature spaces generated, that metrics might take into calculation, but they ignore the power of visualization techniques and visual interpretation which can enhance the comprehension of such datasets.
+
+Internal clustering metrics compress rich structures into numeric scores, which usually  hide tradeoffs like local neighborhood preservation vs. global layout stability. Visualization can complement these internal metrics, by exposing patterns, distortions and outliers that affect the downstream decision making. In this thesis, the goal is to not just show low dimension projects, but to also help end users connect what they visually see in the 2D representations with quantitative, metric-based evidence. Empirical studies also demonstrate that quality metrics can be used to guide visual analyses and filter our uninteresting and cluttered views. \cite{Behrisch2018QualityMetrics}
+
+2.4.1 Why visualization is needed alongside metrics
+Quality metrics offer many valuable insights, each capturing different aspects of the feature space but they may sometimes conflict with each other on the same data. Prior research shows that no single metric can tell the whole story, since “quality” can encompass things such as clutter, overlap, pattern recognition etc. \cite{Behrisch2018QualityMetrics} This is why visual analytics is so powerful, metrics guide the whole process, but in the end, people are needed to inspect, compare and interpret the data. 
+
+Visualization theory provides some design guidance for doing it well. Munzner's nested model emphasizes firstly clarifying data and task abstractions, then choosing the appropriate encodings and interactions and finally, validating the result. And for comparison based tasks, Gleicher's taxonomy highlights three patterns, which are, juxtaposition, superposition and explicit encoding of differences. The methods proposed in the thesis, aim to follow these guiding visualization theory principles. DimCompare does this by juxtaposing projections to compare them by showing them side by side and using annotations for clusters (explicit encoding). BarDar uses explicit encoding to show multiple quality metrics in one easy to read chart. \cite{Munzner2009NestedModel} \cite{Gleicher2011VisualComparison}  
+
+\subsection{What static plots miss}
+Static scatterplots are the way to traditionally visualize high dimensional representations, while still useful, they often hide the crucial artifacts that occur after performing dimensionality reduction, like distortions (false neighbors i.e. data points which appear closer together but are not) and tears (data points closer together in the original data are pulled apart in the plot). A body of research highlights these issues, it is argued that analysts must assess first how reliable the projection is first, before making conclusions. These studies show that different dimensionality reduction techniques often optimize for different criterias, which leads to disagreements in the resulting structure. To address this, they propose use of diagnostic overlays and  metrics to reveal errors. \cite{LespinatsAupetit2011CheckViz}  
+
+Our system adopts this approach, we make the differences visible, highlight the unique features that drive each cluster formation, and also pair visualizations with the quantitative metrics to help prevent misinterpretation.
+
+Traditional radar charts are difficult to interpret because if the order of the axes is changed, the shapes change for the same data and can sometimes get super noisy visually, meaning the order of the axes matters. Moreover, the shapes are hard to read, human brains aren't good at judging and comparing complex irregular shapes \cite{ClevelandMcGill1984GraphicalPerception}, it is hard to tell which polygon is smaller or bigger just by visual inspection. This makes just static radar plots unsuitable for intuitive comparative analysis.
+
+Our system BarDar solves these issues, we use a hybrid design that combines simple radar-style overview with a separate bar chart, we tried to use an approach based on well known criticisms for radar plots. This barchart shows the aggregated score of each projection, so the user doesn't have to guess which radar chart is better and do the math in their head. 
+
+\subsection{Visual encodings for feature spaces}
+Glyphs are a common way to encode multivariate attributes at points or in regions. A recent report discusses when glyphs help and how to design them for readability and detail \cite{Borg2005MDS} DimCompare's floating cluster annotations extend this by providing cluster level summaries, which highlight what features deviate from the rest of the data, tying together the visualizations back to the original data space.This design makes use of explicit encodings and the recent literature to enhance projections with context information that is often lost when using standard methods. 
+
+\subsection{How this thesis aims to extend existing tools}
+There already exist relevant visualization tools like Embedding Projector \cite{Smilkov2016EmbeddingProjector} and Clustrophile 2 \cite{Cavallo2019Clustrophile2} which provide good support for explorations of single projections and evaluating clustering, they are not designed to enable and assist with comparative assessment and evaluation of dimensionality reduction methods. This is an important challenge for analysts who have to decide which dimensionality reduction projection best represents their data's structure.
+Our thesis addresses this by creating a workflow specifically for comparative dimensionality reduction evaluation, with cluster aware explanations and multi-metric summaries, which are optimized to judge dataset “learnability.”. Our design addresses the gap noted in recent work by Espadoto et al. that call for techniques like linking projections with high dimensional space, metric quality etc. \cite{Espadoto}
+ 
+ 
+\section{Foundational concepts in Interactive Visualization}
+Visual exploration plays a key role in understanding high dimensional spaces and the hidden structures present inside them. This thesis makes use of several proven interactivity techniques derived from visual analytics, to make a system tailored to real world, industrial data scenarios. It especially uses ideas from Tamara Munzner's \cite{Munzner2014} “Visual analysis and design” and how Gleicher et al \cite{Gleicher2011VisualComparison} categorize comparative visualization. This theoretical base makes sure that the design choices that went into the system are not random, but are guided by best practices and aim to solve known problems in the field.
+
+\subsection{Gleicher et al.'s taxonomy of comparative visualization}
+This framework identifies three main ways to compare visualization
+
+\textbf{Juxtaposition}   
+
+Juxtaposition means putting visualizations side by side for direct comparison. DimCompare view with its two scatterplots which depict two different dimensionality reduction techniques is an example of this strategy. L'Yi et al. \cite{LYiJoSeo2020ComparativeLayouts} revisit comparative layout idioms including juxtaposition, superposition, and explicit encoding.
+In the BarDar chart, two views help the users compare metrics for different dimensionality reduction methods, one view depicts a radar chart and another shows a bar chart representing the aggregated scores from the radar chart.
+
+\textbf{Superposition}  
+
+This means layering different views on top of each other, while not the main method in DimCompare, density contours can be seen as a type of superposition over the scatterplot data points. In the BarDar chart, superposition is used to overlay radar charts of different dimensionality reduction techniques on top of each other.
+
+\textbf{Explicit encoding}  
+
+This method involves showing the differences or extra information with special visual elements. Important data is explicitly made known to the user to reduce the cognitive load. The cluster glyphs in DimCompare are an example of explicit encoding; they show high dimensional feature differences. They represent what makes a cluster different in original high dimensional space, bridging the gap between 2D projection and basic feature characteristics. In the BarDar chart, the shapes of radar charts, corresponding to different metrics are explicitly encoded for the user, as a bar chart, since visual calculation of areas of irregular shapes is very challenging. 
+
+
+
+\subsection{Munzner’s principles}
+Our system design, both directly and indirectly follows several of Munzner's \cite{Munzner2014} key ideas for good visualization.
+
+
+
+\textbf{Visual encoding}  
+
+The design of the system carefully thinks about how visual elements like points, colors, glyphs and bars are used to show data properties and relationships effectively, and following good visualization practices. For example color is always used to show which cluster a point belongs to, transparency is used to manage the density of data, different colour pallets are used for separate visualisations.
+ 
+\textbf{Interaction techniques}  
+ 
+Munzner stresses how important interaction is for exploring data. Our system includes basic methods like selecting, linking and moving around (panning, zooming etc). In DimCompare, users can use brushing and linking to follow outliers across different projections. Tooltips are also made visible in 2D projection, when the cursor is hovered over a datapoint, which shows original high dimension features.
+
+\textbf{Overview First, Zoom/Filter, Details on demand}
+ 
+This idea suggests giving a general overview of the data first, letting users zoom or filter to areas they are interested in, and then providing detailed information when asked for. Our visualization framework design follows this, the BarDar chart gives and overall summary with numbers, but users can then decide to zoom in, explore and apply filters for the same data, using the DimCompare view, which also supports brushing, feature selection etc., and finally users can enable cluster annotations to get detailed information about specific clusters on demand.
+
+\textbf{Scalability}
+ 
+Dealing with clutter in large datasets is very important, the design choices we made, like limiting the number of bars in cluster annotation, having a density aware mode, ability to toggle visual encodings, zoom aware transparency for cluster annotation to avoid occlusion, scrollable list views for feature selection for really high dimensional datasets etc. While the current system is made for small to medium size datasets, considerations like these set the stage for future scaling to large datasets.
+
+\subsection{Schneiderman's Mantra}
+Schneiderman's \cite{Shneiderman1996Mantra} information seeking mantra, “overview first, zoom and filter, then details on demand, gives foundational guidance for the design of the interaction system. This is implemented through:
+
+\textbf{Overview:} The Cluster feature contribution glyphs and metric summaries provide immediate understanding of overall data quality and structure
+
+\textbf{Zoom and Filter:} Interactive exploration in DimCompare projections allows users to focus on their regions of interest. Users can also filter the features which will be shown in the Cluster annotations.
+
+\textbf{Details on Demand:} Tooltips, visibility toggles for various visual encodings and detailed statistics provide information when needed, without cluttering the display.
+
+\subsection{Further Concepts}
+
+\textbf{Comparative Visualization}
+The use of multiple synchronized views is common in information visualization. Gliecher et al. categorizes this as juxtaposition (side by side views), superposition (overlay) and explicit encoding of differences. DimCompare mainly makes use of synchronized juxtaposition to help users compare two projections performed using different dimensionality reduction techniques directly.
+
+\textbf{Linking and Brushing}
+This is a basic interactivity method in exploring the data, it refers to selecting a data point in one view and highlighting the corresponding point in another view, which enables tracking of clusters and outliers across different dimensionality reduction projections. Users can make a custom cluster selection by brushing over desired points. Unfortunately current tools provide little to no support for users to explore data in this way. \cite{Srinivasan2018InteractiveDataFacts}
+
+\textbf{Glyphs and Annotations}
+Using glyphs, which are compact visual summaries over clusters, fills the gap between 2D projections and original feature spaces. They are used to make scatterplots richer by giving more information about individual points or clusters. Glyphs can be used to encode anything, such as data labels of individual data points or even used for clusters to summarize key feature differences driving these clusters. 
+
+
+\subsection{Human in the loop Dimensionality reduction}
+A study by Sacha et. al. \cite{Sacha2017VisualInteractionDR} suggests a model for adding human interaction into the dimensionality reduction process. They found out different situations where users can guide the algorithm, like by choosing the features or tuning parameters etc. Our system fits into this model by letting the users explore dimensionality reduction results by changing features, number of clusters etc and use what they learn to drive future decisions.	
+
+\subsection{Overplotting and density management}
+A huge problem in high dimensional data scatterplots is overplotting, any high density data visualization is bound to suffer from clutter. Ways to target this include use of transparency, zooming, grouping data and changing to density based views. DimCompare provides the user with the option to show contour plots, for when dealing with high density data. These highlight the high-density areas using a 2D Kernel Density Estimate (KDE) over the points.
+We also make use of semantic zooming and toggling data point visibility, the cluster annotations automatically start getting more transparent when zooming in to reveal to the viewer, points which were occluded by the annotation.
+
+Combining these information visualization methods, like juxtaposition, brushing, glyphs, and cluttering solutions, is a good way of dealing with challenges that high dimensional data usually presents.This work addresses limitations of previous methods and supports a more interpretable, metric driven exploration of high dimensional feature spaces.
+ 
+
+
+
+
+\section{Existing Visualization Frameworks for Comparing and Interpreting Dimensionality Reduction}
+Many visualization systems have been built to help users interpret the embeddings, compare dimensionality reduction methods, and evaluate the projection quality. These systems have informed our design choices and also show what gaps remain in real situations.
+
+\subsection{Embedding interpretation and inspection tools}
+Tensorflow embedding projector is a  widely used tool, which was introduced as a web interface for exploring high dimensional embeddings, using PCA, t-SNE and UMAP, it supported search, selection and neighborhood inspection \cite{Smilkov2016EmbeddingProjector} It was helpful in popularizing interactive projection exploration for practitioners but it provides limited comparative assessment across different dimensionality reduction methods, with no support for metric overlays.
+
+
+\subsection{DimReader}
+DimReader is a visual interaction framework by Cavallo \cite{CavalloDemiralp2018DimReader} which focuses on explaining projections rather than just displaying them. They introduce forward and backward projection and landmarks which let users see how changes in the features move the point in 2D projection. This work is important because it links low dimension data to high dimension data which is in line with our cluster annotation/glyph idea. 
+
+Clustrophile2 is also a tool by Cavallo [Cavallo 2019], which provides guided workflows for interactive clustering analysis, it integrates algorithm selection, parameter steering and visual diagnostics . This system shows how to mix semi automated suggestions with a human judging when choosing cluster models and parameters. Unfortunately it was made to explore single projections and still not for comparative analysis across different dimensionality reduction techniques.
+
+2.7.2  Projection comparison and quality assessment
+Projection inspector is a tool which provides interactive projection space, where users can move between projection methods and interpolate new layouts between methods, while also inspecting quality metrics. [Pagliosa et al 2015] It explains projection choice as a trade off and combines layout browsing with metric readings, which was a guide for the comparative ideas presented in the thesis like DimCompare and the metric summary in BarDar.
+
+Distortion focused tools such as CheckViz, ProxiLens and other follow ups by Aupetit and colleagues encode false neighbors (data points that are close in low dimension but far apart in high dimension) and missing neighbors (points that are close in high dimension but far apart in the projection) and local stress directly into the visualization. [Lespinats   Aupetit, 2011; Heulot et al., 2013; Aupetit, 2007]. This work argues that users should see where the projections are unusual instead of just reading a single numeric value. The DimCompare tries to follow this philosophy, qualitative and quantitative cues and showing structure in two separate dimensionality reduction views with cluster annotations.
+
+Surveys and frameworks have helped generate and refine the ideas that went into this thesis. Nonato and Aupetits survey links dimensionality reduction techniques, distortions in structures, task and enrichment of layouts, which motivated us in adding local quality overlays and explanations  to embedding plots [Nonato  Aupetit, 2018]. More recently, a review by Behrisch et al., looked at quality metrics for dimensionality reduction, providing us with guidance on which metrics capture which aspects of structure preservation. [Behrisch et al., 2018] which back our choices to combine visual encodings with multiple metrics rather than rely on a single score.
+
+2.7.3  Human interaction and reliability
+A structured literature analysis by Sacha et al. looks at how users interact with dimensionality reduction and proposes a process model for human in the loop projection analysis. [Sacha et al 2017] Their findings support the importance of brushing and linking, parameter steering  and explanatory views, all of which are incorporated in the design of DimCompare. A newer survey by Jeon et al. argues that reliability remains a central issue and advocates for workflows where users can “see” assumptions, uncertainty and distortions. [Jeon et al 2025]
+
+
+
+Existing systems let users browse dimensionality reduction projections, inspect neighborhoods and overlay quality cues, but these methods fall short when it comes to cluster level explanations and side by side dimensionality reduction methods comparison with unified multi-metric summaries. DimCompare fulfills the first gap by making use of floating cluster glyphs and BarDar fills the second gap by providing compact multi metric summaries that reduce mental calculation when comparing different dimensionality reduction methods.
+
+2.7.4 What this means for our work
+We adopt a side by side dimensionality reduction comparison (DimCompare) rather than a heavy superposition to reduce the clutter and while also keeping the context.
+We add cluster level feature glyphs to bridge the gap that exists between low dimension patterns and high dimensional explanations, which is a gap in many systems.
+We integrate multiple quality metrics and summarize them visually (BarDar), this along with explicit encodings reduce the cognitive load and over reliance on any single index.
+We acknowledge distortions and reliability concerns from prior work in this field and address them using brushing, linked selection and optional density encoding, which help reveal distortions like missing and false neighbors. This boosts interpretability and exploration in visual analysis.
+
+ 
+
+ 
 
 
 
