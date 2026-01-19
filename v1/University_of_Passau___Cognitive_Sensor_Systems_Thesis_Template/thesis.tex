@@ -87,6 +87,59 @@
 }
 \makeatother
 
+
+
+%-----------------CUSTOM PREAMBLE----------------------
+
+% FFro tables
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+%for code snippets
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define custom colors for code highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+% A slightly lighter and cleaner background color
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+
+% Setup the style for JavaScript (same as before)
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with, const, let},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% Improved general style for listing
+\lstset{
+    language=JavaScript,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\itshape\color{codegreen}, % Italic comments
+    keywordstyle=\color{magenta}\bfseries, % Bold keywords
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize, % Use a good monospaced font
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none, % **** LINE NUMBERS REMOVED HERE ****
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=lines, % **** Only top and bottom lines ****
+    framerule=1pt, % Slightly thicker frame lines
+    rulecolor=\color{codegray}, % Subtle gray color for the frame
+    abovecaptionskip=1.5em, % More space above the caption
+    xleftmargin=1.5em, % Indent the entire block slightly
+    xrightmargin=1.5em % Indent the entire block slightly
+}
+
 \begin{document}
 
 %Do not change anything until the next TODO appears, unless the title is so logn that the title page spreads over two pages. In this case, reduce the vertical spaces highlighted by the blue comments below 
@@ -290,7 +343,7 @@ This thesis makes several novel contributions in the domains of data/information
  
 
 
-\subsection{Chapter summary} 
+\section{Chapter summary} 
 This chapter introduced the motivation, scope and contributions of this thesis. It establishes the core challenge of assessing the “trainability” of a dataset, or separation of high dimensional feature spaces. This is a critical problem in the Industrial AI and quality assessment, as highlighted by the collaboration with Bosch. The key points discussed are : 
 
 \begin{itemize}
@@ -865,23 +918,24 @@ Tensorflow embedding projector is a  widely used tool, which was introduced as a
 \subsection{DimReader}
 DimReader is a visual interaction framework by Cavallo \cite{CavalloDemiralp2018DimReader} which focuses on explaining projections rather than just displaying them. They introduce forward and backward projection and landmarks which let users see how changes in the features move the point in 2D projection. This work is important because it links low dimension data to high dimension data which is in line with our cluster annotation/glyph idea. 
 
-Clustrophile2 is also a tool by Cavallo [Cavallo 2019], which provides guided workflows for interactive clustering analysis, it integrates algorithm selection, parameter steering and visual diagnostics . This system shows how to mix semi automated suggestions with a human judging when choosing cluster models and parameters. Unfortunately it was made to explore single projections and still not for comparative analysis across different dimensionality reduction techniques.
+\subsection{Clustrophile2}
+Clustrophile2 is also a tool by Cavallo \cite{Cavallo2019Clustrophile2}, which provides guided workflows for interactive clustering analysis, it integrates algorithm selection, parameter steering and visual diagnostics . This system shows how to mix semi automated suggestions with a human judging when choosing cluster models and parameters. Unfortunately it was made to explore single projections and still not for comparative analysis across different dimensionality reduction techniques.
 
-2.7.2  Projection comparison and quality assessment
-Projection inspector is a tool which provides interactive projection space, where users can move between projection methods and interpolate new layouts between methods, while also inspecting quality metrics. [Pagliosa et al 2015] It explains projection choice as a trade off and combines layout browsing with metric readings, which was a guide for the comparative ideas presented in the thesis like DimCompare and the metric summary in BarDar.
+\subsection{Projection comparison and quality assessment}
+Projection inspector is a tool which provides interactive projection space, where users can move between projection methods and interpolate new layouts between methods, while also inspecting quality metrics \cite{Pagliosa2015ProjectionInspector}. It explains projection choice as a trade off and combines layout browsing with metric readings, which was a guide for the comparative ideas presented in the thesis like DimCompare and the metric summary in BarDar.
 
-Distortion focused tools such as CheckViz, ProxiLens and other follow ups by Aupetit and colleagues encode false neighbors (data points that are close in low dimension but far apart in high dimension) and missing neighbors (points that are close in high dimension but far apart in the projection) and local stress directly into the visualization. [Lespinats   Aupetit, 2011; Heulot et al., 2013; Aupetit, 2007]. This work argues that users should see where the projections are unusual instead of just reading a single numeric value. The DimCompare tries to follow this philosophy, qualitative and quantitative cues and showing structure in two separate dimensionality reduction views with cluster annotations.
+Distortion focused tools such as CheckViz, ProxiLens and other follow ups by Aupetit and colleagues encode false neighbors (data points that are close in low dimension but far apart in high dimension) and missing neighbors (points that are close in high dimension but far apart in the projection) and local stress directly into the visualization. \cite{HeulotAupetitFekete2013ProxiLens} \cite{LespinatsAupetit2011CheckViz}. This work argues that users should see where the projections are unusual instead of just reading a single numeric value. The DimCompare tries to follow this philosophy, qualitative and quantitative cues and showing structure in two separate dimensionality reduction views with cluster annotations.
 
-Surveys and frameworks have helped generate and refine the ideas that went into this thesis. Nonato and Aupetits survey links dimensionality reduction techniques, distortions in structures, task and enrichment of layouts, which motivated us in adding local quality overlays and explanations  to embedding plots [Nonato  Aupetit, 2018]. More recently, a review by Behrisch et al., looked at quality metrics for dimensionality reduction, providing us with guidance on which metrics capture which aspects of structure preservation. [Behrisch et al., 2018] which back our choices to combine visual encodings with multiple metrics rather than rely on a single score.
+Surveys and frameworks have helped generate and refine the ideas that went into this thesis. Nonato and Aupetits survey links dimensionality reduction techniques, distortions in structures, task and enrichment of layouts, which motivated us in adding local quality overlays and explanations  to embedding plots \cite{NonatoAupetit2018MultidimProjection}. More recently, a review by Behrisch et al., looked at quality metrics for dimensionality reduction, providing us with guidance on which metrics capture which aspects of structure preservation. \cite{Behrisch2018QualityMetrics} which back our choices to combine visual encodings with multiple metrics rather than rely on a single score.
 
-2.7.3  Human interaction and reliability
-A structured literature analysis by Sacha et al. looks at how users interact with dimensionality reduction and proposes a process model for human in the loop projection analysis. [Sacha et al 2017] Their findings support the importance of brushing and linking, parameter steering  and explanatory views, all of which are incorporated in the design of DimCompare. A newer survey by Jeon et al. argues that reliability remains a central issue and advocates for workflows where users can “see” assumptions, uncertainty and distortions. [Jeon et al 2025]
+\subsection{Human interaction and reliability}
+A structured literature analysis by Sacha et al. looks at how users interact with dimensionality reduction and proposes a process model for human in the loop projection analysis. \cite{Sacha2017VisualInteractionDR} Their findings support the importance of brushing and linking, parameter steering  and explanatory views, all of which are incorporated in the design of DimCompare. A newer survey by Jeon et al. argues that reliability remains a central issue and advocates for workflows where users can “see” assumptions, uncertainty and distortions. \cite{Jeon2025ReliableVisualAnalytics}
 
 
 
 Existing systems let users browse dimensionality reduction projections, inspect neighborhoods and overlay quality cues, but these methods fall short when it comes to cluster level explanations and side by side dimensionality reduction methods comparison with unified multi-metric summaries. DimCompare fulfills the first gap by making use of floating cluster glyphs and BarDar fills the second gap by providing compact multi metric summaries that reduce mental calculation when comparing different dimensionality reduction methods.
 
-2.7.4 What this means for our work
+\subsection{What this means for our work}
 We adopt a side by side dimensionality reduction comparison (DimCompare) rather than a heavy superposition to reduce the clutter and while also keeping the context.
 We add cluster level feature glyphs to bridge the gap that exists between low dimension patterns and high dimensional explanations, which is a gap in many systems.
 We integrate multiple quality metrics and summarize them visually (BarDar), this along with explicit encodings reduce the cognitive load and over reliance on any single index.
@@ -890,16 +944,1241 @@ We acknowledge distortions and reliability concerns from prior work in this fiel
  
 
  
+\section{Chapter summary} 
+This chapter establishes the theoretical foundations for the thesis by reviewing the literature across high-dimensional data analysis, clustering, quality metrics and interactive visualization. The key findings of the review are:
+\begin{itemize}
+\item \textbf{Review of dimensionality reduction}: Analyzed the fundamental trade-offs between key dimensionality reduction methods (eg. linear PCA vs non linear UMAP), establishing the projection instability problem where different algorithms reveal different, and sometimes even conflicting, data structures.
+\item \textbf{Survey of clustering and quality metrics}: Detailed the various internal metrics like Silhouette, Davies Bouldin, S\_Dbw and external metrics like ARI, NMI etc used to quantify the feature space quality, providing the vocabulary/language used by the BarDar and DimCompare tools.
+\item \textbf{Analysis of Visualization Principles}: Grounded the system's design in established frameworks, including the Gleichers taxonomy for comparative visualization, justifying the DimCompares juxtaposed views, and Munzner;s nested model for the interaction design of the tools.
+\item \textbf{Identification of Research Gap}: Surveyed existing visual analytic tools like Embedding projector, Clustrophile 2, concluding that a clear gap exists for systems that, at the same time, supports side by side dimensionality reduction comparison, multi metric dashboards and feature level cluster explanations. 
+\end{itemize}
+
+This review confirmed the need for novel tools presented in this thesis and provided the theoretical and research basis for their design, which is detailed in the next few chapters.
+
+\pagebreak
+
+\chapter{Methodology}
+ 
+
+The previous chapters pointed out the need for more effective tools to evaluate the quality of high dimensional feature spaces. The limitations of plots and abstract quantitative metrics, as discussed earlier, need a solution that closes the gap between algorithm output and human interpretability. This chapter goes into the design, architecture and core methodologies of the visual analytics system we developed to tackle these issues. The system, called DatasetWiz, is created to tackle the research questions proposed in this thesis. It is a robust analytical backend and a frontend with novel and interactive visual components. The design process was guided according to established principles in visualization and visual analytics.
+
+\section{Industrial Context and Collaboration}
+The idea for this visualization tool came after an industrial collaboration with Robert Bosch GmbH, that provided the real world context, datasets, and domain expertise essential for this research. This partnership highlights the significant value of combining industry expertise with academic inquiry to solve practical challenges, and advance our fundamental understanding of visualization and data analysis.
+
+\subsection{Bosch Manufacturing Quality Assessment}
+Robert Bosch GmBH is a leading global supplier of technology and services, with automotive technology representing its largest business sector, the company's focus on quality is reflected by their investments in advanced hardware manufacturing and quality inspection. In modern manufacturing environments, quality assessment must handle intricate objects while also sustaining the high volume and consistent reliability.
+
+The company's quality assessment challenges span across multiple domains, including automotive components which need to have accurate detection for mechanical defects, dimensional variations and material inconsistencies. Consumer products must also meet strict aesthetic and functional standards. All of these requirements create a need for flexible analytical tools that can adapt to different products and defects.
 
 
+\subsection{Current Quality Assessment Workflow}
+Bosch's existing quality assessment workflow combines traditional inspection methods with advanced computer vision systems. Human inspectors handle complex subjective assignments, while automated systems process most of the high volume of normal samples based on many features such as objective measurements of dimensions, type of material, which machine the part was associated with, manufacturing settings etc. These type of datasets are high dimensional; sometimes, the dataset included just the pictures of the parts, which were converted into vectors by using image feature extractors, based on deep neural networks.
+
+These high dimensional datasets of the industrial hardware parts, are put through dimensionality reduction process, and projected onto a 2D space. This dimensionality reduction is an essential part of the quality analysis process as it gives the users simplified visualized information about the parts, as in how many clusters form, which points deviate from their clusters, which usually implies some defects, mislabelling, outliers etc, as these  high dimensional datasets are hard to visualize. Cluster shapes also give insight into the effects happening on the real world parts like blurry images.
+
+These datasets’ feature spaces are evaluated for quality using a combination of clustering metrics, in addition to manual 2D projection inspection, to judge whether these datasets can be used to train machine learning classifiers downstream in the pipeline.They found out that generally a dataset with good cluster separation correlated to good accuracy for the machine learning classifier.  However, their current approach was limiting because the interpretation of these results by non-technical users was still challenging, and even technical users needed to know what exactly a numeric clustering metric meant. Apart from the understanding of each metric, the intricacies of each dimensionality reduction technique should also be known by the user as projections might look wildly different according to the dimensionality reduction technique used.
+
+This was their current approach and they were interested in evaluating the quality of feature spaces more. They wanted to find out additional metrics which can be used to evaluate the quality of these feature spaces and 2D projections, and this was the main focus of the collaboration with Bosch.
+
+
+
+\subsection{Collaborative framework}
+The collaboration with Bosch was structured to address both the practical needs and longer term research objectives. Johannes Mohren and Dr. Sabrina Schmedding served as the primary industry contacts, providing domain expertise, dataset access and validation of research directions. Regular meetings ensured that the research remained grounded in practical requirements while still pursuing novel visualization approaches.
+
+The partnership provided access to real manufacturing datasets, that would be impossible to replicate in academic settings, while the industry partners benefited from state of the art visualisation research that could improve their quality assessment capabilities. This kind of mutually benefiting model enabled the development of tools that are both academically novel and practically relevant.
+
+\section{Task Analysis}
+Through interviews and observations with academic users and industrial real world users (Bosch quality assessment team), these core tasks were identified.
+
+\begin{itemize}
+
+\item \textbf{Algorithm comparison :} Users need to compare different dimensionality techniques effectiveness for their specific datasets, understand differences and tradeoffs between global and local structure preservation of these dimensionality reduction algorithms.
+
+\item \textbf{Pattern Discovery :} Identification of meaningful clusters and outliers in high dimensional feature spaces,  with emphasis on which exact features are affecting the groupings. Ex: with the industrial users, they wanted to know which features were causing anomalous clusters in the high dimensional space.
+
+\item \textbf{Quality Assessment :} Evaluation of clustering and feature space quality of the high dimensional dataset, using multiple quantitative metrics. These metrics helped users evaluate the suitability of the dataset for downstream tasks such as training a Machine Learning model on the dataset. The metrics also reduced cognitive load, by converting the complex 2D projection into an easily digestible number.
+
+\item \textbf{Knowledge Communication:} Sharing these insights gained, across multiple teams and organisational levels, with technical or non-technical backgrounds, using easily interpretable visualisations.
+\end{itemize}
+
+\subsection{Current Practice}
+The initial phase of this work was looking at the current industrial workflow and to perform a requirement analysis, keeping in mind the challenges observed in industrial data science workflows. The primary target users were data scientists and ML engineers, who are tasked to assess the dataset quality prior to training. We did an analysis of their existing practices and limitations, and identified several key user requirements. Bosch's old approach was modelled after existing traditional analysis approaches, it primarily relies on
+\begin{itemize}
+\item \textbf{Traditional statistical analysis :} Basic statistical summaries and correlation analysis, which provide limited insights into complex structures of these datasets and image feature extractor derived feature spaces.   
+
+\item \textbf{Single method visualization:} Individual dimensionality reduction techniques, typically only t-SNE and PCA, are applied to the dataset without systematic comparison, or validation of the results.  
+
+\item \textbf{Metric based evaluation :} Clustering quality is assessed using individual numeric metrics, without comprehensive comparison or visualization of trade offs between different approaches.  
+
+\item \textbf{Manual interpretation :} Quality engineers must manually interpret the complex algorithmic results, without visualisation support, leading to potential misunderstandings and possibly suboptimal decisions.
+\end{itemize}
+
+\subsection{Identified limitations}
+Several critical limitations emerged after analysing, such as
+\begin{itemize}
+\item \textbf{Need for Comparative Analysis :} Users need a way to understand the impact of different dimensionality reduction algorithms on their data, since no single method is universally optimal and cannot help understand their relative strengths and limitations for specific datasets.  
+
+\item \textbf{Need for Feature level explanation:}  Dimensionality reduction algorithms have a black box nature which was a core challenge. Users needed insight as to why some clusters are formed, what does this protrusion in the cluster mean for their real world data and their implications etc. Static plots have no connection back to their original data, and users had a hard time figuring out which outlier on the plot corresponded to which data point.  
+
+\item \textbf{Need for Integrated Visual-Metric validation :} Visual inspection alone was not enough, and sometimes deemed to be too subjective. Multiple quality metrics were being calculated independently without visualization tools that can reveal relationships and trade offs. Metrics alone provide quantitative evaluation and validation but do not show the whole picture. In the real world data is often mislabeled, therefore even with ground truth, the metrics might fail to represent some outliers, while visual inspection can highlight these outliers.  
+
+\item \textbf{Need for a Unified, Interactive workflow :}  A significant pain point for the users was that they had to rely on separate, disconnected tools, e.g. separate python scripts for preprocessing, embedding, dimensionality reduction and visualizations. A primary requirement was a single, unified, seamless web based interface, that integrated the entire analytical pipeline, from data upload to final insights, while still being accessible to non-technical users.  
+
+\item \textbf{Scalability constraints :} Existing tools struggle with size and complexity of industrial datasets, and hence require manual processes that are time consuming and error-prone.
+\end{itemize}
+
+\subsection{Requirements for improvement}
+Based on the collaboration discussion and analysis of current limitations, we identified some key requirements that emerged  
+
+
+\begin{itemize}
+\item \textbf{Comparative analysis:}  Tools must enable side by side comparison of different dimensionality reduction techniques with some way of emphasizing similarities or differences.
+
+\item \textbf{Feature interpretability:} Visualization should reveal which features contribute most to the clustering patterns, allowing users to understand various drivers of different groupings.
+
+\item \textbf{Integrated Metrics:} Multiple clustering quality metrics should be  presented to users, in a unified framework, which enables the user to understand trade offs and relationships.
+
+\item \textbf{Interactive exploration:} Users need the ability to explore various perspectives of/on the data, via panning, zooming, brushing and filtering operations.
+
+\item \textbf{Scalable performance:} Tools should be able to handle industrial scale datasets with thousands of samples, each with hundreds of features, with acceptable response times.
+
+\item \textbf{Intuitive user interface:} The interface must be accessible not only to data scientists, but also to people who are not familiar with methods like dimensionality reduction like quality engineers, students, ML engineers etc who have varying levels of technical expertise.
+
+\end{itemize}
+
+
+
+\section{Technical requirements for visualization tools}
+\subsection{Functional requirements}
+\begin{itemize}
+\item \textbf{Multi-Technique Comparison :} Ability to compare results from different dimensionality reduction methods like PCA, t-SNE, UMAP and MDS simultaneously, enabling users to to understand how their choice of algorithm affects the data representation.
+
+\item \textbf{Cluster annotation :} Visual annotation of clusters, with some information about their differentiating characteristics, particularly which features differentiate each cluster from the other clusters.
+
+\item \textbf{Interactive exploration :} Support for abilities like brushing, selection, zooming and filtering operations, that enable the detailed exploration of the dataset and its subsets.
+
+\item \textbf{Metric Integration :} Comprehendable presentation of multiple clustering quality metrics with visualisation of their relationships and what it implies for technique selection.
+
+\item \textbf{Export and documentation :} The ability to export 2D projections and other visualisation/analysis results for including in the reports and presentations, helping users communicate their findings with other stakeholders.
+
+\end{itemize}
+
+
+\subsection{Performance requirements}
+Industrial applications call for some specific performance constraints
+\begin{itemize}
+
+\item \textbf{Response time}: Interactive operations like brushing zooming and selection must provide immediate visual feedback (<200ms) to support fluidity in exploration. The time required for the actual dimensionality algorithm will vary according to the size of the dataset and the compute hardware used.
+
+\item \textbf{Dataset Scale :} Tool must handle dataset with 1000-10,000 samples and 10-5000 features with minimal performance degradation.
+
+\item \textbf{Memory Efficiency :}  Browser based tools typically must operate with memory constraints while handling bigger datasets and complex visualizations.
+
+\item \textbf{Concurrent Use :} The system must support multiple users accessing different datasets  simultaneously, without interference.
+\end{itemize}
+
+
+
+\subsection{Usability requirements}
+The target use base includes quality engineers, data scientists, students and domain experts who all have a varying level of analytical skillset:
+\begin{itemize}
+\item \textbf{Intuitive interface:}  The interface must be learnable by the users without extensive training in advanced analytical techniques or visualization tools. The UI must make sense without any prior explanation or self-explanatory, and be visually simple, while incorporating modern web design elements, which is a design language that users tend to be familiar with.
+
+\item \textbf{Details on demand :} Complex functionality must be organized in such a way that supports both casual exploration and detailed analysis when needed, without overwhelming the new users.
+
+\item \textbf{Contextual help :} Documentation and tooltips must be integrated into the UI and should provide guidance to the user on interpretation of visualizations and metrics.
+
+\item \textbf{Error Prevention :} The interface must account for common errors and prevent them, and provide clear feedback to the user about the state of the system, communicate when user actions can not be completed, loading states etc.
+\end{itemize}
+
+
+\subsection{Integration requirements}
+Industrial deployment requires integration with existing  workflows and systems: 
+\begin{itemize}
+\item \textbf{Data format compatibility :}  Support for standard industrial data formats (such as simple CSV and Excel) without having to perform complex data transformations.
+
+\item \textbf{Technology Compatibility :} Browser based deployment to minimize installation, maintenance while ensuring the system is compatible with existing corporate IT infrastructure.
+
+\item \textbf{Benchmarking :} Comparison with existing analysis approaches both academic and industrial, to demonstrate improved effectiveness.
+\end{itemize}
+
+The requirements identified through this industrial collaboration form the basis for the design and implementation of the DimCompare and BarDar visualisation tools described in the following sections. The combination of needs of practical industry with research opportunities in visualization creates an ideal context for development of tools that advance both the academic understanding and industrial practice.
+
+\section{Iterative Design Process}
+The development of DatasetWiz followed an iterative and user centered design process. It began with creating initial low-fidelity mockups for the two primary views, i.e. DimCompare and BarDar. These wireframe mockups were then developed into a series of functional prototypes. Each prototype was evaluated informally, by "thinking aloud” with peers from the data science and visualization domain. This iterative feedback loop was crucial in refining the systems interaction design, visualization choices, visual encodings and the overall workflow. For instance, early feedback  led to replacement of simple tooltip on clusters with the more informative and expressive “Cluster Annotation” which includes feature contributions.
+
+\textbf{Phase 1  } Domain analysis: Extensive research for user requirements, pain points amongst peers and also an extensive collaboration with Bosch industry experts to understand current workflows, identify limitations and see the types of insights needed for high dimensionality data analysis.  
+
+\textbf{Phase 2  } Initial prototyping: Development of basic prototypes, for DimCompare as well as BarDar chart concepts, focusing on technical feasibility and core functionality.  
+
+\textbf{Phase 3  } Iterative refinement: Multiple cycles of  prototype enhancement, based on user feedback from both the Bosch industrial partners and academic advisors, with the importance of interaction design in mind, while making the system optimized for performance.  
+
+\textbf{Phase 4  } Validation and Documentation: Comprehensive testing with real datasets, user feedback collection and systematic documentation of design choices and the reasoning behind them.
+
+
+
+
+FIG . [ADD FIGURE OF MOCKUPS ADOBE XD]
+
+
+\section{Theoretical  framework}
+The design of DatasetWiz is based on a user centric, iterative process that is inspired by the practical requirements of industrial data analysis, while keeping the foundations of information visualization in mind. The main objective was to move away from a passive observation of a dimensionality projection and instead actively engage in the discovery process, guided by our system.
+
+The systems design is built on the two key theoretical frameworks discussed in Chapter 2:
+
+\begin{enumerate}
+\item \textbf{Gleicher et. al's Taxonomy of comparative visualization :} To address common challenges faced during dimensionality reduction, such as projection instability and algorithm bias (RQ2 and RQ4), our system relies heavily on Juxtaposition. The DimCompare view places two distinct dimensionality reduction projections side by side, enabling users to do direct visual comparisons. Further, the cluster glyphs are a form of explicit encoding, as they superimpose additional high dimensional information, directly onto the 2d space, to reveal what exactly drives cluster formation (addressing RQ1).
+Gleicher et. al's Taxonomy of comparative visualization : To address common challenges faced during dimensionality reduction, such as projection instability and algorithm bias (RQ2 and RQ4), our system relies heavily on Juxtaposition. The DimCompare view places two distinct dimensionality reduction projections side by side, enabling users to do direct visual comparisons. Further, the cluster glyphs are a form of explicit encoding, as they superimpose additional high dimensional information, directly onto the 2d space, to reveal what exactly drives cluster formation (addressing RQ1).
+\item \textbf{Munzner's Nested Model for Visualization design :} The system's entire workflow follows Munzner's principles. The BarDar chart provides the high-level overview of clustering across multiple dimensionality reduction algorithms. .The users can then proceed to the DimCompare view, to zoom and filter on specific clusters, or regions of interest using interactive brushing and panning tools. Finally, the cluster glyphs provide details on demand, revealing high dimensional deviations in the features, for any of the selected clusters.
+\end{enumerate}
+
+By consciously applying these principles, our system aims to provide a more structured and effective exploratory analysis experience, as compared to traditional, static and disconnected tools.
+
+
+
+
+\section{DimCompare}
+The DimCompare view is the central component of visual data exploration with DatasetWiz. DimCompare is a novel, dual-view system designed specifically to address the challenges of projection instability, information loss and the need for feature level interpretation, all of which were identified in the user requirement analysis.
+
+\subsection{Design Rationale}
+The design rationale for DimCompare was to create an environment, where users can directly and interactively compare the outputs of different dimensionality reduction algorithms. As established in Chapter 2, methods like PCA, t-SNE and UMAP have different mathematical basis and biases. This causes them to preserve different aspects of the data's structure. The primary goal of DimCompare is to make these differences transparent to the user and explorable, so that the users can build a more robust and holistic mental model of their dataset, by observing it from multiple perspectives.
+
+\subsection{Design Goals}
+DimCompare was designed to address these specific goals
+
+
+\begin{enumerate}
+\item \textbf{Simultaneous comparison :} enable side by side visualization of different dimensionality reduction technique results on the same dataset, allowing immediate visual comparison of  the algorithm outcomes
+\item \textbf{Feature Interpretability :} Provide clear visualization of which features contribute the most to the formation of a cluster in each dimensional representation, closing the gap between high dimensional analysis and human understanding.
+\item \textbf{Interactive exploration :} Support fluid and intuitive interaction patterns that allow users to explore specific data subsets and understand relationships between the different views and finally validate algorithm results through parameter manipulation.
+\item \textbf{Metric Integration :} Combine qualitative visual assessment with quantitative clustering, i.e. quality metrics, providing users with multiple angles on technique performance.
+\item \textbf{Scalable performance :} Maintaining interactive, almost real-time response times on high dimensional industrial-scale datasets, while also providing analytical capabilities.
+\end{enumerate}
+
+\subsection{Need for comparative analysis}
+Traditional approaches to dimensionality reduction analysis focus on using a single technique, so users lack a systematic method of comparing different algorithmic approaches. This limitation is problematic in industrial contexts, where the choice of a dimensionality reduction method  has significant impact on downstream tasks, such as training a Machine Learning model on it.
+
+The challenge is made worse by the fact that different techniques may reveal different aspects of data structure, ex: PCA preserves global relationships but it may miss out some non-linear patterns. Whereas t-SNE is good at revealing local cluster structures but it can distort global organization [. UMAP attempts to balance both global and local preservation \cite{Wani2025DRReview}. Without comparative visualization tools, practitioners resort to trial and error approaches or rely on a singular quantitative metric that might not capture full complexity of the dimensionality reduction techniques performance.
+
+
+\subsection{DimCompare Features}
+
+\subsubsection{Dual-View architecture}
+DimCompare uses a side by side, juxtaposed layout to display two different Dimensionality reduction projections of the same dataset, at the same time. The interface employs a horizontal dual-view layout with two primary scatterplot panels positioned side-by-side. This arrangement supports natural left to right comparison patterns \cite{Gleicher2011VisualComparison} while maximizing the available screen space for detailed visualization. 
+
+Each panel displays the results of different dimensionality reduction techniques applied to the same high dimensional dataset. The data points are consistent across both views and enable direct comparison of how different algorithms represent the same information, revealing technique specific patterns. Juxtaposition is a simple way to implement a comparative analysis of two different dimensionality reduction techniques, compare their projections and individual clustering tendency.
+
+Figure 5.1: [PLACEHOLDER: Screenshot of DimCompare dual-view interface showing PCA (left) and t-SNE (right) projections of an industrial dataset with cluster annotations]
+
+
+\subsubsection{Integrated metric Visualization}
+Scatterplots and glyphs allow for a more qualitative exploration, complementing that, DimCompare integrates quantitative feedback directly underneath each projection view. For each of the dimensionality reduction methods (eg. PCA in View1 and t-SNE in View 2), a dedicated bar chart summarizes the clustering quality metrics calculated specifically for that projection.
+
+\textbf{Purpose :} These charts provide instant, quantitative validation for the visual structures that the user observed in the scatterplots, directly addressing our research goal. Users can instantly see if the visually different clusters in a t-SNE plot correspond to a high Silhouette score, or if the more overlapping structure in  a PCA plot results in a poor Davies Boulding score etc, without having to do the mental visual calculations of two similar looking projections.
+
+\textbf{Metrics Displayed :} The bar charts display the same set of internal validity indices, used later in the BarDar View, which are also the ones discovered to capture different aspects of cluster and feature space quality. These are : Silhouette Coefficient, Calinski Harabasz Index and  the recent S\_Dbw index.
+
+\textbf{Calculation and normalization:}  It's important to note that the metrics are computed based on the clustering assignments from KMeans applied to the 2D projected data of the specific Dimensionality Reduction method shown in the panel. This allows us to directly assess the quality of the visual clustering that's presented to the user. Similar to BarDar view, we also normalize the scores in DimCompare view, to a common range of [0,1], and the metrics where lower values are better (like Davies Bouldin and S\_dbw) are inverted, to ensure that taller bars consistently indicate better quality, according to that specific metric, adding to the intuitiveness of the design.
+
+\textbf{Contextual Information :} Hovering on the bars of the chart, tooltips appear that show the Normalized and also the Raw metric value. There are also brief textual descriptions below the metric names, that clarify what each metric measures specifically (eg. "Cluster Separation“ for Silhouette, “Cluster similarity” for Davies-Bouldin etc). This adds further intuitiveness and lowers the technical knowledge bar that's required to use the tool.
+
+This tight knit integration of visual representation and quantitative metrics within each panel of  the DimCompare view allows for users to make more informed judgements about the quality and the trustworthiness of each of the Dimensionality Reduction projection.
+
+
+
+\subsection{Coordinated Views Implementation}
+The dual view architecture is supported by the shared data model, this enables tightly coupled interactions. The two scatterplots are coordinated through several mechanisms
+
+\textbf{Brushing and linking :} The two views are linked with each other with interactive brushing. When a user selects a group of points from one scatterplot using the brush, the corresponding points are immediately highlighted in the other. This interaction is critical for addressing RQ4, since it allows the user to track how specific clusters, outliers and structures are represented across various dimensionality reduction algorithms. For example the user can see if a cohesive singular looking cluster in a UMAP projection is subdivided into multiple smaller groups by t-SNE, or how outliers behave under different projections.  
+
+\textbf{Synchronized color coding :} Data points representing the same samples are colored the same across the two views, which enables immediate tracking of individual samples or groups across different dimensional representations.
+
+ 
+\textbf{Figure 5.42:} The DimCompare dual-view interface, showing a PCA projection (left) and a t-SNE projection (right) of the same dataset. A brushed selection in the left view is highlighted in the right view, demonstrating the linked interaction.
+
+
+\subsubsection{Visual encoding decisions}
+Numerous critical visual encoding choices enhance the efficacy of the dual view comparison.
+
+\textbf{Point representation :} Individual data points are represented as semi transparent circles, which help to reduce visual clutter. The points also are highlighted with an outline when the user hovers on it to display tooltips, which help the user see which exact data point is being investigated, especially in dense clusters with overlapping points.
+
+\textbf{Color Coding :} A color palette is used to encode the cluster membership, with use of consistent colors across both views, which enables an immediate comparison of patterns. The palette was selected to give priority to perceptual differentiation and accessibility for the colorblind users.
+
+\textbf{Density representation :} Due to the nature of high dimensional datasets, the scatterplots tend to be very visually dense, in such cases, it can be helpful to enable the density view which shows colored contour lines for clusters, instead of points, which helps approximate general shapes and gain additional insights.
+
+
+\subsection{Feature contribution glyph}
+The most novel element of the DimCompare view is the Feature Contribution Glyph aka Cluster Annotation, it's an information dense visual summary of a cluster, that was designed to overcome the inherent information loss that comes with using dimensionality reduction methods. It directly addresses the RQ1 (How can visualization reveal which features drive cluster formation?). When a clustering algorithm is applied, a cluster glyph or cluster annotation is generated and displayed for each identified cluster.
+
+\textbf{Calculation:} To see what makes clusters different, the cluster annotation visualizes the statistical deviations of the points inside the cluster, to the rest of the dataset. For all the user-selected high dimensional features, it calculates two values. (i) The mean of that feature for all data points within the selected cluster and (ii) The mean of  that feature for all the data points outside of the cluster ( the "global background”). The percentage difference between these two means is calculated.
+
+  
+\paragraph{Cluster–background deviation.}
+Let \(X \in \mathbb{R}^{n \times p}\) be the data matrix, \(C \subset \{1,\dots,n\}\) the index set of the selected cluster, and \(B = \{1,\dots,n\}\setminus C\) the background. 
+For feature \(j \in \{1,\dots,p\}\), define the cluster and background means
+\[
+\mu_{Cj} \;=\; \frac{1}{|C|}\sum_{i \in C} x_{ij},
+\qquad
+\mu_{Bj} \;=\; \frac{1}{|B|}\sum_{i \in B} x_{ij}.
+\]
+The (signed) percentage deviation visualized by the glyph is
+\[
+\Delta_j \;=\; 
+\begin{cases}
+100 \times \dfrac{\mu_{Cj} - \mu_{Bj}}{|\mu_{Bj}|} & \text{if } \mu_{Bj} \neq 0,\\[6pt]
+0 & \text{if } \mu_{Bj} = 0 \text{ and } \mu_{Cj} = 0,\\[4pt]
+100 & \text{if } \mu_{Bj} = 0 \text{ and } \mu_{Cj} \neq 0.
+\end{cases}
+\]
+In vector form for a set of user-selected features \(S\), let \(S_0 = \{j \in S : \mu_{Bj} = 0\}\) denote features with zero background mean. Then
+\[
+\Delta_j \;=\; 
+\begin{cases}
+100 \cdot \dfrac{\mu_{Cj} - \mu_{Bj}}{|\mu_{Bj}|}  & j \in S \setminus S_0,\\[6pt]
+100 \cdot \mathbf{1}[\mu_{Cj} \neq 0] & j \in S_0.
+\end{cases}
+\]
+
+\textbf{Visual encoding :} The percentage difference is encoded as a compact bar chart within the glyph. A bar extending upwards from the central horizontal axis indicates a feature whose average value is higher within the cluster compared to all the other data points. Whereas a bar extending downwards indicates a feature with a lower average value. The length of the bar is directly proportional to the magnitude of this percentage difference, allowing users to immediately identify the most discrimination features of that specific cluster. 
+
+
+
+	 
+
+
+\subsection{Feature Contribution Glyph Visual design}
+Each annotation consists of a compact, regular visualization positioned near the centroid of each cluster. A cluster annotation contains the following:
+\begin{enumerate}
+\item \textbf{Feature Bar Charts :} Horizontal bars represent the top 3-5 most distinguishing features for that cluster, with the length of the bar used for encoding the magnitude of the difference from the global mean of that feature. 
+\item \textbf{Directional Encoding:} Bars extending up from the horizontal baseline (x-axis)  indicate above average feature values, whereas the downward bars indicate below-average values, providing immediate directional information/encoding. For extreme cases, when a bar extends above the cluster annotation box due to high or low values, we add a pointed cap on it to indicate that it goes above/below the bounds for the cluster annotation box.
+\item \textbf{Percentage Labels:} Actual numeric percentage differences are displayed alongside each bar, which enable for a quantitative assessment of feature contributions.
+\item \textbf{Color Coding:} An intuitive color scheme, green for above average and red for below average, allows for rapid pattern recognition and reinforces the directional encoding of the bars.
+\item \textbf{Sample size :} This is a small indicator on top of each cluster annotation which shows the size of the cluster, eg. n=184, where 184 are the number of data points belonging to that cluster. This helps users get a clearer idea of what the cluster contains
+\end{enumerate}
+
+
+[FIG of individual cluster annotation]
+
+\subsection{Spatial Placement Rationale}
+The feature contribution glyphs are positioned at the centroid of each of the clusters rather than in a separate list or sidebar. This choice was made since it maintains the spatial context between the 2D projection and the high dimension feature explanation. This selected layout adheres to visualization principles and coordinated multiple views, by allowing the user to inspect the statistical "why”s of the cluster without needing to move away their gaze from the visual structure that they are currently exploring. To reduce potential visual clutter, we implemented zoom level depended transparency, where the annotations fade as user zooms in to inspect the individual data points. 
+
+\subsection{Dynamic Glyph Updates}
+The visual annotations dynamically update in response to the user's interactions
+
+\textbf{Selection Based :} When the user selects the subsets of data points from the projection using brushing, temporary cluster annotation appears on the selection, showing the feature characteristics of the selected subset, compared to the rest of the data.
+
+\textbf{Real Time calculation :} Feature statistics are calculated in real time, according to changes in the users selection area, allowing for immediate feedback about the characteristics of different regions/ points of interest.
+
+\textbf{Contextual Comparison:} The cluster annotations display comparison between the selected cluster and the rest of the dataset (global), between two clusters and also between the selection and the remaining data, depending on user interaction.                              
+
+
+
+
+
+
+
+\subsection{Interactive features}
+DimCompare also has a whole suite of interactive tools to help reduce visual clutter, and support a fluid analysis workflow. 
+
+\textbf{Visual Toggles :} Users can independently toggle the data point visibility,  density contours (visualized using a 2D Kernel Density Estimate) and the cluster annotations themselves. These features allow the users to customize the view for different analytical tasks like finding the high level patterns using the density contours first, then perform detailed inspection of individual points by enabling the data points visibility.  
+
+\textbf{Feature selection :} A dedicated panel displays the features in the dataset, users can interactively select which of the high dimensional features are included in the Feature Contribution Glyph. The features are first ranked   
+
+\textbf{Selection based updates :} When a user selects a subset of data points through brushing or clicking, temporary annotations appear on that subset of data that show feature characteristics of user selection compared to the rest of the data, supporting investigative exploration.  
+
+\textbf{Shift + Drag Brushing activation :} Brushing is activated using shift+drag, this is done to ensure that users dont accidentally initiate brushing with a single click. 
+
+\textbf{Real time calculation :} Feature statistics are recalculated in real time whenever users decide to change selection regions etc, which enable immediate feedback about the characteristics of different subsets of data which the user is interested in.
+
+
+ 
+\subsection{Implementation details}
+
+The following JavaScript snippet illustrates the calculation of the percentage deviation $\Delta_j$ and the subsequent rendering of the glyph for the top five features:  
+\\ 
+
+\begin{lstlisting}[language=JavaScript, caption={Glyph calculation and rendering logic.}]
+// Simplified glyph calculation and rendering
+function updateClusterGlyph(clusterId, features, clusterData, globalData) {
+    const featureImportance = calculateFeatureImportance(
+        clusterData, globalData, features
+    );
+    
+    const topFeatures = featureImportance
+        .slice(0, 5)  // Top 5 most important features
+        .map(f => ({
+            name: f.name,
+            difference: f.clusterMean - f.globalMean,
+            percentage: ((f.clusterMean - f.globalMean) / f.globalMean) * 100
+        }));
+    
+    renderGlyph(clusterId, topFeatures);
+}
+\end{lstlisting}
+ 
+
+
+
+\subsection{Zoom and Pan operations}
+Dimcompare supports multimodal aka multi input navigation, which allows for different exploration patterns inside the 2D projection, which usually are not supported in traditional dimensionality reduction workflows, where images are rendered as images though a visualisation library like matplotlib.
+\begin{itemize}
+\item \textbf{Mouse wheel zoom:} Standard scroll wheel zooming enables rapid change of focus with the cursor position used to orient the zoom center.
+
+\item \textbf{Middle mouse pan :} Middle mouse press and drag provides pan operations without switching of modes
+
+\item \textbf{Touchpad controls :} In addition to the mouse, touchpad controls are also supported in DimCompare, users can pinch in and out to zoom and a three finger drag to pan around the projection.
+
+\item \textbf{UI Button controls :} Explicit zoom in/out buttons are also provided for alternate navigation, users who prefer interface based controls and accessibility.
+
+\item \textbf{Independent View navigation :} Each of the 2D projection views can be navigated independently, which allows for exploration of technique  specific patterns and still maintain the ability to compare overall structures.
+\end{itemize}
+
+\subsubsection{Toggle controls}
+Multiple display options enable customization based on the user's analysis needs, these toggle options also help in reducing clutter, which is a common problem when dealing with high dimensional CSV datasets, as discussed in Chapter 2.
+
+\begin{enumerate}
+\item \textbf{Cluster glyph toggle :} Users can show or hide cluster glyphs, to focus on overall patterns or detailed cluster characteristics.
+
+\item \textbf{Density toggle :} The colored concentric density visualizations can be turned on or off, these density representations help users get an overview of the structure of the clusters, because otherwise, individual points can clutter easily and start to overlap at some specific zoom level.
+
+\item \textbf{Point Display Toggle :} Individual points can be hidden to focus on the densities, cluster level patterns, this is particularly useful in the cases where the dataset is large and the point density creates visual clutter
+
+\end{enumerate}
+
+
+[ADD FIGURE]
+\subsection{Detailed information display}
+DimCompare provides many mechanisms to provide users access to detailed information, which is in accordance with the Schneidermanns mantra,  which says 'Overview first, zoom and filter, then details on demand'
+
+\textbf{Hover tooltips:} Mouse hovering over the individual data points, displays additional information about the sample, including the original feature values for selected features and also the cluster membership of the displayed point.
+
+\textbf{Bar chart hover :} In the metrics bar chart shown below the dimensionality reduction projections, hovering on the individual metric bars shows the real and normalised values allowing users to have a more in-depth look
+
+\textbf{Feature selection :} The feature selection tab, which is arranged according to feature variation, also shows more information when hovered over it like rank, raw value, log scaled value etc, which is helpful when deciding which features to select for visualisation.
+
+
+
+
+\subsection{Design Validation and user feedback}
+The final designs for DimCompare (and also BarDar) visualizations were not arrived at in a single simple step. They are the result of an iterative design process, guided by feedback from weekly academic supervision, expert consultation with industry partners at Bosch, and an analysis of the preexisting principles in visualization research.
+
+The DimCompare view evolved from a simple scatterplot at first, to an interactive dual view analytical tool environment. It was shaped by these primary design challenges and feedback
+
+
+\textbf{Challenge 1 Explaining cluster formation (the "Why")}  
+
+\textbf{Initial problem :} A standard dimensionality reduction scatterplot can show that clusters exist (ii.e. The "what), but it cannot and does not explain why they formed. The link to the original high dimensional feature space is also lost. This was also a core requirement of our initial research questions.
+
+\textbf{Initial design and feedback:} Early mockups of the dimcompare have a cluster annotation which is explored using arrow based glyphs to show cluster deviation. Feedback from supervisors indicated that comparing the lengths and and directions of the multiple arrows was confusing, perceptually difficult and looked cluttered. The arrow direction was meant to encode if the feature is more than average feature values for other clusters or less than using up and down pointing arrows.
+
+\textbf{Solution :} We iterated the cluster annotation design, this component is a compact bar chart that is placed at the centroid of each cluster. This bar graph annotation is used to explicitly visualize the statistical deviation (percentage difference) of that cluster's feature means
+compared to the global average of the entire dataset. This directly addresses the question of 'what makes this cluster different from the other ones'
+\begin{itemize}
+\item Instead of arrows, we use bars that extend above the 'average' horizontal baseline, these bars going above this indicates higher than average value within that cluster
+\item Bars extending below this baseline indicate lower than average feature values
+\item The length of the bar is proportional to the magnitude of this deviation, this makes the most important features immediately apparent. \\  
+
+\end{itemize}
+
+\textbf{Challenge 2 Visual Clutter and Annotation placement}  
+
+\textbf{Problem:} with multiple clusters, the new annotations would inevitably overlap each other, obscuring the data points as well, especially when zoomed out a lot.
+\textbf{Feedback :} Placing annotations in a separate list was a suggestion (by research assistant Anja) that would make them easier to compare but would break the spatial link to the plot. Placing them in the centroid (suggested by Prof. Dr. Heinzl) maintained the link but worsened the clutter.  
+
+\textbf{Solution (hybrid approach) :} We retained the centroid placement to keep the crucial spatial context and to solve the clutter problem, we implemented three refinements that are based on this feedback:
+\begin{itemize}
+\item Zoom based scaling : The annotations inversely scale with the zoom level. As the user zooms in, the annotations shrink and fade a little, becoming semi transparent to reveal the points and structures underneath it.
+\item Toggle visibility : A main toggle for 'Show cluster annotation”was added, allowing the user to hide all the annotations and see a clean overview.
+\item Annotation design : Instead of coloring the entire annotation box background with the corresponding cluster color (which can cause contrast issues), rather the bars are colored according to the cluster color to indicate the annotation belongs to which cluster, giving an additional cue in addition to the position of the annotation, when things get dense.\\  
+
+\end{itemize}  
+
+
+\textbf{Challenge 3 Misleading cluster shapes}  
+
+\textbf{Problem:} Early prototypes used cluster hulls, a solid colored polygon that connects the outermost points of the cluster.  
+
+\textbf{Feedback :} Prof. Heinzl noted that these hulls were misleading, since they imply a uniform density and a sharp boundary which does not exist in the real data.
+
+\textbf{Solution (Density view) :} We replaced the static hulls with a "Show densities" toggle. When it is activated, it renders a 2D Kernel Density Estimate (KDE)  contour map for each of the clusters. This provides a more accurate representation of cluster shape and their distribution, clearly indicating where data is dense and where it fades out.
+\\  
+
+\textbf{Challenge 4 Rigid vs fluid selection }  
+
+\textbf{Problem:} The initial annotation only worked for pre-coimputed clusters, e.g. from a KMeans algorithm. This did not allow the user to investigate any arbitrary group of points. For example a few interesting outliers, a region where clusters overlap or some unusual protrusion from the cluster.  
+
+ 
+\textbf{Feedback :} This limitation was identified through discussions with Bosch industry personnel, Thesis supervisor meetings and peer discussions. Which highlighted the need for a more fluid, custom, interactive and user-driven exploration.  
+
+\textbf{Solution (Brushing and selection) :} We implemented a Selection mode (Shift) brushing feature, which allows the users to click and drag on any group of points in the scatterplot. The system can then instantly generate a temporary box around the selection to indicate bounds of user selection and a temporary cluster annotation is generated in the center of this new user selected box, complete with its own feature deviation bart chart. This supports for users to rapidly test their hypotheses and makes the tool a truly exploratory one as compared to a descriptive tool.
+\\  
+
+\textbf{Challenge 5 Iterative selection of Metrics}
+
+\textbf{Problem :} Initial prototypes of DatasetWiz used the Calinski-Harabasz (CH) index as a measure for quantifying the cluster separation. However, expert consultation and iterative testing across diverse datasets and feedback showed that the CH index produced raw values ranging from $10^1$ to $10^5$. This high degree of scale sensitivity made normalization across different datasets impossible, and often resulting in skewed radar polygons that favoured datasets with higher sample sizes rather than better structural quality.
+
+\textbf{Solution :} The CH index was remove to prevent these misleading performance rankings . While the Davies Bouldin and S-Dbw are also unbounded (0 to infinity), empirical analysis showed that those two metrics have a natural practical range, typically withing the [0,3] range for standard dataset distributions. This allowed us to implement a fixed cap normalization strategy, ensuring that the metrics still look balanced perceptually in the BarDar component. To fill the gap that was left after removing the CH index, we integrated Trustworthiness, a bounded range [0,1] metric, which is used to validate dimensionality reduction fidelity.
+\\  
+
+\textbf{Challenge 6 Scatterplot axes removal}  
+
+\textbf{Problem:} The scatterplots had axes labellings that were not common between two dimensionality reduction methods, this added unnecessary confusion when trying to make sense of the two scatterplots. Axis labeling are somewhat helpful when it comes to DR methods like PCA, but in other non-linear methods like t-SNE, they are effectively meaningless since the scale and numerical values on the X and Y axes do not correspond to any physical unit or original feature value.
+
+\textbf{Solution :} We intentionally removed the numerical labels and gridlines from the scatterplot axes. This design choice was based on theoretical understanding that the absolute coordinate values in non linear DR are uninterpretable. Including these axes can lead to an introduction of trust gap, where users over interpret the meaning of X and Y positions. By removing the labels, we shift the users towards the topological structure of the clusters, which are the primary information preserved by the DR algorithms.
+
+\section{Chapter Summary} 
+This chapter presented the new visualization method DimCompare, a novel, dual view interactive system that provides qualitative exploration and comparative analysis of the dimensionality reduction techniques. The key contributions are
+\begin{itemize}
+\item \textbf{Dual view Juxtaposition :} Enables direct, side by side visual comparison of two different dimensionality reduction projections, ex t-SNE vs PCA, allowing the users to identify the structural differences and algorithmic impact.
+\item \textbf{High dimensional Cluster Annotation :}  Introduces a novel cluster annotation that explicitly encodes high dimensional feature deviations (i.e. the "why") directly onto the 2D scatterplot clusters. This fills the gap between the low dimensional projection and the original high dimensional feature space.
+\item \textbf{Brushing and Selection :} Implements feature which allows users to manually select data points to generate a temporary cluster annotation for that specific selection, which allows for a deeper inspection and exploration.
+\item \textbf{Integrated metric validation :} Provides dedicated metric bar charts directly underneath each of the 2D projections, offering immediate quantitative validation that links what the users perceive visually to concrete clustering metric scores.
+\item \textbf{Fluid Exploratory Interaction :} Supports a flexible analytical workflow through toggles for densities, data points, and cluster annotations, as well as a selection mode that allows users to analyze arbitrary, user defined selections on the fly, all while keeping the UI and visualization clutter free.
+\end{itemize} 
+The next chapter introduces BarDar, a complementary tool that is designed for the high level quantitative comparison of these dimensionality reduction methods, using an aggregated, multi metric score.
+
+
+\section{BarDar chart} 
+BarDar is the second major contribution of this thesis, it is a novel composite visualization. It intends to tackle the limitations of traditional radar charts with barcharts to deliver a comprehensive assessment of clustering quality metrics across multiple dimensionality reduction techniques. The name BarDar reflects this integration, combining "Bar” (bar chart) and “Dar” (radar chart) into a unified visualization approach. 
+
+\subsection{Motivation and design goals}
+\subsubsection{Limitations of traditional radar charts}
+Radar charts (sometimes also known as spider charts or star plots) have long been used to display multivariate data in two-dimensions and multidimensional comparison, particularly in the contexts where many attributes are addressed simultaneously. Despite their popularity in games and sports and its intuitive appeal, radar charts suffer from many limitations which are well documented in the literature \cite{feldman2013filled}, which makes them problematic for clustering quality assessment in high dimensional data analysis.
+
+\textbf{Area Bias :} The enclosed area of the radar charts can be sometimes misleading as it may not accurately represent overall performance, and can be influenced by high or extreme values in the individual dimensions. Two methods that have very different result and performance profiles may include similar looking areas, or the other way around. The issue is made worse by the fact that the calculations in the circular or polar shape are also sensitive to the order in which the metrics are placed, the same metrics arranged differently will yield different areas. Human brains are not very adept at calculating minute area differences visually \cite{ClevelandMcGill1984GraphicalPerception}.
+
+\textbf{Comparison Difficulty :} When two radar charts are observed side by side (juxtaposed), it is difficult to compare the areas or shapes, even when they are placed on top of each other (superimposed) the problem is only solved slightly, due to visual clutter and intersecting patterns, which make it difficult to see which technique is better overall. Overlapping polygons create complex visual patterns that require significant cognitive effort to interpret. If the number of compa  red techniques goes above 3, the visualization rapidly starts going into the unreadable territory.
+
+\textbf{Perceptual Issues :} Human perception of angles and areas in polar coordinates is less accurate than in rectangular coordinates, which can give rise to misinterpretation of relative performance. Research in graphical perception has demonstrated that humans are way better at judging position along a common scale, like in bar charts,than judging at angles or areas \cite{ClevelandMcGill1984GraphicalPerception}
+
+\textbf{Scale sensitive :} Different metrics operate on different scales, and with different scales/orientation, meaning sometimes higher is better and sometimes lower is better. This needs careful normalization that can sometimes obscure differences. Without doing the proper normalization, metrics with bigger ranges will take over and dominate the visual appearance, whether or not they are actually relevant in importance/interpretability.
+
+
+\subsection{BarDar Design Innovation} 
+BarDar addresses these limitations through a mixed design that combines multidimensional overview capability of radar charts and the precise comparison aspect of bar charts. This composite/integrated approach leverages the strengths of both types of visualization while addressing the weaknesses.
+
+\textbf{Radar component: } This provides a visual overview of the technique performance across multiple metrics immediately and enables outlier identification and pattern recognition. Users can quickly see which metrics favour which of the techniques and spot unusual performances, hence making radar charts valuable in exploratory contexts.\cite{klippel2009shape} \cite{ward2015interactive}
+
+\textbf{Barchart Component:} This gives precise, quantitative comparison of aggregated performance and allows for clear ranking and selection of optimal techniques. By explicitly calculating and visualising the aggregate score, the horizontal barchart removes the cognitive burden of comparing irregular polygonal shapes.
+
+\textbf{Integrated Interaction :} Coordinated Interaction between both the components enables users to explore detailed metrics and overall performance ranking. The selection and the highlighting feature applies to both the views simultaneously. Axes can be reordered in the horizontal bar chart and it reflects in the radar chart order and overlapping.
+
+This design follows Gleicher's taxonomy of comparative visualization , by making use of both, superposition (i.e. the overlaid radar polygons) and explicit encoding (i.e. the bar chart representation of aggregate scores. This addresses the challenge of multi-feature comparison in a fundamental manner.
+
+\subsubsection{Theoretical justification for composite integrated design} 
+The BarDar chart is designed as a composite integrated visualisation so as to overcome the well documented perceptual limitations of radar charts. While radar charts provide an effective visual signature for each of the algorithms, humans are very poor at accurately comparing the areas of irregular polygons.
+
+According to the Cleveland and McGills \cite{ClevelandMcGill1984GraphicalPerception} study and hierarchy of graphical perception, humans are more accurate at judging position along a common scale (bar charts) than judging ares or angles (radar charts). By explicitly encoding the aggregate performance in an adjacent bar chart, BarDar reduces the cognitive load required to rank techniques while still preserving metrics using the radar polygons.
+
+
+
+\subsection{Design Rationale}
+While radar charts are frequently criticised in the visual literature, most notably in the study by Feldman \cite{feldman2013filled}, where they argue that the polygon area is an unreliable metric, due to it changing based on the ordering of the axes. The implementation in DatasetWiz is designed to reduce these pitfalls through the use of a composite interactive approach. Instead of using the chart as a static ranking too, it is used as a signature, while delegating the quantitative precision to an integrated bar chart. The rationale for this design is based on three considerations:
+
+\textbf{Mitigating Occlusion using interactivity:}  A primary weakness identified in an earlier section is the visual clutter caused by superimposing polygons. To address this issue, BarDar makes use of translucent fills combined with high opacity hulls. It employs active z-order management, i.e. by dragging bars in the adjacent component, the user can dynamically bring the polygons that are of interest to them in the front of the rendering stack. In addition to this, users can also toggle polygons of DR methods on or off.
+
+\textbf{Priortizing the accuracy of perception :} By following the hierarchy of graphical perception established by Cleveland and McGill \cite{ClevelandMcGill1984GraphicalPerception}, humans are significantly more accurate at judging positions across a common scale as compared to comparing irregular areas. Hence, BarDar avoids this area bias mentioned previously. During the iterative design process (see Challenge 2), we rejected the use of the shoelace formula for area calculation in favor of a mean normalized metric score. This explicit encoding in the bar chart provides a robust, order independent ranking that simplifies the user's cognitive task.
+
+ 
+\textbf{Shape as a quality signature:} By decoupling the "ranking" task from the radar chart, the polygons serve their most effective purpose: pattern recognition. Instead of asking the user to calculate "which area is bigger," the radar component allows experts to identify the shape signature of a technique. For instance, a user can quickly spot if a dimensionality reduction method performs exceptionally well on "Silhouette Score" but poorly on "S\_dbw" simply by the "spike" or "dip" in the polygon, regardless of the total area.
+ 
+
+\subsection{Design goals}
+BarDar visualisation was designed with these goals in mind:
+\begin{itemize}
+\item \textbf{Comprehensive metric overview:} Display multiple quality metrics all at once in a way that reveals both individual metric values and overall patterns.
+\item \textbf{Comparative ranking :} Enable immediate identification of which dimensionality reduction technique gives the best overall clustering quality for a given dataset.
+\item \textbf{Detail on demand :} Allow access to individual metric values, while also providing an aggregate summary, supporting detailed and also overview analysis.
+\item \textbf{Interactivity :} Support exploration through click and drag, reordering axes, tooltip popups etc.
+\end{itemize}
+
+
+\subsection{Radar Chart} 
+\subsubsection{Metric selection and normalization}
+The BarDar chart shows four main clustering quality metrics that provide complementary perspectives on cluster structure. These metrics were selected based on their established use in clustering literature and their ability to capture different aspects of cluster quality. 
+
+\textbf{Silhouette Score :} It measures how well separated clusters are from each other, by comparing intra-cluster togetherness with inter cluster separation. The values range between -1, which indicates poor clustering, to +1, which indicates excellent clustering, and values above 5 generally indicate a good cluster structure.
+
+\textbf{Davies Bouldin Index :} It evaluates the average similarity of each cluster with its most similar cluster, where lower values indicate better clustering, For visualization purposes, DBI is inverted during normalization to ensure consistent interpretation, of higher always being better. This metrics is also sensitive to cluster overlap.
+
+
+
+\textbf{S\_dbw index :} This is a more recent validity index which tended to outperform other clustering indices on real and synthetic datasets [CITE original SDBW PAPER]. Lower values indicate better clustering, and also like DBI, this metric is inverted for display. S\_dbw is effective at detecting overlapping clusters and assessing density based cluster structures.
+
+
+\textbf{Trustworthiness :} Unlike the other indices which focus solely on the 2D cluster structure, Trustworthiness evaluates the quality of the dimensionality reduction itself. It measures the extent to which the $k$-nearest neighbors of a point in the high-dimensional space are preserved in the low-dimensional embedding. The values range from 0 to 1, where higher values indicate that the local structure is accurately being maintained and that the projection has not introduced any "false neighbors" (points that appear close in 2D but are distant in high-dimensional space). This metric is essential for comparing DR techniques as it directly quantifies the reliability of the visual representation.
+
+
+All the metrics are normalized onto a 0-1 scale to enable meaningful comparison on the same visual axes. 
+
+
+\subsection{Visual Encoding} 
+The radar chart uses several visual encoding strategies and mechanisms to maximize  clarity and interpretability 
+
+\textbf{Axis layout :} Metrics are positioned at equal intervals of $90^\circ$ apart, around a circle, forming a squarish arrangement. Text labels indicate the metric names and small text annotations clarify whether higher or lower metric values are better.
+
+\textbf{Polygon Render :} Each dimensionality reduction technique (PCA, Tt-SNE, UMAP, MDS) is represented by a distinct colored translucent polygon, which connects the metric values onto each axis. The vertices here represent normalized metric scores, and the resulting shape of the polygon provides visual performance profile of the technique.
+
+\textbf{Grid lines :} Concentric circles at positions at 0.2, 0.4, 0.6, 0.8 and at 1.0, provide values references, without visual clutter. Lines are made up of dotted, thin, subtle light grey colors, which provides structure, without competing for visual attention with the colored polygons laid on top. The gridlines enable approximate reading of individual metric values directly from the radar chart, without the need for interaction.
+
+\textbf{Color palette:} The color scheme selected ensures a clear distinction between the techniques, while also being accessible to colorblind users. The color assignments follow a consistent convention throughout the system:  
+
+\begin{itemize}
+\item \textbf{PCA :} Blue (\#3b82f6)  
+\item \textbf{t-SNE :} Orange (\#f59e0b)  
+\item \textbf{UMAP :} Green (\#22c55e)  
+\item \textbf{MDS :} Red (\#ef4444)  
+\end{itemize}
+
+These colors were selected using a qualitative method, that maximizes the perceptual distinction and also maintains sufficient contrast for users who have colored vision deficiencies.
+
+\textbf{Integrated Legend :} A legend is positioned to the top right of the radar chart, in a negative space, it provides information regarding technique name and the corresponding associated color of that technique. The legend also supports interaction, where hovering over an item in the legend, temporarily highlights the color and puts it on top of other polygons, allowing for better clarity and reducing visual confusion.
+
+
+
+
+\textbf{Figure 6.1:} [PLACEHOLDER: Screenshot of BarDar radar chart showing overlaid polygons for PCA, t-SNE, UMAP, and MDS with normalized clustering quality metrics. Annotations highlight key features: concentric gridlines, metric axes with labels, colored polygons with semi-transparency, and interactive legend.]
+
+
+\subsubsection{Multiple technique/radar overlay}
+The radar chart can simultaneously display up to 4 different dimensionality reduction techniques, BarDar makes use of several carefully designed, visual strategies that maintain clarity given the potential for visual clutter with these many techniques.
+
+\textbf{Transparency :} Polygons are translucent with opacities ranging between 0.2 and 0.3, to enable visibility of the overlapping regions/radars, while also maintaining the distinction between colors. The specific opacity value was determined through iterative testing to balance visibility of the individual polygons and the ability to notice overlaps.
+
+\textbf{Stroke:} Each polygon has bold (2-3 pixel wide) borders or stroke emphasis, which ensures polygon visibility even through extensive overlaps.  The strokes are made up of the same colour as the polygon, but it's at a higher, full opacity. Doing this creates a visual hierarchy where the boundaries of each polygon remain defined, even if the fill region take on a complex shape.
+
+\textbf{Interactivity :} The rendering order of multiple polygons affects which polygons appear on top and which appear on bottom.  Bardar uses z-order management to bring forward and highlight the radar chart of the technique that the user hovers over in the legend. The interested polygon is brought forward in the front of the rendering stack. The BarDar also employs interactivity by allowing users to reorder the rendering order of the radar charts of various techniques, by drag and drop reordering of the actual bars in the barchart component of the BarDar chart. These changes are also reflected in the order of the radar charts, where the charts are re-rendered according to the sequence set by the user.
+
+
+
+\subsection{Barchart Integration}
+The overlay design of the radar charts follows the  'superposition' principle from the Gleichers visualization taxonomy. It also augments it with the interaction and the explicit encoding via the Barchart component (which will be discussed now) to address the inherent limitations of purely superposition based visualization approaches.
+
+
+\subsubsection{Score Aggregation :} 
+During the development and the user testing, we also experimented with a polygonal area based approach for calculating which method performed best. The area of the polygon can be calculated easily using the shoelace formula but it was soon apparent that the area does not encode meaningful information, and it is documented to be a limitation of radar charts sensitive to the order of the axes.\cite{feldman2013filled} Our task is also of comparative ranking rather than shape analysis, and since the radar chart already provides a visual representation of the performance profile, we chose mean normalized metric score as our aggregation for its interpretability and robustness.
+
+According to visualization literature \cite{Munzner2014} we should choose the most effective encoding for your task, which is to rank the dimensionality reduction techniques. Gleicher also states that explicit encoding of comparisons reduces the cognitive load. The barchart is an explicit encoding to simplify the  radar charts complexity, so it should use the most interpretable aggregation.
+
+The techniques are automatically ranked by their aggregate performance, with the bars ordered from the highest to the lowest performance by default. The user can rearrange this ordering according to their analytical and exploration needs.
+
+
+\subsubsection{BarChart Design}
+The barchart part of BarDar makes use of familiar design conventions, while seamlessly integrating with the radar chart component, to create a unified experience
+
+\textbf{Horizontal orientation :} Horizontal placement of the bars rather than vertical, allows for easy reading of technique name and performance values. Each bar extends from a common baseline axis (of score = 0.0), to the right side, with the length of the bars for each technique  proportional to the aggregated score for the datasets 2D projection on that metric. Horizontal was chosen over vertical because the technique names are easier to read and the general consensus is that horizontal barcharts are more suitable for nominal type of categorization (technique names like PCA, t-SNE etc), whereas vertical barcharts are more suitable when you have ordinal information like (1-5 years, 5-10 years, 10-15 years etc) \cite{Munzner2014}
+
+
+\textbf{Consistent color coding :}  The bar colors match their corresponding radar chart poly gons, providing immediate visual connection between the components. This color mapping serves as a visual link that helps users track techniques across the two representations. Then the user sees an interesting polygon pattern in the radar chart component,  they can immediately locate the corresponding bar without having to read the labels.
+
+\textbf{Value labels:} the precise percentage values are displayed at the end ofg each of the bars to provide some quantitative assessment, These labels just show the aggregated technique scores to 3 decimal places. (eg “0.927”). This enables precise comparison even when two bar lengths are visually similar.  The labels are positioned just outside the bar, to avoid occlusion with the colored bar itself.
+
+\textbf{Bar Spacing :} The bars are spaced comfortably, with 40-50\% of the bar height used as the vertical padding between bars. This ensures that theres no label overlap and helps creates clear interactive targets, making it easy to click specific bars.
+
+\textbf{Sorting option :} The bars can be sorted by performance values or how the users see fit, using the drag and drop functionality. They can simply put the technique they are interested in at top, and "discard"/disregard irrelevant techniques by putting it at the bottom.
+
+
+\textbf{Figure 6.2:} [PLACEHOLDER: Screenshot showing the complete BarDar visualization with radar chart (top) and integrated bar chart (bottom). Annotations highlight: matching colors between radar polygons and bars, value labels on bars, sorting toggle, and coordinated highlighting across both components.]
+
+
+
+
+\subsubsection{Layout and positioning}
+The spatial arrangement of the radar and the bar chart components was carefully considered to support natural viewing an intuitive user experience.
+
+\textbf{Horizontal layout :} The radar chart is positioned on the left side of the screen while the bar chart is positioned to the right side of  the screen. This arrangement follows the natural reading flow of left to right (in most cultures). The detailed multidimensional view is encountered first, on the left side, preceded by the aggregate simplified summary on the right. Initially the layout was supposed to be vertical with radar on top and barchart below, but we found out that users had to scroll down to have a look at the summary, which defeated the purpose of having a quick glance summary, therefore we opted for a design where both of the views are visible at once.
+
+\textbf{Proportional sizing :} The radar chart occupied the 60-65\% of the horizontal space, whereas the barchart element occupied around 35-40\%. This sizing reflects the relative information density and the importance of the visualization elements. Since the radar chart contains more information (individual metric values, number of techniques and also the visually complex polygons), while the barchart only provides summary information in the form of simple horizontal bars which do not need a large space to reside.
+
+\textbf{Responsive design :} The UI is set up in a way to support responsive design, meaning the margins and the paddings automatically adjust according to the web browser window width. The design looks good even on different types and sizes of displays like laptops, monitors, tablets and even mobile.
+
+
+
+
+\subsubsection{Drag and Drop reordering}
+A novel interaction feature enables reordering of techniques in the bar chart dynamically, aimed at supporting the exploratory comparison patterns that the users may find valuable.
+
+\textbf{Drag handles :} Every bar has a subtle three vertical notches, which suggests the bars can be moved, upon hovering the mouse over the bars, it changes to a hand grab icon further indicating that they are draggable, following the principle of discoverable interfaces.
+
+\textbf{Visual feedback :} When user starts a drag operation, many visual changes occur to provide clear feedback
+The dragged bar detaches from its original position and follows the cursor
+Bar gets a drop shadow to indicate separation by creating elevation 
+Other bars animate smoothly to their new positions as the new dragged bar moves past them
+
+
+
+\textbf{Reordering in the Radar Chart :} When the bars are reordered, the corresponding radar chart polygon layers are also reordered to bring the selected technique to the front. This ensures that when user focuses on a particular technique by manipulating its associated bar, that technique's polygon becomes fully visible on top even if it was earlier partially occluded by other polygons.
+
+\textbf{Persistence :} The reordering persists until the user resets the page or applies a new order, allowing the users to arrange techniques in custom orders that support their specific analytical questions, e.g. grouping linear vs non linear methods together to compare performance etc.
+
+
+Figure 6.3: [PLACEHOLDER: Sequential screenshots showing drag-and-drop reordering interaction: (1) user hovers over bar, showing drag handle, (2) during drag with bar elevated and insertion line visible, (3) after release with bars in new positions.]
+
+
+\subsection{Metric normalization strategy}
+\subsubsection{Normalization challenges}
+Different clustering quality metric properties presented several normalisation challenges that need to be addressed to create effective visualisations
+
+\textbf{Scale differences:} Clustering quality metrics operate on vastly different scales, which complicates direct visual comparison:
+\begin{itemize}
+    \item \textbf{Silhouette Coefficient:} $[-1, +1]$
+	\item \textbf{Trustworthiness:} $[0, 1]$
+    \item \textbf{Davies-Bouldin Index:} $[0, \infty)$ (typically $[0.3, 3.0]$)
+    \item \textbf{S\_Dbw:} $[0, \infty)$ (typically $[0.1, 2.0]$)
+\end{itemize}
+Note: The Calinski-Harabasz Index was initially considered but removed due to its unbounded scale $[0, \infty)$ making normalization misleading and causing it to dominate visualizations.
+
+Without appropriate normalization, metrics like the Calinski-Harabasz index would dominate the visualization purely due to their much larger values, independent of their actual analytical importance.
+
+\textbf{Different optimization directions :} Some metrics are optimized by maximisation, (like Silhouette score and Calinski Harabasz index) whereas others are optimized by minimization (Davies Bouldin and S\_dbw). So displaying them on the same radar chart would be quite confusing. Should vertices farther from the centre indicate better performance or worse performance? The answer actually depends on the metric you're examining. 
+
+
+\textbf{Dataset Dependency:}  Metrics can vary significantly across different datasets, which makes global normalization strategies problematic. A silhouette score of 0.4 might be excellent for a noisy dataset with many overlapping classes, but it will also be a poor score for a well separated score. 
+
+\textbf{Cross dataset comparison :} When comparing metrics for different techniques in the same dataset, we want to normalize in such a fashion that maximises the spread of values across 0 to 1 range, however when comparing across the datasets, we also need the normalization that the metric maintains objective interpretations.
+
+
+\subsubsection{Fixed-Threshold Normalization Approach}
+BarDar uses a fixed-threshold normalization strategy designed to provide consistent, interpretable values across datasets while ensuring all metrics follow a ``higher is better'' convention.
+\\  
+
+\textbf{Silhouette Coefficient:} Maps the native $[-1, +1]$ range to $[0, 1]$:
+\[
+m_{\text{norm}} = \frac{m + 1}{2}
+\]
+
+\textbf{Davies-Bouldin Index:} Lower values indicate better clustering. Inverted and capped at threshold $c_{DB} = 3.0$:
+\[
+m_{\text{norm}} = 1 - \min\left(\frac{m}{c_{DB}}, 1\right)
+\]
+
+\textbf{S\_Dbw Index:} Lower values indicate better clustering. Inverted and capped at threshold $c_{S} = 2.0$:
+\[
+m_{\text{norm}} = 1 - \min\left(\frac{m}{c_{S}}, 1\right)
+\]
+
+\textbf{Trustworthiness:} Already in $[0, 1]$ with higher values indicating better local neighborhood preservation. No transformation needed:
+\[
+m_{\text{norm}} = m
+\]
+
+Fixed thresholds were chosen over adaptive min-max normalization to:
+\begin{enumerate}
+    \item Maintain consistent interpretation across different datasets
+    \item Avoid misleading comparisons where a ``perfect'' score of 1.0 might represent mediocre absolute performance
+    \item Ensure the normalization reflects established ranges from clustering literature
+\end{enumerate}
+
+The capping thresholds ($c_{DB} = 3.0$, $c_{S} = 2.0$) were selected based on typical value ranges observed in real-world datasets, ensuring that most practical values fall within the normalized range while extreme outliers are gracefully bounded.
+
+\subsubsection{Limitations and tradeoffs of normalization}
+While the normalization strategy effectively addresses many challenges, it introduces some new tradeoffs that users should be aware of.
+
+\textbf{Loss of absolute interpretation :} Because the normalization is dataset specific, same normalised value (ex. Silhouette score of 0.7) may not indicate the same absolute silhouette score across different datasets, meaning that two radar charts from totally different datasets cannot be compared. Although that is not the purpose of this tool, we mitigate this issue by providing  both raw and normalised value using details on demand and tooltips.
+
+
+\textbf{Loss of information :} Normalization treats all the metrics as equally important, by scaling them to [0,1] range. In reality, some metrics may be more reliable or relevant for certain data characteristics. Additionally they also might encode other information which is lost when we scale the metrics.
+
+
+
+\subsection{User guidance and transparency}
+To support the correct interpretation despite these normalization  complexities, we make use of several guidance features in BarDar chart.
+
+\textbf{Raw Values access :} Tooltips show both normalized (used for visualization) and the raw metric outputs (raw values), enabling users to access absolute scores when needed
+
+\textbf{Normalization Indicator :} A small text label indicates that the values are normalized and data specific.
+
+\textbf{Metric interpretation guide:} Text tips also include simplified guidelines for each metric and their interpretation i.e. higher is better etc.
+
+
+\subsection{Relationship to research questions}
+BarDar directly addresses the research question 2 and 3 (RQ2, RQ3)
+
+\textbf{RQ3 (Clustering quality visualization) :} BarDar provides a comprehensive solution for visualizing multiple clustering quality metrics simultaneously. The radar chart component shows individual metric values and patterns, whereas the bar chart component gives the aggregate assessment. Together they both allow for both detailed and also summary evaluation of the dimensionality reduction techniques effectiveness.
+
+\textbf{RQ2 (Comparative analysis) :} The explicit encoding of aggregate performance through the bar chart enables clear comparative ranking of the dimensionality reduction methods. Unlike traditional approaches where the users must mentally compare irregular radar polygons, BarDar makes the comparison process explicit and quantitative.
+
+Additionally it also supports Industrial use by providing a decision making support tool that helps users and practitioners select the appropriate dimensionality reduction method based on multiple quality criteria, rather than relying on singular metric or subjective visualization assessment.
+
+\subsection{BarDar chart feedback and iteration}
+The BarDar chart was designed to provide a high level summary to answer the question, 'which dimensionality reduction method produces the best clustering?'. Many challenges were encountered during the design and development of BarDar
+\\  
+
+\textbf{Challenge 1 : Perceptual non-accuracy of radar charts}  
+
+\textbf{Initial Problem:} The initial idea was to use a single standard radar chart, where each of the vertex represents a different quality metric. The best dimensionality reduction method would theoretically have the largest  polygon.
+
+\textbf{Feedback:} The design had two critical, and well documented flaws \cite{ClevelandMcGill1984GraphicalPerception}
+\begin{enumerate}
+    \item Area Comparison : Humans are notoriously bad at accurately comparing the areas of irregular polygons.
+    \item Axis order : The perceived shape and area of the polygon can be dramatically altered simply by reordering the metrics around the circle in a different way, making the visualization arbitrary.
+\end{enumerate}
+ 
+\textbf{Solution :} To solve this issue, we augmented the radar chart, with the "quantitative performance” bar chart at the side of the radar chart. This chart explicitly encodes the aggregate performance of each of the DR method polygons into a simple, trivial, one dimensional bar, which gives the user a more clear and unambiguous summary.
+ 
+\textbf{Challenge 2 : Area vs Mean}  
+
+\textbf{Problem :} Originally, the bar chart was to simply show the actual area of the polygon, based on the logic that if metrics are higher, area will be higher, but it was soon apparent that it will suffer from the same problem of axis order dependency. Same metrics can be placed in different order around the circle to get different areas on the same dataset. The area doesn't really encode any meaningful information.
+
+\textbf{Solution :} Instead of an area based approach for the bar chart, we decided instead to make use of an aggregation score instead, which calculates the normalized and scaled means of all the methods, which is a more closer representation of the dataset/reality than a simple radar area.
+
+ \textbf{Challenge 3 : Nuanced comparison }  
+
+\textbf{Problem:} The aggregate score in the bar chart is a simple normalized mean of all the metrics for that given dimensionality reduction method. The problem is it does not tell the user why a method is good, since it combines all the metrics into a single bar, possibly losing important discriminatory information.
+
+\textbf{Feedback :} This problem was identified as a limitation during design discussions, which referenced the tool LineUp \cite{gratzl2013lineup} as an example of a more sophisticated/nuanced comparison method. The professor suggested exploring the use of stacked bar charts instead.
+
+\textbf{Solution (Stacked Bar Chart):}  This feedback led to the development of an alternative visualization, i.e. A stacked bar chart instead of a normal bar chart. This view, intended for A/B testing, replaces the simple aggregate bar with a stacked bar chart. Each methods bar is composed of colored segments representing the individual contribution of each of the metric. This allows for a more knowledgeable user to see the precise tradeoffs and understand the composition of the final score, and not just the score itself.
+ 
+\textbf{Challenge 4 : User flow}	
+
+\textbf{Problem :} Original design showed the user the DimCompare view first, then the user went and explored the BarDar view. This selection was initially done arbitrarily, without any regard to the flow of the tool and user experience.
+
+\textbf{Feedback and Solution (Reorder views) :} During the discussions, it was suggested by the research assistant that it made more sense to show the user summary view first, offered primarily by the BarDar chart, and the second view should be the DimCompare view, which offers more explanations and a qualitative analysis. Taking this suggestion, we changed the order of the views. First the user is greeted with a BarDar view which offers them a quick overview and the second view lets them dig deeper.
+
+
+\section{Chapter Summary}
+This chapter presented the BarDar, a novel composite visualisation combining radar charts with bar charts to address the challenge of comparing clustering quality across multiple dimensionality reduction techniques, the key contributions of BarDar include : 
+\begin{itemize}
+\item \textbf{Explicit aggregate encoding:} Transforms of a difficult perceptual task of comparing polygons into a simple one, i.e. comparing 1 dimensional bar heights.
+\item \textbf{Accessible details :} The radar chart preserves the individual metric values, while the accompanying juxtaposed bar chart provides an aggregated summary.
+\item \textbf{Interaction support :} The users can interact with the bar chart, by dragging and dropping the horizontal bars over one another, which also reflects the changes by reordering the radar chart rendering according to the new order set by the user.
+\item \textbf{Adaptive Normalization :} Dataset specific normalization strategy that maximizes the discriminability while handling metrics with different scales and optimization directions.
+\end{itemize}
+
+The next chapter describes the overall system architecture and implementation details that enable BarDar and Dimcompare within an integrated web based platform/app.
+
+
+\newpage
+\chapter{System Design and Architecture}
+In this chapter we discuss the technical implementation and system design of the visual analytics framework, i.e. DatasetWiz. The system is engineered to be a robust and scalable solution for interactive exploration and the comparative analysis of high dimensional data. The design is made to address the research questions and the practical challenges in feature space quality, as identified earlier during the industrial collaboration with Bosch.
+
+The chapter first talks about the systems high level design and architecture patterns. It then provides component by component breakdown of the data pipeline, the analytics engine  and the novel visualizations, DimCompare and BarDar.
+
+\section{Architectural style and Patterns}
+The system makes use of a client-server architecture, to logically and physically separate the tasks of data processing from the interactive visualization. This architectural pattern is motivated by the severe computational demands of dimensionality reduction for high dimensional datasets. Non linear algorithms like t-SNE also scale poorly with data size increase.Performing all the heavy calculations server-side ensures that the frontend client remains lightweight and responsive, for rendering and interactive operations like zooming, panning and selection.
+
+The system is made up of three primary layers:
+\begin{enumerate}
+\item \textbf{Presentation layer (Client) :} Browser based interface that is responsible for all the visualization rendering and user interface/interactions. It operates completely in the browser, and doesn't need any specialized installation.
+\item \textbf{Application Layer (Server) :} Django (a python server framework library) based web server for managing HTTP requests, API calls, session states and routing. This acts as the central coordinator between the client and the data processing pipeline. Includes endpoints for data upload, analysis request and results delivery.
+\item \textbf{Data processing Layer (Server) :} Python based analytical engine that handles computationally intensive tasks such as data parsing, normalisation, dimensionality reduction, clustering and metric calculation. It makes use of scientifically established  computing libraries to ensure correctness while maintaining good performance for handling industrial scale datasets.
+\end{enumerate}  
+
+The layered architecture enables the computations to be executed server side, where the performance can be optimized, while the interactive operations are client side so that they remain responsive. The architecture also supports future enhancements, such as distributed or parallelized computing for really big datasets.
+
+\section{Technology Stack}
+The implementation of DatasetWiz uses modern web technologies and well known scientific computation libraries both chosen for their performance, maturity and most importantly their open source nature.
+
+\subsection{Frontend Technologies}
+\begin{itemize}
+\item \textbf{D3 js  v7.8.5 :} The is the foundation for all the visualisations. D3 was chosen over other high level plotting libraries like Plotly and matplotlib, for its granular, low level control of the DOM (Document Object Model) which is essential for creating novel visual encodings such as cluster annotations and the composite BarDar chart.
+
+\item \textbf{Vanilla JavaScript ES 6+ :} Core application logic, state management and event handling.  It allows for minimal dependencies, while maintaining performance. Provides features for asynchronicity and API communication like promises and async/await.
+
+\item \textbf{Tailwind CSS v3.0 :} CSS framework that is utility first, enabling rapid UI development with consistent styling and responsive design utilities. Used for styling the UI, buttons and other HTML elements.
+\end{itemize}
+
+\subsection{Backend Technologies}
+\begin{itemize}
+\item \textbf{Django 5.1.2:}  Python web framework providing application structure, URL routing, template rendering and Object Relational Management (ORM) for metadata storage. Django also provides security features like CSRF protection, SQL injection protection etc to ensure safe handling of user data.
+
+\item \textbf{Numpy 2.0.2 :} Provides helper functions for fundamental array operations, linear algebra and numerical processing. Uses Vectorized operations to significantly accelerate the calculations.
+
+\item \textbf{Pandas 2.2.3 :} Data wrangling, manipulation CSV parsing and feature statistics
+
+\item \textbf{Scikit-learn 1.5.2 :} Implementation of PCA, t-SNE, MDS, k-Means clustering and standard metrics ( Silhouette, Davies Bouldin, Calinski Harabasz, Trustworthiness). The scikit-learn implementation makes use of the Barnes hut approximation for $\mathcal{O}(n\log n)$ complexity.
+
+\item \textbf{UMAP-learn 0.5.7 :} Provides UMAP dimensionality reduction technique implementation, chosen for its superior performance on high dimensional data and the ability to preserve both local and global structures,
+
+\item \textbf{S\_dbw 0.4.0 :} Uses the S\_Dbw clustering validity metric, developed by \cite{halkidi2001clustering}. We use a python pip library called s-dbw to calculate this score
+
+\item \textbf{SQlite :} Lightweight relational database used for storing dataset metadata, analysis configurations and cached results.  
+ 
+
+\end{itemize}  
+
+
+\begin{table}[H]
+	\centering
+	
+	\label{tab:tech_stack}
+	\begin{tabularx}{\textwidth}{@{} l l X @{}}
+	\toprule
+	\textbf{Layer} & \textbf{Technology} & \textbf{Role and Primary Function} \\ \midrule
+	\textbf{Frontend} & D3.js v7.8.5 & Low-level DOM manipulation for custom SVG visualizations (DimCompare, BarDar). \\
+	 & JavaScript (ES6+) & Application state management, event handling, and asynchronous API communication. \\
+	 & Tailwind CSS v3.0 & Utility-first styling for a responsive and consistent user interface. \\ \midrule
+	\textbf{Backend} & Django 5.1.2 & Python web framework for URL routing, session management, and API endpoints. \\
+	 & SQLite & Metadata storage and caching of dimensionality reduction results. \\ \midrule
+	\textbf{Analytics} & Scikit-learn 1.5.2 & Core implementation of PCA, t-SNE, MDS, k-Means, and evaluation metrics. \\
+	 & UMAP-learn 0.5.7 & High-performance implementation of the UMAP algorithm for structure preservation. \\
+	 & Pandas \& NumPy & Data wrangling, CSV parsing, and vectorized numerical array operations. \\
+	 & S\_dbw 0.4.0 & Specialized library for calculating density-based clustering validity. \\ \bottomrule
+	\end{tabularx}
+	\caption{Technical Implementation Stack of DatasetWiz}
+\end{table}
+ 
+
+
+\section{Data Processing Pipeline}
+The data processing pipeline transforms the uploaded datasets through a series of modular processing and pre-processing steps.
+
+\subsection{Data upload and validation}
+When the user uploads a CSV file of a high dimensional dataset, Djangos file handling manages the upload. The system also provides immediate feedback by performing validation.  
+\\  
+
+% Erroneous line break removed
+
+\begin{lstlisting}[language=Python, caption={Backend implementation of dataset model and initial processing.}]
+	# Actual implementation from views.py
+	dataset = Dataset(
+		name=request.POST['name'],
+		description=request.POST.get('description', ''),
+		file=request.FILES['file']
+	)
+	dataset.save() # Triggers custom save method to:
+	# 1. Save file, 2. Identify numeric/categorical columns, 3. Save metadata
+	
+	# Read and process numerical data
+	df = pd.read_csv(dataset.file.path)
+	numeric_df = df[dataset.columns['numeric']]
+\end{lstlisting}
+
+
+The system validated that sufficient data exists (it has minimum samples and features) and also identifies the numeric columns vs categorical columns.
+
+
+[ADD PICTRE of main UI on frontend landing page/dataset uplaod]
+
+\subsubsection{Preprocessing and Normalization}
+Numerical features go through standardization to ensure that the dimensionality reduction algorithms treat all the features equally, regardless of their original scales. Since distance based algorithms (PCA, MDS, Kmeans) are highly sensitive to differences of scale, Features with larger numerical values would make everything disproportionate and dominate the analysis
+
+The system applies Z-score Normalization (StandardScaler):
+
+The system applies Z-score normalization (StandardScaler) to handle missing values and scale features  
+\\  
+
+\begin{lstlisting}[language=Python, caption={Data cleaning and Z-score standardization.}]
+# Handle missing values - fill with column mean
+for column in numeric_df.columns:
+    column_mean = numeric_df[column].mean()
+    numeric_df[column] = numeric_df[column].fillna(column_mean)
+
+# Standardize using Z-score normalization
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(numeric_df)
+\end{lstlisting}
+
+This implements the transformation:
+\begin{equation}
+    x_{j}' = \frac{x_j - \mu_j}{\sigma_j}
+\end{equation}
+
+where $\mu_j$ and $\sigma_j$ are the mean and standard deviation of feature $j$, respectively.
+  
+Wherea where uj and o--j are the mean and standard deviation of feature j. This results in zero mean and unit variance, making features directly comparable.
+
+\subsubsection{Dimensionality reduction module}
+They system includes four key dimensionality reduction algorithms, each chosen to provide methodologically diverse projections 
+
+\textbf{Principal Component Analysis (PCA) :} Linear technique preserving global variance, it is computationally efficient and also has a deterministic baseline
+
+\textbf{t-SNE :} A non-linear technique revealing local neighborhood structures and clusters. Scikit- learn's implementation makes use of the Barnes-Hut approximation, resulting in a $\mathcal{O}(n \log n)$ performance.
+
+\textbf{UMAP :} Modern and non-linear alternative which is based on the manifold theory. It balances preservation of both local cluster structure and global data topology with excellent speed.
+
+\textbf{MDS :} Classic non-linear technique which preserves pairwise distances from high dimensional space in low-dimensional projection. It provides methodology/technique completeness but has $\mathcal{O}(n^3)$ complexity, which limits the scalability.
+
+
+\subsubsection{Implementation}  
+
+\begin{lstlisting}[language=Python, caption={Implementation of dimensionality reduction algorithms.}]
+# Actual DR implementation from views.py
+if method == 'pca':
+    pca = PCA(n_components=2)
+		reduced_data = pca.fit_transform(scaled_data)
+	elif method == 'tsne':
+		tsne = TSNE(n_components=2, random_state=42)
+		reduced_data = tsne.fit_transform(scaled_data)
+	elif method == 'umap':
+		umap_reducer = UMAP(n_components=2, random_state=42)
+		reduced_data = umap_reducer.fit_transform(scaled_data)
+	elif method == 'mds':
+		mds = MDS(n_components=2, random_state=42, n_init=4, 
+				  dissimilarity='euclidean')
+		reduced_data = mds.fit_transform(scaled_data)
+	\end{lstlisting}
+ 
+For the parameters, we use recommendations from the literature. PCA and MDS are deterministic; t-SNE uses the default $perplexity$=30. For UMAP, we use the default $n\_neighbors=15$ and set $min\_dist=0.1$.
+
+\section{Clustering and metrics}
+\subsection{High-Dimensional Clustering Strategy}
+To ensure that the comparison of two DR techniques is fair, the clustering is performed once in the original high dimensional space, not in the 2D projections. Doing this provides a consistent set of cluster labels used to color both the projections, enabling a fair comparison. If the clustering is done in the low-dimensional space, the comparison cannot  be accurate since  the clustering algorithm results might change due to the presence of dimensionality reduction artifacts, as each of the DR methods produces a distinct low dimensional 2D projection. Applying the clustering algorithm to the high dimensional data allows for a true comparison.   
+\\  
+
+  
+
+\begin{lstlisting}[language=Python, caption={K-means clustering performed on high-dimensional data.}]
+# Clustering performed on HIGH-DIMENSIONAL scaled_data
+if auto_detect:
+    n_clusters = find_optimal_clusters(scaled_data)
+else:
+    n_clusters = int(data.get('n_clusters', 5))
+
+# Use KMeans++ initialization for better convergence
+kmeans = KMeans(n_clusters=n_clusters, random_state=42, init='k-means++')
+clusters = kmeans.fit_predict(scaled_data)
+\end{lstlisting}
+
+If the user selects automatic detection, the system iterates through potential values of $k$ to identify the optimal number of clusters based on the highest mean Silhouette Coefficient:  
+\\
+
+\begin{lstlisting}[language=Python, caption={Automatic cluster number detection logic.}]
+def find_optimal_clusters(data, max_clusters=10, min_clusters=2):
+    best_score = -1
+    best_k = min_clusters
+    
+    for k in range(min_clusters, max_clusters + 1):
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        labels = kmeans.fit_predict(data)
+        score = silhouette_score(data, labels)
+        if score > best_score:
+            best_score = score
+            best_k = k
+    return best_k
+\end{lstlisting}
+
+The k-means implementation, used as the clustering algorithm, uses the scikit-learns optimised version with k-means++ initialization, which differs from standard k-means in the sense that the initial points are chosen based on the furthest distance rather than choosing the initial points randomly, which can cause two initial starting points to be next to each other.  Users can either specify the value of $k$ or use the automatic detection which in turn is based on silhouette analysis to find the optimal number of clusters.
+ 
+
+
+\subsection{Metric calculation and normalization}
+While clustering is performed in the high dimensional space, the metrics, however, are calculated on the 2D reduced data to assess how well each of the projections represents the underlying cluster structure.  
+\\
+
+\begin{lstlisting}[language=Python, caption={Calculating clustering and projection metrics on 2D data.}]
+	# Metrics calculated on 2D REDUCED data to assess projection quality
+	silhouette = silhouette_score(reduced_data, clusters)
+	davies = davies_bouldin_score(reduced_data, clusters)
+	sdbw = calculate_sdbw(reduced_data, clusters)
+	
+	# Trustworthiness requires both high-D and low-D data
+	trust = trustworthiness(scaled_data, reduced_data, 
+							n_neighbors=min(15, len(reduced_data) - 1))
+	\end{lstlisting}
+ 
+This helps to evaluate how well the 2D projection separates the high-dimensional clusters.
+
+\textbf{Silhouette coefficient :} Measures cluster cohesion versus separation, $s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$ where $a(i)$ is mean intra-cluster distance and $b(i)$ is mean nearest-cluster distance. Range: [-1, 1], where higher value is better.
+
+\textbf{Trustworthiness:} Cluster reliability or distances in high dim vs low dim.  Higher values indicate better reliability.
+
+
+\textbf{Davies Bouldin index :}  Average similarity between clusters. Lower values are better.
+
+\textbf{S\_Dbw :}  Combines the scatter and density. Lower values are better.
+ 
+To enable meaningful visual comparison within the BarDar component, all metrics are normalized to a consistent $[0, 1]$ scale where higher values always indicate superior performance:  
+\\
+
+\begin{lstlisting}[language=Python, caption={Normalization of metrics for visual consistency in BarDar.}]
+metrics = {
+    'silhouette': float((silhouette + 1) / 2.0), # Map [-1,1] to [0,1]
+    'trustworthiness': float(trust), # Already in [0,1]
+    'davies_normalized': float(1 - min(davies / 3.0, 1.0)),# Inverted
+    'sdbw_normalized': float(1 - min(sdbw / 2.0, 1.0)),# Inverted
+  }
+\end{lstlisting}  
+  
+
+\section{Frontend visualization implementation}
+The frontend visualization renders the analytical results as interactive graphics using the d3.js library, while managing the user interactions and also maintaining the consistency across the views.
+
+\subsubsection{DimCompare Scatterplot rendering}
+\begin{lstlisting}[language=JavaScript, caption={Responsive initialization and zoom behavior in DimCompare.}]
+	class DimCompare {
+		constructor(container, controlsPrefix) {
+			this.container = d3.select(container);
+			const bbox = this.container.node().getBoundingClientRect();
+			this.width = Math.max(bbox.width, 800);
+			this.height = Math.max(bbox.height, 600);
+			
+			// Initialize linear scales for 2D projection
+			this.xScale = d3.scaleLinear()
+				.range([this.margin.left, this.width - this.margin.right]);
+			this.yScale = d3.scaleLinear()
+				.range([this.height - this.margin.bottom, this.margin.top]);
+			
+			// Configure zoom behavior (0.5x to 20x)
+			this.zoom = d3.zoom()
+				.scaleExtent([0.5, 20])
+				.on('zoom', (event) => {
+					this.g.attr('transform', event.transform);
+					this.updateScaledElements(event.transform);
+				});
+		}
+	}
+	\end{lstlisting}
+
+Synchronization between the scatterplots ensures coordinated exploration, through the use of linked hover events.
+
+\subsubsection{Cluster glyph rendering and placement}
+Cluster annotations are rendered as floating SVG groups positioned at the centroid of the cluster:
+$$\text{centroid} = \left(\frac{1}{n}\sum_{i=1}^{n} x_i, \frac{1}{n}\sum_{i=1}^{n} y_i\right)$$
+
+
+Each of the glyph displays feature deviations from the global mean. The server calculates these deviations on the original high dimensional data.  
+\\
+
+\begin{lstlisting}[language=Python, caption={Backend calculation of cluster-specific feature deviations.}]
+	# Feature deviation calculation from views.py
+	for cluster in range(n_clusters):
+		cluster_mask = clusters == cluster
+		cluster_data = numeric_df[cluster_mask]
+		other_data = numeric_df[~cluster_mask]
+		
+		differences = {}
+		for feature in selected_features:
+			cluster_mean = float(cluster_data[feature].mean())
+			other_mean = float(other_data[feature].mean())
+			
+			if other_mean != 0:
+				diff_percent = ((cluster_mean - other_mean) / abs(other_mean)) * 100
+			else:
+				diff_percent = 0 if cluster_mean == 0 else 100
+			differences[feature] = float(diff_percent)
+	\end{lstlisting}
+
+
+The frontend renders bar charts in the cluster annotations with logarithmic scaling, to handle percentage differences that may span across orders of magnitude (1\% to 1000\%) : 
+\\
+\begin{lstlisting}[language=JavaScript, caption={Logarithmic scaling for cluster glyph bar lengths.}]
+	// Logarithmic bar scaling to handle wide dynamic ranges
+	const logValue = Math.log10(Math.abs(value) + 1);
+	const maxLogValue = Math.log10(2001); // Cap visualization at 2000%
+	const barLength = Math.min((logValue / maxLogValue) * maxBarLength, maxBarLength);
+	\end{lstlisting}
+
+ 
+\subsection{BarDar Chart Implementation}
+
+The BarDar visualization utilizes D3's radial line generators to construct the performance profiles of each dimensionality reduction technique.  
+\\
+
+\begin{lstlisting}[language=JavaScript, caption={Radar chart polygon rendering logic.}]
+	drawRadarChart() {
+		const angleSlice = (Math.PI * 2) / metricNames.length;
+		const rScale = d3.scaleLinear().domain([0, 1]).range([0, maxRadius]);
+		
+		['pca', 'tsne', 'umap', 'mds'].forEach(method => {
+			const points = metricNames.map((metric, i) => {
+				const angle = angleSlice * i - Math.PI / 2;
+				return {
+					x: Math.cos(angle) * rScale(normalizedValue),
+					y: Math.sin(angle) * rScale(normalizedValue)
+				};
+			});
+			
+			const lineGenerator = d3.line()
+				.x(d => d.x)
+				.y(d => d.y)
+				.curve(d3.curveLinearClosed);
+			
+			this.radarSvg.append('path')
+				.datum(points)
+				.attr('d', lineGenerator)
+				.attr('fill', this.colors[method])
+				.attr('fill-opacity', 0.2);
+		});
+	}
+	\end{lstlisting}
+
+The bar chart encodes the aggregate score (mean of normalized metrics), providing a simple 1D comparison with a drag-and drop based reordering mechanism.
+
+
+
+\section{Data Flow}
+The end to end data flow of the tool looks like:
+
+\begin{enumerate}
+\item \textbf{Upload :} User uploads the CSV file via browser to Django backend
+\item Preprocessing : Data processing layer parses the CSV , handles missing values if present, and applies the z-score normalization. 
+\item \textbf{Clustering :} Normalized high  dimensional data is then clustered using the k-Means, generating the consistent cluster labels.
+\item \textbf{Dimensionality Reduction :} Normalized data is passed to selected DR algorithms, generating a different 2D projection/coordinates.
+\item \textbf{Metric calculation :} 2D reduced data and cluster labels are passed to the metrics calculation module 
+\item \textbf{Aggregation :} The backend bundles the results into a JSON response
+\item \textbf{Rendering :} D3.js creates scatterplots using different coordinates but using the same labels in each of the projection for coloring.
+\end{enumerate}
+
+This flow ensures users can visually compare how different DR techniques represent the exact same high dimensional cluster structure.
+
+\subsection{Technical Specifications (table of libraryversions)}
+
+Table 5.1: Technical Specifications
+\begin{table}[h]
+\centering
+\label{tab:tech-stack}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Component} & \textbf{Technology} & \textbf{Version} & \textbf{Purpose} \\ \midrule
+Backend Framework & Django & 5.1.2 & Application Layer, API routing, security \\
+Data Processing & NumPy, Pandas & 2.0.2, 2.2.3 & Numerical computing, CSV parsing \\
+DR \& Clustering & Scikit-learn & 1.5.2 & PCA, t-SNE, MDS, k-Means, metrics \\
+Optimized DR & UMAP-learn & 0.5.7 & High-performance UMAP implementation \\
+Custom Metrics & S\_Dbw & Custom & Cluster validity assessment \\
+Frontend Rendering & D3.js & v7.8.5 & Custom visualizations (DimCompare, BarDar) \\
+Frontend Logic & JavaScript & ES6+ & UI interactivity, state management \\
+Frontend Styling & Tailwind CSS & v3.x & Utility-first, responsive UI design \\
+Database & SQLite & - & Metadata storage \\ \bottomrule
+\end{tabular}
+\caption{System Implementation Stack}
+
+\end{table}
+
+
+
+\section{Design Trade-offs}
+The final system architecture shows the intentional design tradeoffs made:
+\begin{itemize}
+\item \textbf{Processing (Server vs Network) :} Server side computation handles the large datasets efficiently but introduces some network latency. The benefit of robust heavy computation outweighs the network latency costs for typical high dimensional dataset sizes.
+\item \textbf{Code (Vanilla JS vs frameworks) :} Using vanilla JavaScript instead of frameworks like React, nextjs or Vue.js minimizes the dependencies and gives the DOM control directly to D3.js. The tradeoff here is that we have to perform state management manually.
+\item \textbf{Usability vs Original representation (BarDar metric inversions) :} Metrics like Davies Bouldin (where lower is better)  are inverted  so that "taller is always better”. This sacrifices the academic representation for user friendly interpretation.
+\item \textbf{Accuracy (True data vs pretty pictures/aesthetics):} High-dimensional clustering may produce less “clean” 2D views, but this choice was deliberately made to favor rigorous evaluation over visually pleasing, but potentially misleading visualizations.
+\end{itemize}
+
+ 
+
+
+
+\section{Chapter Summary} 
+This chapter details the complete system architecture and the technical implemetnaion of DatasetWiz. The key design decisions include: 
+\begin{itemize}
+\item \textbf{Client server architecture}: Pytho/Django backend for computation, Javascript/D3.js  frontend for responsive viualization.
+\item \textbf{High dimensional data pipeline}: Clustering in te original space ensures that the projection comparison is unbiased.
+\item \textbf{Technology decisions}: D3.js for low level control, scikit-learn and UMAP-learn for reliable DR implementations.
+\item \textbf{Interactive Data Flow}: Asynchronous, API-driven communication enables features like the glyphs on demand etc.
+\item \textbf{Design Trade-Offs}: Balancing the performance, usability, user intuitiveness
+\end{itemize}
+The implementation addresses the research questions through intentional and purpose built visualization components. DimCompare for RQ1 (feature interpretation), and RQ2 (side by side comparison), BarDar for RQ3 (multi-metric visualisation) and interactive features for RQ4 (pattern identification)
+
+The next chapter presents the usage scenarios and the evaluation, demonstrating the systems effectiveness in real world scenarios using real world datasets.
+
+
+\newpage
+
+\chapter{Discussion and Evaluation}
+
+\chapter{Conclusion}
+\section{Summary}
+\section{Future Work}
+\section{Limitations}
+\section{Conclusion}
 
 
 
 
  
-% Remove following line for the final thesis.
-\input{intro.tex} % A short introduction to LaTeX.
-
 
 \phantomsection
 \addcontentsline{toc}{chapter}{\bibname}
@@ -929,7 +2208,7 @@ We acknowledge distortions and reliability concerns from prior work in this fiel
 
 
 \section{First Appendix}   %TODO: Rename your Appendix as needed
-\label{AppendixA}  
+\label{AppendixA}   
 \setcounter{figure}{0}
 
 \dots

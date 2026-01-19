@@ -6,49 +6,46 @@ Database file #1: references.bib
 Warning--I didn't find a database entry for "SlobodanPetrovic2013"
 Warning--I didn't find a database entry for "Venna2001"
 Warning--I didn't find a database entry for "Lowe2024"
-Warning--I didn't find a database entry for "Gall2025a"
-Warning--I didn't find a database entry for "Gall2025"
-Warning--I didn't find a database entry for "Becker2009"
 Warning--can't use both volume and number fields in Munzner2009NestedModel
-You've used 60 entries,
+You've used 69 entries,
             1791 wiz_defined-function locations,
-            850 strings with 15493 characters,
-and the built_in function-call counts, 14038 in all, are:
-= -- 1267
-> -- 633
-< -- 8
-+ -- 235
-- -- 175
-* -- 955
-:= -- 2200
-add.period$ -- 184
-call.type$ -- 60
-change.case$ -- 56
+            892 strings with 17536 characters,
+and the built_in function-call counts, 16268 in all, are:
+= -- 1461
+> -- 745
+< -- 9
++ -- 276
+- -- 207
+* -- 1118
+:= -- 2554
+add.period$ -- 212
+call.type$ -- 69
+change.case$ -- 65
 chr.to.int$ -- 0
-cite$ -- 61
-duplicate$ -- 599
-empty$ -- 1386
-format.name$ -- 175
-if$ -- 3122
+cite$ -- 70
+duplicate$ -- 693
+empty$ -- 1602
+format.name$ -- 207
+if$ -- 3611
 int.to.chr$ -- 0
-int.to.str$ -- 60
-missing$ -- 58
-newline$ -- 304
-num.names$ -- 60
-pop$ -- 173
+int.to.str$ -- 69
+missing$ -- 68
+newline$ -- 350
+num.names$ -- 69
+pop$ -- 199
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 283
+skip$ -- 320
 stack$ -- 0
-substring$ -- 985
-swap$ -- 133
-text.length$ -- 8
+substring$ -- 1146
+swap$ -- 151
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 141
-width$ -- 62
-write$ -- 653
-(There were 7 warnings)
+while$ -- 163
+width$ -- 71
+write$ -- 752
+(There were 4 warnings)

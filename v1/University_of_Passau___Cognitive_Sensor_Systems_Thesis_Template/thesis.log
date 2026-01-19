@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.15)  16 JAN 2026 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.15)  19 JAN 2026 18:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -880,7 +880,31 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LT@p@ftn=\toks52
 )
 Class scrbook Info: longtable captions redefined on input line 46.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 90.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count349
+\lst@gtempboxa=\box82
+\lst@token=\toks53
+\lst@length=\count350
+\lst@currlwidth=\dimen322
+\lst@column=\count351
+\lst@pos=\count352
+\lst@lostspace=\dimen323
+\lst@width=\dimen324
+\lst@newlines=\count353
+\lst@lineno=\count354
+\lst@maxwidth=\dimen325
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count355
+\lst@skipnumbers=\count356
+\lst@framebox=\box83
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 143.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -891,54 +915,54 @@ LaTeX Warning: Unused global option(s):
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-Package scrbase Info: activating english \partname on input line 90.
-Package scrbase Info: activating english \chaptername on input line 90.
-Package scrbase Info: activating english \appendixname on input line 90.
-Package scrbase Info: activating english \figurename on input line 90.
-Package scrbase Info: activating english \tablename on input line 90.
-Package scrbase Info: activating english \contentsname on input line 90.
-Package scrbase Info: activating english \listfigurename on input line 90.
-Package scrbase Info: activating english \listtablename on input line 90.
-Package scrbase Info: activating english \bibname on input line 90.
-Package scrbase Info: activating english \indexname on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+Package scrbase Info: activating english \partname on input line 143.
+Package scrbase Info: activating english \chaptername on input line 143.
+Package scrbase Info: activating english \appendixname on input line 143.
+Package scrbase Info: activating english \figurename on input line 143.
+Package scrbase Info: activating english \tablename on input line 143.
+Package scrbase Info: activating english \contentsname on input line 143.
+Package scrbase Info: activating english \listfigurename on input line 143.
+Package scrbase Info: activating english \listtablename on input line 143.
+Package scrbase Info: activating english \bibname on input line 143.
+Package scrbase Info: activating english \indexname on input line 143.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count349
-\scratchdimen=\dimen322
-\scratchbox=\box82
-\nofMPsegments=\count350
-\nofMParguments=\count351
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count352
-\MPscratchDim=\dimen323
-\MPnumerator=\count353
-\makeMPintoPDFobject=\count354
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count357
+\scratchdimen=\dimen326
+\scratchbox=\box84
+\nofMPsegments=\count358
+\nofMParguments=\count359
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count360
+\MPscratchDim=\dimen327
+\MPnumerator=\count361
+\makeMPintoPDFobject=\count362
+\everyMPtoPDFconversion=\toks55
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 143.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -950,55 +974,59 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 90.
+(scrbook)           before \begin{document} on input line 143.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count355
+\BKM@id=\count363
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count364
+Package tocbasic Info: setting babel extension for `lol' on input line 143.
+\scr@dte@lstlisting@maxnumwidth=\skip106
 <logos/uni_1200dpi_fb_gross_EN.png, id=7, 369.7815pt x 113.7048pt>
 File: logos/uni_1200dpi_fb_gross_EN.png Graphic file (type png)
 <use logos/uni_1200dpi_fb_gross_EN.png>
-Package pdftex.def Info: logos/uni_1200dpi_fb_gross_EN.png  used on input line 107.
+Package pdftex.def Info: logos/uni_1200dpi_fb_gross_EN.png  used on input line 160.
 (pdftex.def)             Requested size: 213.71576pt x 65.71806pt.
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 111.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 164.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Font Info:    Calculating math sizes for size <15.89941> on input line 144.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 144.
+LaTeX Font Info:    Calculating math sizes for size <15.89941> on input line 197.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 197.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 144.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 197.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 144.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 197.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 144.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 197.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 144.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 197.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <15.89941> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 144.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 197.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11.76564> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 144.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 197.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.53973> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 144.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 197.
 Package epstopdf Info: Source file: <logos/orcid.eps>
 (epstopdf)                    date: 2026-01-15 12:32:10
 (epstopdf)                    size: 61439 bytes
@@ -1006,12 +1034,12 @@ Package epstopdf Info: Source file: <logos/orcid.eps>
 (epstopdf)                    date: 2026-01-15 13:33:02
 (epstopdf)                    size: 2816 bytes
 (epstopdf)             Command: <repstopdf --outfile=logos/orcid-eps-converted-to.pdf logos/orcid.eps>
-(epstopdf)             \includegraphics on input line 146.
+(epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 <logos/orcid-eps-converted-to.pdf, id=10, 9.03375pt x 9.03375pt>
 File: logos/orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logos/orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logos/orcid-eps-converted-to.pdf  used on input line 146.
+Package pdftex.def Info: logos/orcid-eps-converted-to.pdf  used on input line 199.
 (pdftex.def)             Requested size: 9.0337pt x 9.0337pt.
 Package epstopdf Info: Source file: <logos/orcid.eps>
 (epstopdf)                    date: 2026-01-15 12:32:10
@@ -1020,11 +1048,11 @@ Package epstopdf Info: Source file: <logos/orcid.eps>
 (epstopdf)                    date: 2026-01-15 13:33:02
 (epstopdf)                    size: 2816 bytes
 (epstopdf)             Command: <repstopdf --outfile=logos/orcid-eps-converted-to.pdf logos/orcid.eps>
-(epstopdf)             \includegraphics on input line 147.
+(epstopdf)             \includegraphics on input line 200.
 Package epstopdf Info: Output file is already uptodate.
 File: logos/orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logos/orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logos/orcid-eps-converted-to.pdf  used on input line 147.
+Package pdftex.def Info: logos/orcid-eps-converted-to.pdf  used on input line 200.
 (pdftex.def)             Requested size: 9.0337pt x 9.0337pt.
 
 
@@ -1038,7 +1066,7 @@ Class scrbook Warning: Incompatible usage of \@ssect detected.
 (scrbook)              You've used the KOMA-Script implementation of \@ssect
 (scrbook)              from within a non compatible caller, that does not
 (scrbook)              \scr@s@ct@@nn@m@ locally.
-(scrbook)              This could result in several error messages on input line 163.
+(scrbook)              This could result in several error messages on input line 216.
 
 (./thesis.toc
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 3.
@@ -1050,23 +1078,27 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.6248> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 
-[2])
+[2]
+
+[3]
+
+[4])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
 
 
-[3]
+[5]
 
 Class scrbook Warning: Incompatible usage of \@ssect detected.
 (scrbook)              You've used the KOMA-Script implementation of \@ssect
 (scrbook)              from within a non compatible caller, that does not
 (scrbook)              \scr@s@ct@@nn@m@ locally.
-(scrbook)              This could result in several error messages on input line 169.
+(scrbook)              This could result in several error messages on input line 222.
 
 
 
-[4
+[6
 
 ]
 
@@ -1074,15 +1106,15 @@ Class scrbook Warning: Incompatible usage of \@ssect detected.
 (scrbook)              You've used the KOMA-Script implementation of \@ssect
 (scrbook)              from within a non compatible caller, that does not
 (scrbook)              \scr@s@ct@@nn@m@ locally.
-(scrbook)              This could result in several error messages on input line 184.
+(scrbook)              This could result in several error messages on input line 237.
 
 
 
-[5]
-<images/pipeline.jpg, id=188, 2055.68pt x 699.61375pt>
+[7]
+<images/pipeline.jpg, id=359, 2055.68pt x 699.61375pt>
 File: images/pipeline.jpg Graphic file (type jpg)
 <use images/pipeline.jpg>
-Package pdftex.def Info: images/pipeline.jpg  used on input line 219.
+Package pdftex.def Info: images/pipeline.jpg  used on input line 272.
 (pdftex.def)             Requested size: 384.68576pt x 130.92105pt.
 
 
@@ -1090,13 +1122,13 @@ Package pdftex.def Info: images/pipeline.jpg  used on input line 219.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.224 
+l.277 
        [1]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 245.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 298.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (0.79788pt too wide) in paragraph at lines 247--248
+Overfull \hbox (0.79788pt too wide) in paragraph at lines 300--301
 \T1/ptm/m/n/11.04124 This ques-tion seeks to re-solve the in-ter-pretabil-ity chal-lenge that is of-ten posed in high-dimensional
  []
 
@@ -1106,40 +1138,50 @@ Overfull \hbox (0.79788pt too wide) in paragraph at lines 247--248
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.252 \end{itemize}
+l.305 \end{itemize}
                     [2 <./images/pipeline.jpg>]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.287 
+l.340 
        [3]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.314 \newpage
+l.367 \newpage
                [4]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.334 
+l.387 
        [5]
 
-LaTeX Warning: Command \textasciicircum invalid in math mode on input line 354.
+LaTeX Warning: Command \textasciicircum invalid in math mode on input line 407.
 
 
 
-[6]
 
-[7]
+pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.408 
+       [6]
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.425 U
+       MAP has the ability to preserve both local and global structures, whi... [7]
 
 [8]
-Overfull \hbox (3.07613pt too wide) in paragraph at lines 411--412
+Overfull \hbox (3.07613pt too wide) in paragraph at lines 464--465
 []\T1/ptm/m/n/11.04124 Computational scal-a-bil-ity be-comes im-por-tant for prac-ti-cal use on high-dimensional datasets. 
  []
 
@@ -1151,47 +1193,47 @@ Overfull \hbox (3.07613pt too wide) in paragraph at lines 411--412
 
 [11]
 
-LaTeX Warning: Citation `SlobodanPetrovic2013' on page 12 undefined on input line 540.
+LaTeX Warning: Citation `SlobodanPetrovic2013' on page 12 undefined on input line 593.
 
 
-LaTeX Warning: Citation `Venna2001' on page 12 undefined on input line 557.
+LaTeX Warning: Citation `Venna2001' on page 12 undefined on input line 610.
 
 
 
 [12]
 
 [13]
-Underfull \hbox (badness 6944) in paragraph at lines 611--611
+Underfull \hbox (badness 6944) in paragraph at lines 664--664
 []|\T1/ptm/m/n/11.04124 Silhouette Co-ef-fi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 665--665
 []|\T1/ptm/m/n/11.04124 Davies^^UBouldin
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 665--665
 []|\T1/ptm/m/n/11.04124 Intra-cluster dis-per-sion
  []
 
 
-Underfull \hbox (badness 7379) in paragraph at lines 612--612
+Underfull \hbox (badness 7379) in paragraph at lines 665--665
 \T1/ptm/m/n/11.04124 rel-a-tive to inter-cluster
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
+Underfull \hbox (badness 10000) in paragraph at lines 666--666
 []|\T1/ptm/m/n/11.04124 Calinski^^UHarabasz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
+Underfull \hbox (badness 10000) in paragraph at lines 666--666
 []|\T1/ptm/m/n/11.04124 Ratio of be-tween vs
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
+Underfull \hbox (badness 10000) in paragraph at lines 667--667
 []|\T1/ptm/m/n/11.04124 Minimum inter-cluster
  []
 
@@ -1203,7 +1245,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 614--614
 
 [16]
 
-LaTeX Warning: Citation `Lowe2024' on page 17 undefined on input line 745.
+LaTeX Warning: Citation `Lowe2024' on page 17 undefined on input line 798.
 
 
 
@@ -1217,58 +1259,208 @@ LaTeX Warning: Citation `Lowe2024' on page 17 undefined on input line 745.
 
 [21]
 
-[22] (./intro.tex
-LaTeX Font Info:    Calculating math sizes for size <22.8996> on input line 4.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <22.8996> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16.94582> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13.73988> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
-LaTeX Font Info:    Trying to load font information for T1+aett on input line 6.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/ae/t1aett.fd
+[22]
+
+[23]
+
+[24]
+
+[25]
+
+[26]
+
+[27]
+
+[28]
+
+[29]
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35]
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1299
+
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 1300.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
 
-[23]
-<figures/ImNDT.png, id=432, 1295.59032pt x 638.385pt>
-File: figures/ImNDT.png Graphic file (type png)
-<use figures/ImNDT.png>
-Package pdftex.def Info: figures/ImNDT.png  used on input line 14.
-(pdftex.def)             Requested size: 213.71576pt x 105.29974pt.
+LaTeX Font Warning: Font shape `T1/aett/b/n' undefined
+(Font)              using `T1/aett/m/n' instead on input line 1302.
 
 
-LaTeX Warning: Citation `Gall2025a' on page 24 undefined on input line 22.
 
+[37]
 
-LaTeX Warning: Citation `Gall2025' on page 24 undefined on input line 24.
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1379--1380
 
-
-Overfull \hbox (16.95088pt too wide) in paragraph at lines 22--25
-[]\T1/ptm/m/n/11.04124 A ci-ta-tion may ei-ther ap-pear at the end of a sen-tence or para-graph rep-re-sent-ing where the idea/research
  []
 
-LaTeX Font Info:    Calculating math sizes for size <9.20114> on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.20114> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.80888> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.52074> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
 
-LaTeX Warning: Citation `Becker2009' on page 24 undefined on input line 64.
+Underfull \hbox (badness 10000) in paragraph at lines 1392--1393
+
+ []
 
 
-LaTeX Warning: Citation `Becker2009' on page 24 undefined on input line 64.
 
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 74.
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1405
+
+ []
 
 
-[24 <./figures/ImNDT.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1413--1415
 
-[25])
+ []
 
-[26] (./thesis.bbl
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1422
+
+ []
+
+
+
+[40]
+
+[41]
+Overfull \hbox (12.55688pt too wide) in paragraph at lines 1458--1459
+[]\T1/ptm/m/n/11.04124 BarDar ad-dresses these lim-i-ta-tions through a mixed de-sign that com-bines mul-ti-di-men-sional overview
+ []
+
+
+
+[42]
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+
+[47]
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1642--1644
+
+ []
+
+
+
+[49]
+Overfull \hbox (0.57852pt too wide) in paragraph at lines 1660--1661
+[]\T1/ptm/b/n/11.04124 Trustworthiness: \T1/ptm/m/n/11.04124 Al-ready in $\OT1/ztmcm/m/n/11.04124 [0\OML/ztmcm/m/it/11.04124 ; \OT1/ztmcm/m/n/11.04124 1]$ \T1/ptm/m/n/11.04124 with higher val-ues in-di-cat-ing bet-ter lo-cal neigh-bor-hood preser-
+ []
+
+
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1704--1706
+
+ []
+
+
+
+[51]
+
+[52]
+
+[53]
+
+[54]
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 1828--1830
+
+ []
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1859--1861
+
+ []
+
+
+
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 1917--1919
+
+ []
+
+
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 1934--1936
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1957--1959
+
+ []
+
+
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 1982--1984
+
+ []
+
+
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 2031--2033
+
+ []
+
+
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 2054--2056
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2068
+
+ []
+
+
+
+[62]
+Overfull \hbox (25.79102pt too wide) in paragraph at lines 2122--2135
+ [][] 
+ []
+
+
+
+[63]
+Overfull \hbox (14.0136pt too wide) in paragraph at lines 2155--2156
+[]\T1/ptm/m/n/11.04124 This chap-ter de-tails the com-plete sys-tem ar-chi-tec-ture and the tech-ni-cal im-plemet-naion of DatasetWiz.
+ []
+
+
+
+[64]
+
+[65] (./thesis.bbl
 
 Class scrbook Warning: Incompatible usage of \@ssect detected.
 (scrbook)              You've used the KOMA-Script implementation of \@ssect
@@ -1278,56 +1470,63 @@ Class scrbook Warning: Incompatible usage of \@ssect detected.
 
 
 
-[27]
+[66]
 
-[28]
+[67]
 
-[29])
+[68]
 
-[30]
+[69])
 
-[31]
+[70]
+pdfTeX warning (ext4): destination with the same identifier (name{section.6.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2210 \section{First Appendix}
+                                  %TODO: Rename your Appendix as needed
+
+[71]
 
 Class scrbook Warning: Incompatible usage of \@ssect detected.
 (scrbook)              You've used the KOMA-Script implementation of \@ssect
 (scrbook)              from within a non compatible caller, that does not
 (scrbook)              \scr@s@ct@@nn@m@ locally.
-(scrbook)              This could result in several error messages on input line 943.
+(scrbook)              This could result in several error messages on input line 2222.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 961--963
+Underfull \hbox (badness 10000) in paragraph at lines 2240--2242
 
  []
 
 
 
 [1]
-Overfull \hbox (4.334pt too wide) in alignment at lines 970--975
+Overfull \hbox (4.334pt too wide) in alignment at lines 2249--2254
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (4.334pt too wide) in alignment at lines 975--981
+Overfull \hbox (4.334pt too wide) in alignment at lines 2254--2260
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (4.334pt too wide) in alignment at lines 981--983
+Overfull \hbox (4.334pt too wide) in alignment at lines 2260--2262
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (4.334pt too wide) in alignment at lines 983--985
+Overfull \hbox (4.334pt too wide) in alignment at lines 2262--2264
  [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
+Underfull \hbox (badness 10000) in paragraph at lines 2266--2267
 []|\T1/ptm/m/n/11.04124 Der gener-ierte Out-put
  []
 
 
-Overfull \hbox (4.334pt too wide) in alignment at lines 985--990
+Overfull \hbox (4.334pt too wide) in alignment at lines 2264--2269
  [] [] [] [] [] 
  []
 
@@ -1337,12 +1536,15 @@ Overfull \hbox (4.334pt too wide) in alignment at lines 985--990
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.994 \end{document}
-                     [2] (./thesis.aux)
+l.2273 \end{document}
+                      [2] (./thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
@@ -1351,18 +1553,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30265 strings out of 473190
- 577550 string characters out of 5715800
- 1098987 words of memory out of 5000000
- 52751 multiletter control sequences out of 15000+600000
- 643906 words of font info for 189 fonts, out of 8000000 for 9000
+ 32441 strings out of 473190
+ 605054 string characters out of 5715800
+ 1466482 words of memory out of 5000000
+ 54589 multiletter control sequences out of 15000+600000
+ 617041 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 122i,11n,121p,11018b,961s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (38 pages, 974441 bytes).
+ 122i,11n,121p,11018b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on thesis.pdf (80 pages, 516013 bytes).
 PDF statistics:
- 820 PDF objects out of 1000 (max. 8388607)
- 739 compressed objects within 8 object streams
- 192 named destinations out of 1000 (max. 500000)
- 617 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1701 PDF objects out of 1728 (max. 8388607)
+ 1568 compressed objects within 16 object streams
+ 518 named destinations out of 1000 (max. 500000)
+ 1260 words of extra memory for PDF output out of 10000 (max. 10000000)
 

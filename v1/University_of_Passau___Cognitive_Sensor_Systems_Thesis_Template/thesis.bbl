@@ -301,4 +301,50 @@ Marco Cavallo and {\c{C}}a\u{g}atay Demiralp.
 \newblock Dimreader: Model-agnostic steerable dimensionality reduction for interactive data analysis.
 \newblock In {\em Proceedings of the CHI Conference on Human Factors in Computing Systems}, 2018.
 
+\bibitem{Pagliosa2015ProjectionInspector}
+Paulo~A. Pagliosa, Fernando~V. Paulovich, Rosane Minghim, Haim Levkowitz, and Luis~G. Nonato.
+\newblock Projection inspector: Assessment and synthesis of multidimensional projections.
+\newblock {\em Neurocomputing}, 150:599--610, 2015.
+
+\bibitem{HeulotAupetitFekete2013ProxiLens}
+Nicolas Heulot, Micha{\"e}l Aupetit, and Jean-Daniel Fekete.
+\newblock Proxilens: Interactive exploration of high-dimensional data using projections.
+\newblock In {\em 1st International Workshop on Visual Analytics Using Multidimensional Projections (VAMP) at EuroVis}, pages 11--15, 2013.
+
+\bibitem{NonatoAupetit2018MultidimProjection}
+Luis~G. Nonato and Micha{\"e}l Aupetit.
+\newblock Multidimensional projection for visual analytics: Linking techniques with distortions, tasks, and layout enrichment.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 25(1):2650--2673, 2019.
+
+\bibitem{Jeon2025ReliableVisualAnalytics}
+Hyeon Jeon, Hyunwook Lee, Yun-Hsin Kuo, Taehyun Yang, Daniel Archambault, Sungahn Ko, Takanori Fujiwara, Kwan-Liu Ma, and Jinwook Seo.
+\newblock Unveiling high-dimensional backstage: A survey for reliable visual analytics with dimensionality reduction.
+\newblock In {\em Proceedings of the ACM Conference on Human Factors in Computing Systems (CHI ’25)}, 2025.
+
+\bibitem{Wani2025DRReview}
+A.~A. Wani.
+\newblock Comprehensive review of dimensionality reduction algorithms.
+\newblock {\em Unspecified Journal}, 2025.
+\newblock Summarizes that PCA fails to unfold nonlinear manifolds, UMAP preserves both local and global, and t-SNE emphasizes local structure.
+
+\bibitem{feldman2013filled}
+Roger Feldman.
+\newblock Filled radar charts should not be used to compare social indicators.
+\newblock {\em Social Indicators Research}, 111(3):709--712, 2013.
+
+\bibitem{klippel2009shape}
+Alexander Klippel, Frank Hardisty, and Chris Weaver.
+\newblock The shape of the star: How visual metaphors support the interpretation of multivariate data.
+\newblock {\em Information Visualization}, 8(4):227--244, 2009.
+
+\bibitem{ward2015interactive}
+Matthew~O Ward, Georges Grinstein, and Daniel Keim.
+\newblock {\em Interactive Data Visualization: Foundations, Techniques, and Applications}.
+\newblock CRC Press, 2nd edition, 2015.
+
+\bibitem{gratzl2013lineup}
+Samuel Gratzl, Alexander Lex, Nils Gehlenborg, Hanspeter Pfister, and Marc Streit.
+\newblock Lineup: Visual analysis of multi-attribute rankings.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics}, 19(12):2277--2286, 2013.
+
 \end{thebibliography}
